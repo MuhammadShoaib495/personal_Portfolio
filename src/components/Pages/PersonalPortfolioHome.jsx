@@ -52,7 +52,7 @@ const portfolioData = [
     title: 'Real Estate',
     subtitle: 'See Details',
     href: 'http://realestate.wmfcagency.com',
-    src: '/images/real_estate_website.png',
+    src: '/images/realestate.png',
     category: 'web_design',
 
   },
