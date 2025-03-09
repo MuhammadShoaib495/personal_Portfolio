@@ -16,7 +16,7 @@ export default function ServiceList() {
       title: "Reactjs & Nodejs",
       subtitle:
         "I have expertise in React and Node.js for building fast, scalable, and SEO-friendly web applications, integrating APIs, and developing custom solutions for small businesses and enterprises.",
-      imgUrl: "/images/React_logo.avif",
+      imgUrl: "/images/React.png",
       sectionId: "reactNodeSection",
     },
     {
