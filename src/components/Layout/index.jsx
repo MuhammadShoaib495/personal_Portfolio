@@ -10,10 +10,8 @@ export default function Layout({ headerVariant }) {
   }, []);
   return (
     <>
-      <Header variant={headerVariant} />
       <Outlet />
       <CustomCursor />
-      <Footer />
     </>
   );
 }

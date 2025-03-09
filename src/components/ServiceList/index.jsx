@@ -1,52 +1,65 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import Div from '../Div';
-import './servicelist.scss';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import Div from "../Div";
+import "./servicelist.scss";
 
 export default function ServiceList() {
   const serviceData = [
     {
-      title: 'WP Development',
+      title: "WordPress Development",
       subtitle:
-        'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium lorema doloremque laudantium, totam rem.',
-      imgUrl: '/images/service_7.jpeg',
-      href: '/service/service-details',
+        "I have expertise in WordPress for designing fast-loading, SEO-optimized websites, WooCommerce stores, and custom business solutions for small businesses.",
+      imgUrl: "/images/wordpress-logo.jpg",
+      sectionId: "wordpressSection",
     },
     {
-      title: 'UI/UX Design',
+      title: "Reactjs & Nodejs",
       subtitle:
-        'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium lorema doloremque laudantium, totam rem.',
-      imgUrl: '/images/service_8.jpeg',
-      href: '/service/service-details',
+        "I have expertise in React and Node.js for building fast, scalable, and SEO-friendly web applications, integrating APIs, and developing custom solutions for small businesses and enterprises.",
+      imgUrl: "/images/React_logo.avif",
+      sectionId: "reactNodeSection",
     },
     {
-      title: 'Branding',
+      title: "Flutter Apps",
       subtitle:
-        'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium lorema doloremque laudantium, totam rem.',
-      imgUrl: '/images/service_9.jpeg',
-      href: '/service/service-details',
+        "I have expertise in Flutter for building high-performance, scalable, and visually appealing mobile apps with seamless API integration and custom solutions for businesses.",
+      imgUrl: "/images/flutter_logo.png",
+      sectionId: "flutterSection",
     },
     {
-      title: 'Social Ad Campaign',
+      title: "Digital Ads/SEO",
       subtitle:
-        'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium lorema doloremque laudantium, totam rem.',
-      imgUrl: '/images/service_10.jpeg',
-      href: '/service/service-details',
+        "I run high-converting digital ad campaigns on Google and Facebook to drive leads and sales. My goal is to deliver impactful solutions that help businesses grow and thrive in the digital space.",
+      imgUrl: "/images/google_ads.webp",
+      sectionId: "adsSection",
     },
   ];
+
   const [active, setActive] = useState(0);
-  const handelActive = index => {
+  const handelActive = (index) => {
     setActive(index);
   };
+
+  const scrollToSection = (sectionId) => {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <Div className="cs-iconbox_3_list">
       {serviceData.map((item, index) => (
         <Div
-          className={`cs-hover_tab ${active === index ? 'active' : ''}`}
+          className={`cs-hover_tab ${active === index ? "active" : ""}`}
           key={index}
           onMouseEnter={() => handelActive(index)}
         >
-          <Link to={item.href} className="cs-iconbox cs-style3">
+          <Link
+            to={`#${item.sectionId}`}
+            className="cs-iconbox cs-style3"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection(item.sectionId);
+            }}
+          >
             <>
               <Div className="cs-image_layer cs-style1 cs-size_md">
                 <Div className="cs-image_layer_in">

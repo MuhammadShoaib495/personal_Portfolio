@@ -9,7 +9,10 @@ import FunFact from '../FunFact';
 import { pageTitle } from '../../helper';
 import Portfolio from '../Portfolio';
 import { Icon } from '@iconify/react';
-import TestimonialSliderStyle4 from '../Slider/TestimonialSliderStyle4';
+import TestimonialSlider from '../Slider/TestimonialSlider';
+import MovingText from '../MovingText';
+import MovingText2 from '../MovingText/MovingText2';
+
 const funfaceData = [
   {
     title: 'HTML5',
@@ -24,7 +27,7 @@ const funfaceData = [
     factNumber: '92%',
   },
   {
-    title: 'UI/UX Design',
+    title: 'WordPress',
     factNumber: '85%',
   },
   {
@@ -35,125 +38,175 @@ const funfaceData = [
     title: 'Mysql Database',
     factNumber: '70%',
   },
+  {
+    title: 'Monodb',
+    factNumber: '70%',
+  },
+  {
+    title: 'Flutter',
+    factNumber: '80%',
+  },
 ];
 const portfolioData = [
   {
-    title: 'Colorful Art Work',
+    title: 'Real Estate',
     subtitle: 'See Details',
-    href: '/portfolio/portfolio-details',
-    src: '/images/portfolio_39.jpeg',
-    category: 'ui_ux_design',
+    href: 'http://realestate.wmfcagency.com',
+    src: '/images/real_estate_website.png',
+    category: 'web_design',
+
   },
   {
-    title: 'Colorful Art Work',
+    title: 'Ecommerce website',
     subtitle: 'See Details',
-    href: '/portfolio/portfolio-details',
-    src: '/images/portfolio_40.jpeg',
-    category: 'logo_design',
+    href: 'https://eshop.wmfcagency.com',
+    src: '/images/Ecommerce-website.jpg',
+    category: 'web_design',
+
   },
   {
-    title: 'Colorful Art Work',
+    title: '47 Consultant',
+    subtitle: 'See Details',
+    href: 'https://47consultants.com/',
+    src: '/images/47consultant.png',
+    category: 'web_design',
+
+  },
+
+  {
+    title: 'Lawyer Appointment System',
     subtitle: 'See Details',
     href: '/portfolio/portfolio-details',
-    src: '/images/portfolio_41.jpeg',
+    src: '/images/Lawyer-Website.jpg',
+    category: 'web_design',
+
+  },
+  {
+    title: 'Agency Website ',
+    subtitle: 'See Details',
+    href: 'https://react-js-next-js-liard.vercel.app/',
+    src: '/images/React_website.png',
     category: 'web_design',
   },
   {
-    title: 'Colorful Art Work',
+    title: 'Creative Design Demo2',
     subtitle: 'See Details',
     href: '/portfolio/portfolio-details',
-    src: '/images/portfolio_42.jpeg',
+    src: '/images/Creative-Design.png',
+    category: 'web_design',
+
+  },
+  {
+    title: 'Weather App',
+    subtitle: 'See Details',
+    href: 'https://github.com/MuhammadShoaib495/weather_app',
+    src: '/images/weather_app.png',
     category: 'mobile_apps',
+
   },
   {
-    title: 'Colorful Art Work',
+    title: 'Foodi App',
     subtitle: 'See Details',
-    href: '/portfolio/portfolio-details',
-    src: '/images/portfolio_43.jpeg',
-    category: 'ui_ux_design',
+    href: 'https://github.com/MuhammadShoaib495',
+    src: '/images/foodie_app.png',
+    category: 'mobile_apps',
+
   },
   {
-    title: 'Colorful Art Work',
+    title: 'Fintech',
+    subtitle: 'See Details',
+    href: 'https://github.com/MuhammadShoaib495',
+    src: '/images/fintech.png',
+    category: 'mobile_apps',
+
+  },
+  {
+    title: 'Real Estate VR',
+    subtitle: 'See Details',
+    href: 'https://github.com/MuhammadShoaib495',
+    src: '/images/realestate_vrr.png',
+    category: 'mobile_apps',
+
+  },
+  {
+    title: 'Business Consultants',
     subtitle: 'See Details',
     href: '/portfolio/portfolio-details',
-    src: '/images/portfolio_44.jpeg',
+    src: '/images/Business-Consultant.jpg',
     category: 'web_design',
   },
-  {
-    title: 'Colorful Art Work',
-    subtitle: 'See Details',
-    href: '/portfolio/portfolio-details',
-    src: '/images/portfolio_10.jpeg',
-    category: 'logo_design',
-  },
-  {
-    title: 'Colorful Art Work',
-    subtitle: 'See Details',
-    href: '/portfolio/portfolio-details',
-    src: '/images/portfolio_4.jpeg',
-    category: 'ui_ux_design',
-  },
-  {
-    title: 'Colorful Art Work',
-    subtitle: 'See Details',
-    href: '/portfolio/portfolio-details',
-    src: '/images/portfolio_5.jpeg',
-    category: 'logo_design',
-  },
-  {
-    title: 'Colorful Art Work',
-    subtitle: 'See Details',
-    href: '/portfolio/portfolio-details',
-    src: '/images/portfolio_6.jpeg',
-    category: 'web_design',
-  },
+ 
 ];
 const categoryMenu = [
   {
     title: 'Web Design',
     category: 'web_design',
-  },
-  {
-    title: 'UI/UX Design',
-    category: 'ui_ux_design',
-  },
+  }, 
   {
     title: 'Mobile Apps',
     category: 'mobile_apps',
   },
+];
+const serviceData1 = [
   {
-    title: 'Logo Design',
-    category: 'logo_design',
+    title: 'UI/UX Design',
+    href: '/service/service-details',
+  },
+  {
+    title: 'Marketing',
+    href: '/service/service-details',
+  },
+  {
+    title: 'Branding',
+    href: '/service/service-details',
+  },
+];
+const serviceData2 = [
+  {
+    title: 'SEO',
+    href: '/service/service-details',
+  },
+  {
+    title: 'App design',
+    href: '/service/service-details',
+  },
+  {
+    title: 'React Developer',
+    href: '/service/service-details',
   },
 ];
 
 const educationData = [
   {
-    title: 'Bachelor In Web Technology',
-    subTitle: 'University Of Florida | 2008-20012',
+    title: 'CS 50 WEB DESIGN Python & JavaScript',
+    subTitle: 'University Of Harvad | 2020',
   },
   {
-    title: 'Masters In Graphic Design',
-    subTitle: 'University Of Coventry | 2013-2015',
+    title: 'React Nextjs Developer',
+    subTitle: 'Coursea | 2013-2015',
   },
   {
-    title: 'Diploma In Motion Graphic',
-    subTitle: 'University Of Florida | 2018-20020',
+    title: 'Wordpress & SEO Marketing ',
+    subTitle: 'Coursea | 2018',
+  },
+  {
+    title: 'Flutter App ',
+    subTitle: 'Coursea IBM | 2020',
   },
 ];
 
 const experienceData = [
   {
-    title: 'Senior Graphic Designer',
-    subTitle: 'Web Tech | 2022-2024',
+    title: 'Senior MERN Web Developer',
+    subTitle: 'WMFCAGENCY | 2019-Present',
   },
   {
-    title: 'Project Manager',
-    subTitle: 'Awesome Themez | 2020-2022',
+    title: 'Flutter App Developer',
+    subTitle: 'WMFCAGENCY | 2023-Present',
   },
   {
-    title: 'Word Press Developer',
-    subTitle: 'Mount Soft IT | 2018-2020',
+    title: 'WordPress Shopify WebFlow Developer',
+    subTitle: 'WMFCAGENCY | 2019-Present',
   },
 ];
 
@@ -161,6 +214,10 @@ export default function PersonalPortfolioHome() {
   pageTitle('Personal Portfolio');
   const [active, setActive] = useState('all');
   const [itemShow, setItemShow] = useState(6);
+  const scrollToSection = () => {
+    document.getElementById("targetSection").scrollIntoView({ behavior: "smooth" });
+  };
+  
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -169,12 +226,12 @@ export default function PersonalPortfolioHome() {
     <>
       <Hero11
         introTitle="Hello, I am 👋"
-        title="Mila Decosta"
-        subtitle="Hailing from London, UK, I come with a wealth of web & app UI/UX design expertise. I'm eager to engage in a conversation with you about our distinctive offerings and passions."
-        btnLink="/portfolio"
+        title="Muhammad Shoaib "
+        subtitle="Hailing from Islamabad, PK, I come with a wealth of web & app UI/UX design expertise. I'm eager to engage in a conversation with you about our distinctive offerings and passions."
+        btnLink="/"
         btnText="See Portfolio"
-        imgUrl="/images/hero_img_5.png"
-        experienceTitle="years experience in web design"
+        imgUrl="/images/Shoaib_large.png"
+        experienceTitle="years experience in web app Design"
         experienceNumber="07+"
         projectTitle="250+"
         projectNumber="Project completed"
@@ -183,7 +240,7 @@ export default function PersonalPortfolioHome() {
       <Spacing lg="145" md="80" />
       <Div className="container">
         <SectionHeading
-          title="Our core services"
+          title="My Providing Services"
           subtitle="Services"
           variant="cs-style1 text-center"
         />
@@ -201,7 +258,7 @@ export default function PersonalPortfolioHome() {
           <FunFact
             variant="cs-type2"
             title="My tech skills"
-            subtitle="Sed ut perspiciatis unde omnis iste natus error voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis."
+            subtitle="I specialize in WordPress, React, Node.js, and Flutter, developing fast, scalable, and user-friendly web and mobile applications. My expertise covers SEO-optimized websites, WooCommerce stores, custom business solutions, API integrations, and full-stack app development."
             data={funfaceData}
           />
         </div>
@@ -210,6 +267,9 @@ export default function PersonalPortfolioHome() {
       <Spacing lg="115" md="55" />
       <Div className="container">
         <Div className="cs-portfolio_1_heading">
+           <MovingText2 data={serviceData1} />
+                      <Spacing lg="20" md="10" />
+                      <MovingText2 reverseDirection data={serviceData2} />
           <SectionHeading title="Some recent work" subtitle="Our Portfolio" />
           <Div className="cs-filter_menu cs-style1">
             <ul className="cs-mp0 cs-center">
@@ -368,7 +428,8 @@ export default function PersonalPortfolioHome() {
             subtitle="Testimonial"
           />
           <div className="cs-height_90 cs-height_lg_45" />
-          <TestimonialSliderStyle4 />
+          <TestimonialSlider />
+          
         </div>
         <div className="cs-height_150 cs-height_lg_80" />
       </section>
@@ -377,7 +438,7 @@ export default function PersonalPortfolioHome() {
       <Cta
         title="Let’s disscuse make <br />something <i>cool</i> together"
         btnText="Apply For Meeting"
-        btnLink="/contact"
+        btnLink="mailto:wmfcagency@gmail.com"
         bgSrc="/images/cta_bg_5.jpeg"
         variant="cs-type_1"
       />

@@ -183,111 +183,6 @@ hr {
   background-color: $gray;
 }
 
-.cs-accent_bg_1,
-.cs-accent_bg_1_hover:hover {
-  background-color: rgba($accent, 0.01);
-}
-
-.cs-accent_bg_2,
-.cs-accent_bg_2_hover:hover {
-  background-color: rgba($accent, 0.02);
-}
-
-.cs-accent_bg_3,
-.cs-accent_bg_3_hover:hover {
-  background-color: rgba($accent, 0.03);
-}
-
-.cs-accent_bg_4,
-.cs-accent_bg_4_hover:hover {
-  background-color: rgba($accent, 0.04);
-}
-
-.cs-accent_bg_5,
-.cs-accent_bg_5_hover:hover {
-  background-color: rgba($accent, 0.05);
-}
-
-.cs-accent_bg_6,
-.cs-accent_bg_6_hover:hover {
-  background-color: rgba($accent, 0.06);
-}
-
-.cs-accent_bg_7,
-.cs-accent_bg_7_hover:hover {
-  background-color: rgba($accent, 0.07);
-}
-
-.cs-accent_bg_8,
-.cs-accent_bg_8_hover:hover {
-  background-color: rgba($accent, 0.08);
-}
-
-.cs-accent_bg_9,
-.cs-accent_bg_9_hover:hover {
-  background-color: rgba($accent, 0.09);
-}
-
-.cs-accent_bg_10,
-.cs-accent_bg_10_hover:hover {
-  background-color: rgba($accent, 0.1);
-}
-
-.cs-accent_bg_15,
-.cs-accent_bg_15_hover:hover {
-  background-color: rgba($accent, 0.15);
-}
-
-.cs-accent_bg_20,
-.cs-accent_bg_20_hover:hover {
-  background-color: rgba($accent, 0.2);
-}
-
-.cs-accent_bg_25,
-.cs-accent_bg_25_hover:hover {
-  background-color: rgba($accent, 0.25);
-}
-
-.cs-accent_bg_30,
-.cs-accent_bg_30_hover:hover {
-  background-color: rgba($accent, 0.3);
-}
-
-.cs-accent_bg_35,
-.cs-accent_bg_35_hover:hover {
-  background-color: rgba($accent, 0.35);
-}
-
-.cs-accent_bg_40,
-.cs-accent_bg_40_hover:hover {
-  background-color: rgba($accent, 0.4);
-}
-
-.cs-accent_bg_50,
-.cs-accent_bg_50_hover:hover {
-  background-color: rgba($accent, 0.5);
-}
-
-.cs-accent_bg_60,
-.cs-accent_bg_60_hover:hover {
-  background-color: rgba($accent, 0.6);
-}
-
-.cs-accent_bg_70,
-.cs-accent_bg_70_hover:hover {
-  background-color: rgba($accent, 0.7);
-}
-
-.cs-accent_bg_80,
-.cs-accent_bg_80_hover:hover {
-  background-color: rgba($accent, 0.8);
-}
-
-.cs-accent_bg_90,
-.cs-accent_bg_90_hover:hover {
-  background-color: rgba($accent, 0.9);
-}
-
 .cs-accent_bg,
 .cs-accent_bg_hover:hover {
   background-color: $accent;
@@ -1649,5 +1544,119 @@ label {
   }
   .cs-masonry_4_col {
     column-count: 1;
+  }
+}
+.cs-grid_gallery_5 {
+  display: flex;
+  flex-wrap: wrap;
+  .cs-grid_gallery_item {
+    width: 20%;
+    @media (max-width: 575px) {
+      width: 100%;
+    }
+  }
+  .cs-portfolio.cs-style1 {
+    height: initial;
+    position: relative;
+    &:hover .cs-plus {
+      z-index: 2;
+    }
+    .cs-portfolio_bg {
+      height: 100%;
+      width: 100%;
+      border-radius: inherit;
+      padding-top: 117%;
+      > div > img {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        object-fit: cover;
+        cursor: zoom-in;
+        z-index: 5;
+        opacity: 0;
+      }
+      @media (max-width: 575px) {
+        padding-top: 100%;
+      }
+    }
+  }
+}
+.cs-gradient_1 {
+  background: linear-gradient(267deg, #161616 0%, #080808 100%);
+}
+.cs-list.cs-style_2 {
+  li {
+    position: relative;
+    padding-left: 53px;
+    @media (max-width: 1199px) {
+      padding-left: 45px;
+    }
+    &:not(:last-child) {
+      margin-bottom: 50px;
+      @media (max-width: 991px) {
+        margin-bottom: 30px;
+      }
+    }
+    > svg {
+      position: absolute;
+      left: 0;
+      top: 10px;
+      @media (max-width: 1199px) {
+        top: 7px;
+      }
+    }
+    h3 {
+      font-size: 30px;
+      margin-bottom: 18px;
+      @media (max-width: 1199px) {
+        font-size: 26px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+.cs-list_2_group {
+  display: flex;
+  flex-wrap: wrap;
+  @media (max-width: 991px) {
+    flex-direction: column;
+  }
+  > * {
+    flex: none;
+    width: 50%;
+    @media (max-width: 991px) {
+      width: 100%;
+    }
+    &:first-child {
+      padding-right: 150px;
+      @media (max-width: 1400px) {
+        padding-right: 70px;
+      }
+      @media (max-width: 1199px) {
+        padding-right: 30px;
+      }
+      @media (max-width: 991px) {
+        padding-right: 0px;
+        padding-bottom: 30px;
+      }
+    }
+    &:last-child {
+      padding-left: 150px;
+      border-left: 1px solid #4d4d4d;
+      @media (max-width: 1400px) {
+        padding-left: 70px;
+      }
+      @media (max-width: 1199px) {
+        padding-left: 30px;
+      }
+      @media (max-width: 991px) {
+        padding-left: 0px;
+        border-top: 1px solid #4d4d4d;
+        border-left: 0;
+        padding-top: 30px;
+      }
+    }
   }
 }

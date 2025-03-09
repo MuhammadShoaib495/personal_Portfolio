@@ -7,6 +7,7 @@ export default function Button({ btnLink, btnText, variant, icon }) {
     <Link
       to={btnLink}
       className={variant ? `cs-text_btn ${variant}` : 'cs-text_btn'}
+      target="_blank" rel="noopener noreferrer"
     >
       <>
         <span>{btnText}</span>

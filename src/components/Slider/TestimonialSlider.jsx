@@ -10,14 +10,14 @@ export default function TestimonialSlider() {
   const testimonialData = [
     {
       testimonialThumb: '/images/Will-barber-copywriting.jpg',
-      testimonialText:'WMFCAGENCY did a great job assisting me with putting together my own webpage for my personal business. His attention to detail was outstanding. He gives the best advice for the use of the proper links and buttons that will contribute to a boost for your business. I highly recommend WMFCAGENCY. for Web Development of a Personal or Company Webpage and Content Marketing.',
+      testimonialText:'Shoaib did a great job assisting me with putting together my own webpage for my personal business. His attention to detail was outstanding. He gives the best advice for the use of the proper links and buttons that will contribute to a boost for your business. I highly recommend WMFCAGENCY. for Web Development of a Personal or Company Webpage and Content Marketing.',
       avatarName: 'William BarBer',
       avatarDesignation: 'Branding',
       ratings: '5',
     },
     {
       testimonialThumb: '/images/team2.jpg',
-      testimonialText:'WMFC is best in the Google Ads campaign, I got better result from them.',
+      testimonialText:'Shoaib is best in the Google Ads campaign, I got better result from them.',
       avatarName: 'Sarah',
       avatarDesignation: 'Clothing Brand Student',
       ratings: '4',
@@ -25,7 +25,7 @@ export default function TestimonialSlider() {
     {
       testimonialThumb: '/images/team4.jpg',
       testimonialText:
-        'If you looking Elegant web for your business. I strongly recommend WMFC.',
+        'If you looking Elegant web for your business. I strongly recommend Shoaib.',
       avatarName: 'David',
       avatarDesignation: 'Body Fitness Owner.',
       ratings: '5',
@@ -33,7 +33,7 @@ export default function TestimonialSlider() {
     {
       testimonialThumb: '/images/testimonial_3.jpeg',
       testimonialText:
-      "I suffered from digital advertisement for long time ago. one day i saw expert digital marketers who are WMFC",
+      "I suffered from digital advertisement for long time ago. one day i saw expert digital marketers who are Shoaib",
       avatarName: 'Ada Kanachki',
       avatarDesignation: 'Princpal of Dentist',
       ratings: '4.5',
