@@ -76,7 +76,7 @@ const portfolioData = [
   {
     title: 'Lawyer Appointment System',
     subtitle: 'See Details',
-    href: '/portfolio/portfolio-details',
+    href: '/',
     src: '/images/Lawyer-Website.jpg',
     category: 'web_design',
 
@@ -91,7 +91,7 @@ const portfolioData = [
   {
     title: 'Creative Design Demo2',
     subtitle: 'See Details',
-    href: '/portfolio/portfolio-details',
+    href: '/',
     src: '/images/Creative-Design.png',
     category: 'web_design',
 
