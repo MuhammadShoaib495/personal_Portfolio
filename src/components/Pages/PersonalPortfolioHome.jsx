@@ -49,10 +49,26 @@ const funfaceData = [
 ];
 const portfolioData = [
    {
+    title: 'Sport',
+    subtitle: 'See Details',
+    href: 'http://sport64.webflow.io/',
+    src: '/images/sport-64.jpg',
+    category: 'web_design',
+
+  },
+   {
     title: 'Ibercia',
     subtitle: 'See Details',
     href: 'http://jordan64.webflow.io/pop-up',
     src: '/images/materials.jpg',
+    category: 'web_design',
+
+  },
+  {
+    title: 'Jordan',
+    subtitle: 'See Details',
+    href: 'http://jordan64.webflow.io/',
+    src: '/images/jump-man-jpg.jpg',
     category: 'web_design',
 
   },
