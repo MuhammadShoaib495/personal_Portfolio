@@ -1152,7 +1152,7 @@
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(21.5px);
     padding: 16px 24px;
-    max-width: 265px;
+    max-width: 250px;
     gap: 13px;
     position: absolute;
     box-shadow: -1px 0px 1px 0px #fff;
@@ -1167,8 +1167,8 @@
       }
     }
     &.cs-position_2 {
-      top: 40%;
-      right: -100px;
+      top: 25%;
+      right: -150px;
       @media (max-width: 991px) {
         right: 0;
       }
