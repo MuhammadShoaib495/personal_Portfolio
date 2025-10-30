@@ -109,7 +109,6 @@
     }
   }
   &.cs-type1 {
-    height: 329px;
     .cs-portfolio_info_bg {
       left: -50px;
       top: 50px;
@@ -338,7 +337,7 @@
 }
 @media screen and (max-width: 991px) {
   .cs-portfolio.cs-style1 {
-    height: 380px;
+    height: 290px;
   }
   .cs-portfolio.cs-style2,
   .cs-portfolio.cs-style2.cs-type1 {
@@ -359,7 +358,7 @@
 }
 @media screen and (max-width: 575px) {
   .cs-portfolio.cs-style1 {
-    height: 380px;
+    height: 290px;
   }
   .cs-portfolio.cs-style2 .cs-portfolio_img_title,
   .cs-portfolio.cs-style2.cs-type1 .cs-portfolio_img_title {
