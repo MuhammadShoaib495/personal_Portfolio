@@ -57,7 +57,7 @@ const portfolioData = [
 
   },
    {
-    title: 'Ibercia',
+    title: 'Ibercia - 3d Website',
     subtitle: 'See Details',
     href: 'http://jordan64.webflow.io/pop-up',
     src: '/images/materials.jpg',
