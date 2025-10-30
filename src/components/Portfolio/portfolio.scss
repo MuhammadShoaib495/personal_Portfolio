@@ -110,7 +110,6 @@
   }
   &.cs-type1 {
     height: 465px;
-    width: 50vw;
     .cs-portfolio_info_bg {
       left: -50px;
       top: 50px;
@@ -301,6 +300,8 @@
       left: calc(((100vw - 940px) / 2) / 2);
     }
     &.cs-type1 {
+          width: 50vw;
+
       .cs-portfolio_img_title {
         left: initial;
         right: calc(((100vw - 940px) / 2) / 2);
@@ -325,6 +326,8 @@
     }
   }
   .cs-portfolio.cs-style2.cs-type1 {
+        width: 50vw;
+
     .cs-portfolio_img {
       padding-right: 60px;
     }
