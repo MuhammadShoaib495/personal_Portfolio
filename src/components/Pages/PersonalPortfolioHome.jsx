@@ -464,7 +464,7 @@ export default function PersonalPortfolioHome() {
       {/* End Testimonial Section */}
       {/* Start CTA Section */}
       <Cta
-        title="Let’s disscuse make <br />something <i>cool</i> together"
+        title="Let’s discuss make <br />something <i>cool</i> together"
         btnText="Apply For Meeting"
         btnLink="mailto:wmfcagency@gmail.com"
         bgSrc="/images/cta_bg_5.jpeg"
