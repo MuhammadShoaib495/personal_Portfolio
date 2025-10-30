@@ -109,6 +109,7 @@
     }
   }
   &.cs-type1 {
+    height: 465px;
     .cs-portfolio_info_bg {
       left: -50px;
       top: 50px;
@@ -250,7 +251,6 @@
     font-size: 50px;
   }
   &.cs-type1 {
-    height:329px;
     .cs-portfolio_img_title {
       left: initial;
       right: calc(((100vw - 1300px) / 2) / 2);
@@ -281,7 +281,6 @@
       margin: 0 0 0 -27px;
     }
     &.cs-type1 {
-      height: 329px;
       .cs-portfolio_img_title {
         left: initial;
         right: calc(((100vw - 1120px) / 2) / 2);
@@ -301,8 +300,6 @@
       left: calc(((100vw - 940px) / 2) / 2);
     }
     &.cs-type1 {
-          width: 50vw;
-
       .cs-portfolio_img_title {
         left: initial;
         right: calc(((100vw - 940px) / 2) / 2);
@@ -327,8 +324,6 @@
     }
   }
   .cs-portfolio.cs-style2.cs-type1 {
-        width: 329px;
-
     .cs-portfolio_img {
       padding-right: 60px;
     }
@@ -339,7 +334,7 @@
 }
 @media screen and (max-width: 991px) {
   .cs-portfolio.cs-style1 {
-    height: 215px;
+    height: 380px;
   }
   .cs-portfolio.cs-style2,
   .cs-portfolio.cs-style2.cs-type1 {
@@ -360,7 +355,7 @@
 }
 @media screen and (max-width: 575px) {
   .cs-portfolio.cs-style1 {
-    height: 290px;
+    height: 380px;
   }
   .cs-portfolio.cs-style2 .cs-portfolio_img_title,
   .cs-portfolio.cs-style2.cs-type1 .cs-portfolio_img_title {
