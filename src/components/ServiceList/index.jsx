@@ -6,9 +6,9 @@ import "./servicelist.scss";
 export default function ServiceList() {
   const serviceData = [
     {
-      title: "WordPress Development",
+      title: "WordPress/Webflow Development",
       subtitle:
-        "I have expertise in WordPress for designing fast-loading, SEO-optimized websites, WooCommerce stores, and custom business solutions for small businesses.",
+        "I have expertise in WordPress/Webflow for designing fast-loading, SEO-optimized websites, WooCommerce stores, and custom business solutions for small businesses.",
       imgUrl: "/images/wordpress-logo.jpg",
       sectionId: "wordpressSection",
     },
