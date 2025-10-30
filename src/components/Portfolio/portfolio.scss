@@ -280,6 +280,7 @@
       margin: 0 0 0 -27px;
     }
     &.cs-type1 {
+      height: 329px;
       .cs-portfolio_img_title {
         left: initial;
         right: calc(((100vw - 1120px) / 2) / 2);
@@ -325,7 +326,7 @@
     }
   }
   .cs-portfolio.cs-style2.cs-type1 {
-        width: 50vw;
+        width: 329px;
 
     .cs-portfolio_img {
       padding-right: 60px;
@@ -337,7 +338,7 @@
 }
 @media screen and (max-width: 991px) {
   .cs-portfolio.cs-style1 {
-    height: 290px;
+    height: 215px;
   }
   .cs-portfolio.cs-style2,
   .cs-portfolio.cs-style2.cs-type1 {
