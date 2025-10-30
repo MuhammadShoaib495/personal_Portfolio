@@ -27,7 +27,7 @@ const funfaceData = [
     factNumber: '92%',
   },
   {
-    title: 'WordPress',
+    title: 'WordPress/Webflow',
     factNumber: '85%',
   },
   {
@@ -217,6 +217,10 @@ const educationData = [
     title: 'Flutter App ',
     subTitle: 'Coursea IBM | 2020',
   },
+  {
+    title: 'Webflow ',
+    subTitle: 'Webflow Academy| 2020',
+  },
 ];
 
 const experienceData = [
@@ -229,7 +233,7 @@ const experienceData = [
     subTitle: 'WMFCAGENCY | 2023-Present',
   },
   {
-    title: 'WordPress Shopify WebFlow Developer',
+    title: 'WordPress WebFlow Developer',
     subTitle: 'WMFCAGENCY | 2019-Present',
   },
 ];
@@ -282,7 +286,7 @@ export default function PersonalPortfolioHome() {
           <FunFact
             variant="cs-type2"
             title="My tech skills"
-            subtitle="I specialize in WordPress, React, Node.js, and Flutter, developing fast, scalable, and user-friendly web and mobile applications. My expertise covers SEO-optimized websites, WooCommerce stores, custom business solutions, API integrations, and full-stack app development."
+            subtitle="I specialize in WordPress/Webflow, React, Node.js, and Flutter, developing fast, scalable, and user-friendly web and mobile applications. My expertise covers SEO-optimized websites, WooCommerce stores, custom business solutions, API integrations, and full-stack app development."
             data={funfaceData}
           />
         </div>
