@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Hero11 from '../Hero/Hero11';
-import PortfolioAssistant from '../../components/Ai/Portfolio';
+import PortfolioAssistant from '../../components/Ai/portfolioAssistant';
 import SectionHeading from '../SectionHeading';
 import ServiceList from '../ServiceList';
 import Spacing from '../Spacing';
