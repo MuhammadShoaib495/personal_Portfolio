@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "./Chat.scss";
 
@@ -12,7 +12,9 @@ export default function PortfolioAssistant() {
   const [userInput, setUserInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [chatEnded, setChatEnded] = useState(false);
-  const [isMinimized, setIsMinimized] = useState(false); // ✅ toggle state
+  const [isMinimized, setIsMinimized] = useState(false);
+
+  const chatBoxRef = useRef<HTMLDivElement>(null);
 
   // ✅ Auto-start message
   useEffect(() => {
@@ -23,6 +25,13 @@ export default function PortfolioAssistant() {
       },
     ]);
   }, []);
+
+  // ✅ Auto-scroll to bottom when messages update
+  useEffect(() => {
+    if (chatBoxRef.current) {
+      chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
+    }
+  }, [messages]);
 
   const sendMessage = async () => {
     if (!userInput.trim() || chatEnded) return;
@@ -37,17 +46,16 @@ export default function PortfolioAssistant() {
     setIsTyping(true);
 
     try {
-      const res = await axios.post("https://backend-portfolio-assistent.vercel.app/chat", {
-        message: currentInput,
-      });
+      const res = await axios.post(
+        "https://backend-portfolio-assistent.vercel.app/chat",
+        { message: currentInput }
+      );
 
       const botReply = res.data.reply || "No response received.";
       typeBotMessage(botReply, newMessages);
 
       // ✅ End chat if email sent
-      if (
-        botReply.toLowerCase().includes("-- end of summary --")
-      ) {
+      if (botReply.toLowerCase().includes("-- end of summary --")) {
         setChatEnded(true);
         setTimeout(() => {
           setMessages((prev) => [
@@ -104,10 +112,7 @@ export default function PortfolioAssistant() {
       <div className="chat-header">
         💬 Portfolio Assistant
         <div className="chat-actions">
-          <button
-            className="toggle-btn"
-            onClick={() => setIsMinimized(!isMinimized)}
-          >
+          <button className="toggle-btn" onClick={() => setIsMinimized(!isMinimized)}>
             {isMinimized ? "🔼" : "🔽"}
           </button>
           <button className="reset-btn" onClick={resetChat}>
@@ -119,7 +124,7 @@ export default function PortfolioAssistant() {
       {/* Chat body (hidden when minimized) */}
       {!isMinimized && (
         <>
-          <div className="chat-box">
+          <div className="chat-box" ref={chatBoxRef}>
             {messages.map((msg, i) => (
               <div key={i} className={`message ${msg.sender}`}>
                 {msg.text}
@@ -154,4 +159,3 @@ export default function PortfolioAssistant() {
     </div>
   );
 }
-
