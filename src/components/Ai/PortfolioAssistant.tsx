@@ -37,7 +37,7 @@ export default function PortfolioAssistant() {
     setIsTyping(true);
 
     try {
-      const res = await axios.post("http://backend-portfolio-assistent.vercel.app/chat", {
+      const res = await axios.post("https://backend-portfolio-assistent.vercel.app/chat", {
         message: currentInput,
       });
 
@@ -154,3 +154,4 @@ export default function PortfolioAssistant() {
     </div>
   );
 }
+
