@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Hero11 from '../Hero/Hero11';
+import Chat from '../Ai/portfolio-assitence';
 import SectionHeading from '../SectionHeading';
 import ServiceList from '../ServiceList';
 import Spacing from '../Spacing';
@@ -471,6 +472,7 @@ export default function PersonalPortfolioHome() {
         variant="cs-type_1"
       />
       {/* End CTA Section */}
+      <Chat />
     </>
   );
 }
