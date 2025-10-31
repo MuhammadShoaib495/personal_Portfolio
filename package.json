@@ -20,7 +20,7 @@
     "slick-carousel": "^1.8.1",
     "swiper": "^8.4.5",
     "web-vitals": "^2.1.4",
-    "axios": "^1.13.1",
+    "axios": "^1.13.1"
   },
   "scripts": {
     "start": "react-scripts start",
