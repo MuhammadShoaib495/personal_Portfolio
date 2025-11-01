@@ -73,6 +73,14 @@ const portfolioData = [
     category: 'web_design',
 
   },
+   {
+    title: 'NYC Furniture Assembly',
+    subtitle: 'See Details WP',
+    href: 'https://nyc-furniture-assembly.com',
+    src: '/images/nyc-furniture-assembly.png',
+    category: 'web_design',
+
+  },
   {
     title: 'Real Estate',
     subtitle: 'See Details',
