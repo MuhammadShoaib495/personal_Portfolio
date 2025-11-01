@@ -51,7 +51,7 @@ const funfaceData = [
 const portfolioData = [
    {
     title: 'Sport',
-    subtitle: 'See Details',
+    subtitle: 'See Details Webflow',
     href: 'http://sport64.webflow.io/',
     src: '/images/sport-64.jpg',
     category: 'web_design',
@@ -59,7 +59,7 @@ const portfolioData = [
   },
    {
     title: 'Ibercia - 3d Website',
-    subtitle: 'See Details',
+    subtitle: 'See Details Webflow (Still Dev)',
     href: 'http://jordan64.webflow.io/pop-up',
     src: '/images/materials.jpg',
     category: 'web_design',
@@ -67,7 +67,7 @@ const portfolioData = [
   },
   {
     title: 'Jordan',
-    subtitle: 'See Details',
+    subtitle: 'See Details Webflow',
     href: 'http://jordan64.webflow.io/',
     src: '/images/jump-man-jpg.jpg',
     category: 'web_design',
@@ -75,7 +75,7 @@ const portfolioData = [
   },
    {
     title: 'NYC Furniture Assembly',
-    subtitle: 'See Details WP',
+    subtitle: 'See Details Wordpress',
     href: 'https://nyc-furniture-assembly.com',
     src: '/images/nyc-furniture-assembly.png',
     category: 'web_design',
@@ -83,7 +83,7 @@ const portfolioData = [
   },
   {
     title: 'Real Estate',
-    subtitle: 'See Details',
+    subtitle: 'See Details Wordpress',
     href: 'http://realestate.wmfcagency.com',
     src: '/images/realestate.png',
     category: 'web_design',
@@ -91,7 +91,7 @@ const portfolioData = [
   },
   {
     title: 'Ecommerce website',
-    subtitle: 'See Details',
+    subtitle: 'See Details Wordpress',
     href: 'https://eshop.wmfcagency.com',
     src: '/images/Ecommerce-website.jpg',
     category: 'web_design',
@@ -99,7 +99,7 @@ const portfolioData = [
   },
   {
     title: '47 Consultant',
-    subtitle: 'See Details',
+    subtitle: 'See Details Wordpress',
     href: 'https://47consultants.com/',
     src: '/images/47consultant.png',
     category: 'web_design',
@@ -108,7 +108,7 @@ const portfolioData = [
 
   {
     title: 'Lawyer Appointment System',
-    subtitle: 'See Details',
+    subtitle: 'See Details Wordpress',
     href: '/',
     src: '/images/Lawyer-Website.jpg',
     category: 'web_design',
@@ -116,14 +116,14 @@ const portfolioData = [
   },
   {
     title: 'Agency Website ',
-    subtitle: 'See Details',
+    subtitle: 'See Details MERN',
     href: 'https://react-js-next-js-liard.vercel.app/',
     src: '/images/React_website.png',
     category: 'web_design',
   },
   {
     title: 'Creative Design Demo2',
-    subtitle: 'See Details',
+    subtitle: 'See Details MERN',
     href: '/',
     src: '/images/Creative-Design.png',
     category: 'web_design',
