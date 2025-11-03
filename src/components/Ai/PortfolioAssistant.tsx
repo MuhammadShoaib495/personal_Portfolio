@@ -47,10 +47,10 @@ export default function PortfolioAssistant() {
 
     try {
       const res = await axios.post(
-        "https://backend-portfolio-assistent.vercel.app/chat",
-        { message: currentInput },
-        { withCredentials: true }
-      );
+  "https://backend-portfolio-assistent.vercel.app/chat",
+  { message: currentInput },
+  { withCredentials: true } // 👈 keeps user session unique
+);
 
       const botReply = res.data.reply || "No response received.";
       typeBotMessage(botReply, newMessages);
@@ -111,7 +111,7 @@ export default function PortfolioAssistant() {
     <div className="chat-container">
       {/* Header */}
       <div className="chat-header">
-        ✦︎˚ Portfolio Assistant
+        💬 Portfolio Assistant
         <div className="chat-actions">
           <button className="toggle-btn" onClick={() => setIsMinimized(!isMinimized)}>
             {isMinimized ? "🔼" : "🔽"}
@@ -160,5 +160,3 @@ export default function PortfolioAssistant() {
     </div>
   );
 }
-
-
