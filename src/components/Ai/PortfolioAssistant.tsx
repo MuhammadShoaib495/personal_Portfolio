@@ -48,7 +48,8 @@ export default function PortfolioAssistant() {
     try {
       const res = await axios.post(
         "https://backend-portfolio-assistent.vercel.app/chat",
-        { message: currentInput }
+        { message: currentInput },
+        { withCredentials: true }
       );
 
       const botReply = res.data.reply || "No response received.";
@@ -159,4 +160,5 @@ export default function PortfolioAssistant() {
     </div>
   );
 }
+
 
