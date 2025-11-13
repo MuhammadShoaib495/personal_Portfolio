@@ -1,0 +1,34 @@
+@import "../../scss/default/color_variable";
+.video-responsive {
+  width: 100%;
+    height: 500px;
+    display: flex;
+    /* padding: 56px; */
+    /* align-items: center; */
+    gap: 190px;
+    /* scroll-behavior: auto; */
+    /* flex-direction: column; */
+    padding-left: 70px;
+    justify-content: center;
+    
+    /* Example of SCSS nesting */
+    video {
+      border-radius: 20px;
+      height: 100%;
+
+    }
+  }
+ @media screen and (max-width: 400px) {
+  .video-responsive {
+    gap:20px;
+    padding-left: 30px;
+    justify-content: start;
+    overflow: scroll;
+    /* Example of SCSS nesting */
+  }
+   video {
+      border-radius: 20px;
+      height: 100%;
+
+    }
+}
