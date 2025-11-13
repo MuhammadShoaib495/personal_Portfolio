@@ -471,6 +471,53 @@ export default function PersonalPortfolioHome() {
         <div className="cs-height_150 cs-height_lg_80" />
       </section>
       {/* End Testimonial Section */}
+       {/* Video Testimonial Section*/}
+      <section  className="cs-fixed_bg"
+        style={{ backgroundImage: `url(images/resume_bg.jpeg)` }}>
+        <div className="cs-height_145 cs-height_lg_75" />
+        <div className="container">
+           <SectionHeading
+            title="Real clients, <br />real reviews"
+            subtitle="Video Testimonial"
+          />
+                    <div className="cs-height_90 cs-height_lg_45" />
+                    <div className="video-responsive">
+      {/* Use standard JSX to create the iframe element */}
+
+<video
+  controls
+  playsInline
+    style={{ objectFit: 'cover' }}
+
+>
+  <source
+    src="https://raw.githubusercontent.com/MuhammadShoaib495/personal_Portfolio/4cfb8ff398319d6450a889b248fd00dafe77d93a/47consultants_1.mp4"
+    type="video/mp4"
+  />
+</video>
+
+<video
+  controls
+  playsInline
+  style={{  objectFit: 'cover' }}
+>
+  <source
+    src="https://raw.githubusercontent.com/MuhammadShoaib495/personal_Portfolio/b7288147f3b68ea6c2905bfb0efe227300fe2ea3/Willbarber-SEO-%20Marketing.mp4"
+    type="video/mp4"
+  />
+</video>
+
+
+</div>
+
+                      <div className="cs-height_150 cs-height_lg_80" />
+
+          </div>
+      </section>
+      <section>
+        <div className="cs-height_145 cs-height_lg_75" />
+      </section>
+      {/* Video Testimonial Section */}
       {/* Start CTA Section */}
       <Cta
         title="Let’s discuss make <br />something <i>cool</i> together"
