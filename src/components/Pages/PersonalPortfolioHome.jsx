@@ -11,7 +11,6 @@ import { pageTitle } from '../../helper';
 import Portfolio from '../Portfolio';
 import { Icon } from '@iconify/react';
 import TestimonialSlider from '../Slider/TestimonialSlider';
-import MovingText from '../MovingText';
 import MovingText2 from '../MovingText/MovingText2';
 import './video-responsive.scss'
 
@@ -253,9 +252,7 @@ export default function PersonalPortfolioHome() {
   pageTitle('Personal Portfolio');
   const [active, setActive] = useState('all');
   const [itemShow, setItemShow] = useState(6);
-  const scrollToSection = () => {
-    document.getElementById("targetSection").scrollIntoView({ behavior: "smooth" });
-  };
+
   
 
   useEffect(() => {
