@@ -31,4 +31,20 @@
       height: 100%;
 
     }
+
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Tablet styles */
+  .video-responsive {
+    gap:90px;
+    padding-left: 30px;
+    justify-content: start;
+    overflow: scroll;
+    /* Example of SCSS nesting */
+  }
+   video {
+      border-radius: 20px;
+      height: 100%;
+
+    }
 }
