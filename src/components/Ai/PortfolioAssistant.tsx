@@ -111,7 +111,7 @@ export default function PortfolioAssistant() {
     <div className="chat-container">
       {/* Header */}
       <div className="chat-header">
-        💬 Portfolio Assistant
+        💬 AI Portfolio Assistant
         <div className="chat-actions">
           <button className="toggle-btn" onClick={() => setIsMinimized(!isMinimized)}>
             {isMinimized ? "🔼" : "🔽"}
@@ -160,3 +160,4 @@ export default function PortfolioAssistant() {
     </div>
   );
 }
+
