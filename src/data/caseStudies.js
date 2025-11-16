@@ -17,7 +17,7 @@ export const caseStudies = [
         title: 'Branding guideline',
         description:
           'Created consistent branding guidelines for the website, including color schemes, typography, imagery style, and iconography. Ensured the brand identity was cohesive across all pages and marketing materials.',
-        image: '/images/case_study_img_5.png',
+        image: '/images/showcase/full.png',
       },
     ],
     images: [
@@ -53,6 +53,7 @@ export const caseStudies = [
     link: '/case-study/william-barber',
   },
 ];
+
 
 
 
