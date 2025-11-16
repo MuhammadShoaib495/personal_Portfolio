@@ -29,24 +29,16 @@ const funfaceData = [
     factNumber: '92%',
   },
   {
-    title: 'WordPress/Webflow',
+    title: 'WordPress',
     factNumber: '85%',
   },
-  {
-    title: 'React.js',
+   {
+    title: 'Webflow',
     factNumber: '85%',
   },
   {
     title: 'Mysql Database',
     factNumber: '70%',
-  },
-  {
-    title: 'Monodb',
-    factNumber: '70%',
-  },
-  {
-    title: 'Flutter',
-    factNumber: '80%',
   },
 ];
 const portfolioData = [
@@ -177,8 +169,12 @@ const categoryMenu = [
     category: 'web_design',
   }, 
   {
-    title: 'Mobile Apps',
-    category: 'mobile_apps',
+    title: 'Webflow',
+    category: 'webflow_design',
+  },
+  {
+    title: 'Wordpress',
+    category: 'wordpress_design',
   },
 ];
 const serviceData1 = [
@@ -234,15 +230,7 @@ const educationData = [
 ];
 
 const experienceData = [
-  {
-    title: 'Senior MERN Web Developer',
-    subTitle: 'WMFCAGENCY | 2019-Present',
-  },
-  {
-    title: 'Flutter App Developer',
-    subTitle: 'WMFCAGENCY | 2023-Present',
-  },
-  {
+ {
     title: 'WordPress WebFlow Developer',
     subTitle: 'WMFCAGENCY | 2019-Present',
   },
@@ -294,7 +282,7 @@ export default function PersonalPortfolioHome() {
           <FunFact
             variant="cs-type2"
             title="My tech skills"
-            subtitle="I specialize in WordPress/Webflow, React, Node.js, and Flutter, developing fast, scalable, and user-friendly web and mobile applications. My expertise covers SEO-optimized websites, WooCommerce stores, custom business solutions, API integrations, and full-stack app development."
+            subtitle="I specialize in WordPress, Webflow, developing fast, scalable, and user-friendly web applications. My expertise covers SEO-optimized websites, WooCommerce stores, custom business solutions, API integrations, and full-stack web development."
             data={funfaceData}
           />
         </div>
