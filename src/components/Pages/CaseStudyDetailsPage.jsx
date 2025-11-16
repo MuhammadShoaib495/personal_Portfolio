@@ -80,7 +80,7 @@ export default function CaseStudyDetailsPage() {
           <Spacing lg="90" md="45" />
 
          
-          {caseStudy.research.map((res, idx) => (
+         {caseStudy.research.map((res, idx) => (
             <Div
               className={`row align-items-center ${idx % 2 === 0 ? 'cs-column_reverse_lg' : ''}`}
               key={idx}
@@ -94,7 +94,7 @@ export default function CaseStudyDetailsPage() {
                 <Div className="cs-portfolio_img_in cs-shine_hover_1 rounded-circle">
                   <img src={res.image} alt={res.title} className="w-100" />
                 </Div>
-                <Spacing lg="30" md="40" />
+                <Spacing lg="0" md="40" />
               </Div>
             </Div>
           ))}
