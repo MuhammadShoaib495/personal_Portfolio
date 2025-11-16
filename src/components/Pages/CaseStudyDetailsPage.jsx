@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { caseStudies } from '../data/caseStudies';
+import { caseStudies } from '../../data/caseStudies';
 import { pageTitle } from '../../helper';
 import Cta from '../Cta';
 import Div from '../Div';
