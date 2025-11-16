@@ -52,12 +52,20 @@ export default function CaseStudyDetailsPage() {
         <Spacing lg="65" md="45" />
 
         <Div className="row">
-          {caseStudy.images.slice(1, 3).map((img, idx) => (
-            <Div className="col-sm-6" key={idx}>
-              <img src={img} alt={`Thumb ${idx}`} className="w-100 cs-radius_5" />
-              <Spacing lg="25" md="25" />
-            </Div>
-          ))}
+         {caseStudy.images.slice(1, 3).map((img, idx) => (
+  <Div
+    className={`row align-items-center mb-5 ${
+      idx % 2 === 0 ? '' : 'flex-row-reverse'
+    }`}
+    key={idx}
+  >
+    <Div className="col-sm-6">
+      <img src={img} alt={`Thumb ${idx}`} className="w-100 cs-radius_5" />
+    </Div>
+    <Div className="col-sm-6"></Div> {/* Empty div for spacing */}
+  </Div>
+))}
+
         </Div>
         <Spacing lg="125" md="55" />
       </Div>
