@@ -79,6 +79,7 @@ export default function CaseStudyDetailsPage() {
           <h2 className="cs-font_38 text-center">Case Study Research</h2>
           <Spacing lg="90" md="45" />
 
+         
           {caseStudy.research.map((res, idx) => (
             <Div
               className={`row align-items-center ${idx % 2 === 0 ? 'cs-column_reverse_lg' : ''}`}
@@ -91,9 +92,9 @@ export default function CaseStudyDetailsPage() {
               </Div>
               <Div className="col-lg-6 offset-lg-1 text-center">
                 <Div className="cs-portfolio_img_in cs-shine_hover_1 rounded-circle">
-                  <img src={res.image} alt={res.title} className="w-100 cs-radius_5" />
+                  <img src={res.image} alt={res.title} className="w-100" />
                 </Div>
-                <Spacing lg="0" md="40" />
+                <Spacing lg="30" md="40" />
               </Div>
             </Div>
           ))}
