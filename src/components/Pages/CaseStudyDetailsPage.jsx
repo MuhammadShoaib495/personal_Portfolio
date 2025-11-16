@@ -80,24 +80,29 @@ export default function CaseStudyDetailsPage() {
           <Spacing lg="90" md="45" />
 
          
-           {caseStudy.research.map((res, idx) => (
-            <Div
-              className={`row align-items-center ${idx % 2 === 0 ? '' : 'cs-column_reverse_lg'}`}
-              key={idx}
-            >
-              <Div className="col-lg-5">
-                <h3 className="cs-font_30 cs-m0">{res.title}</h3>
-                <Spacing lg="45" md="30" />
-                <p className="cs-m0">{res.description}</p>
-              </Div>
-              <Div className="col-lg-6 offset-lg-1 text-center">
-                <Div className="cs-portfolio_img_in cs-shine_hover_1 rounded-circle">
-                  <img src={res.image} alt={res.title} className="w-100" />
-                </Div>
-                <Spacing lg="0" md="40" />
-              </Div>
-            </Div>
-          ))}
+          {caseStudy.research.map((res, idx) => (
+  <Div
+    className={`row align-items-center mb-5 ${
+      idx % 2 !== 0 ? 'cs-column_reverse_lg' : ''
+    }`}
+    key={idx}
+  >
+    {/* Text Column */}
+    <Div className="col-lg-5 d-flex flex-column justify-content-center">
+      <h3 className="cs-font_30 cs-m0">{res.title}</h3>
+      <Spacing lg="45" md="30" />
+      <p className="cs-m0">{res.description}</p>
+    </Div>
+
+    {/* Image Column */}
+    <Div className="col-lg-6 offset-lg-1 text-center">
+      <Div className="cs-portfolio_img_in cs-shine_hover_1 rounded-circle">
+        <img src={res.image} alt={res.title} className="w-100" />
+      </Div>
+      <Spacing lg="0" md="40" />
+    </Div>
+  </Div>
+))}
 
           <Spacing lg="150" md="80" />
         </Div>
