@@ -179,11 +179,11 @@ const categoryMenu = [
 ];
 const serviceData1 = [
   {
-    title: 'UI/UX Design',
+    title: 'Custom Coding',
     href: '/service/service-details',
   },
   {
-    title: 'Marketing',
+    title: 'Webflow',
     href: '/service/service-details',
   },
   {
@@ -197,11 +197,11 @@ const serviceData2 = [
     href: '/service/service-details',
   },
   {
-    title: 'App design',
+    title: 'Website design',
     href: '/service/service-details',
   },
   {
-    title: 'React Developer',
+    title: 'Wordpress Developer',
     href: '/service/service-details',
   },
 ];
@@ -225,14 +225,18 @@ const educationData = [
   },
   {
     title: 'Webflow ',
-    subTitle: 'Webflow Academy| 2020',
+    subTitle: 'Webflow Academy| 2019',
   },
 ];
 
 const experienceData = [
  {
-    title: 'WordPress WebFlow Developer',
+    title: 'WordPress Developer',
     subTitle: 'WMFCAGENCY | 2019-Present',
+  },
+  {
+    title: 'Webflow Developer',
+    subTitle: 'WMFCAGENCY | 2020-Present',
   },
 ];
 
@@ -251,11 +255,11 @@ export default function PersonalPortfolioHome() {
       <Hero11
         introTitle="Hello, I am 👋"
         title="Muhammad Shoaib "
-        subtitle="Hailing from Islamabad, PK, I come with a wealth of web & app UI/UX design expertise. I'm eager to engage in a conversation with you about our distinctive offerings and passions."
+        subtitle="Hailing from Islamabad, PK, I come with a wealth of website Design UI/UX design expertise. I'm eager to engage in a conversation with you about our distinctive offerings and passions."
         btnLink="/"
         btnText="See Portfolio"
         imgUrl="/images/Shoaib_large.png"
-        experienceTitle="years experience in web app Design"
+        experienceTitle="years experience in website Design"
         experienceNumber="07+"
         projectTitle="250+"
         projectNumber="Project completed"
