@@ -16,7 +16,7 @@ export default function ServiceList() {
       title: "Webflow Development",
       subtitle:
         "I have expertise in Webflow for designing fast-loading, SEO-optimized websites, Ecommerce stores, and custom business solutions for small businesses.",
-      imgUrl: "/images/webflow-logo.png",
+      imgUrl: "/images/webflow_logo.png",
       sectionId: "wordpressSection",
     },
      {
