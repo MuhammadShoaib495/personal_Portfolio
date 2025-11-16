@@ -180,29 +180,29 @@ const categoryMenu = [
 const serviceData1 = [
   {
     title: 'Custom Coding',
-    href: '/service/service-details',
+    href: '',
   },
   {
     title: 'Webflow',
-    href: '/service/service-details',
+    href: '',
   },
   {
     title: 'Branding',
-    href: '/service/service-details',
+    href: '',
   },
 ];
 const serviceData2 = [
   {
     title: 'SEO',
-    href: '/service/service-details',
+    href: '',
   },
   {
     title: 'Website design',
-    href: '/service/service-details',
+    href: '',
   },
   {
     title: 'Wordpress Developer',
-    href: '/service/service-details',
+    href: '',
   },
 ];
 
