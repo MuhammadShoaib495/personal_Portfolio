@@ -65,26 +65,26 @@ export default function CaseStudyDetailsPage() {
           <Spacing lg="90" md="45" />
 
          
-          {caseStudy.research.map((res, idx) => (
+         {caseStudy.research.map((res, idx) => (
   <Div
     className={`row align-items-center mb-5 ${
-      idx % 2 !== 0 ? 'cs-column_reverse_lg' : ''
+      idx % 2 === 0 ? 'flex-row-reverse' : ''
     }`}
     key={idx}
   >
-    {/* Text Column */}
-    <Div className="col-lg-5 d-flex flex-column justify-content-center">
-      <h3 className="cs-font_30 cs-m0">{res.title}</h3>
-      <Spacing lg="45" md="30" />
-      <p className="cs-m0">{res.description}</p>
-    </Div>
-
     {/* Image Column */}
-    <Div className="col-lg-6 offset-lg-1 text-center">
+    <Div className="col-lg-6 text-center">
       <Div className="cs-portfolio_img_in cs-shine_hover_1 rounded-circle">
         <img src={res.image} alt={res.title} className="w-100" />
       </Div>
       <Spacing lg="0" md="40" />
+    </Div>
+
+    {/* Text Column */}
+    <Div className="col-lg-5 d-flex flex-column justify-content-center offset-lg-1">
+      <h3 className="cs-font_30 cs-m0">{res.title}</h3>
+      <Spacing lg="45" md="30" />
+      <p className="cs-m0">{res.description}</p>
     </Div>
   </Div>
 ))}
