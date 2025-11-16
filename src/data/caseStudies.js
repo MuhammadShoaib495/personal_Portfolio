@@ -21,9 +21,9 @@ export const caseStudies = [
       },
     ],
     images: [
-      '/images/47consultant.png',
-      '/images/case_study_img_2.jpeg',
-      '/images/case_study_img_3.jpeg',
+      '/images/showcase/47_H2.png',
+      '/images/showcase/47_H3_1.png',
+      '/images/showcase/47_H3_2.png',
     ],
     result:
       'The project delivered a fully responsive WordPress website hosted on SiteGround, designed to showcase 47 Consultants’ expertise in social media marketing. With a professional, user-friendly layout and cohesive branding, the website enhances credibility and engages visitors effectively. Google Search Console (GSC) was configured, and on-page SEO was implemented, improving organic visibility and attracting potential clients. Overall, the website supports the agency’s marketing campaigns, highlights their services, and helps drive leads and business growth.',
@@ -53,6 +53,7 @@ export const caseStudies = [
     link: '/case-study/william-barber',
   },
 ];
+
 
 
 
