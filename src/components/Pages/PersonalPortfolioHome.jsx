@@ -47,7 +47,7 @@ const portfolioData = [
     subtitle: 'See Details Webflow',
     href: 'http://sport64.webflow.io/',
     src: '/images/sport-64.jpg',
-    category: 'web_design',
+    category: 'webflow_design',
 
   },
    {
@@ -55,7 +55,7 @@ const portfolioData = [
     subtitle: 'See Details Webflow (Still Dev)',
     href: 'http://jordan64.webflow.io/pop-up',
     src: '/images/materials.jpg',
-    category: 'web_design',
+    category: 'webflow_design',
 
   },
   {
@@ -63,7 +63,7 @@ const portfolioData = [
     subtitle: 'See Details Webflow',
     href: 'http://jordan64.webflow.io/',
     src: '/images/jump-man-jpg.jpg',
-    category: 'web_design',
+    category: 'webflow_design',
 
   },
    {
@@ -71,7 +71,7 @@ const portfolioData = [
     subtitle: 'See Details Wordpress',
     href: 'https://nyc-furniture-assembly.com',
     src: '/images/nyc-furniture-assembly.png',
-    category: 'web_design',
+    category: 'wordpress_design',
 
   },
   {
@@ -79,7 +79,7 @@ const portfolioData = [
     subtitle: 'See Details Wordpress',
     href: 'http://realestate.wmfcagency.com',
     src: '/images/realestate.png',
-    category: 'web_design',
+    category: 'wordpress_design',
 
   },
   {
@@ -87,7 +87,7 @@ const portfolioData = [
     subtitle: 'See Details Wordpress',
     href: 'https://eshop.wmfcagency.com',
     src: '/images/Ecommerce-website.jpg',
-    category: 'web_design',
+    category: 'wordpress_design',
 
   },
   {
@@ -95,7 +95,7 @@ const portfolioData = [
     subtitle: 'See Details Wordpress',
     href: 'https://47consultants.com/',
     src: '/images/47consultant.png',
-    category: 'web_design',
+    category: 'wordpress_design',
 
   },
 
@@ -104,7 +104,7 @@ const portfolioData = [
     subtitle: 'See Details Wordpress',
     href: '/',
     src: '/images/Lawyer-Website.jpg',
-    category: 'web_design',
+    category: 'wordpress_design',
 
   },
   {
