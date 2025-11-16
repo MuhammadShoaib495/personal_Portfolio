@@ -21,6 +21,8 @@ import Layout from './components/Layout';
 import PersonalPortfolioHome from './components/Pages/PersonalPortfolioHome';
 import CaseStudyDetailsPage from './components/Pages/CaseStudyDetailsPage';
 import FaqPage from './components/Pages/FaqPage';
+import CaseStudyDetailsPage from './components/Pages/CaseStudyDetailsPage';
+
 
 function App() {
   return (
@@ -76,6 +78,7 @@ function App() {
             path="case-study-showcase"
             element={<CaseStudyShowcaseHome />}
           />
+              <Route path="/case-study/:id" element={<CaseStudyDetailsPage />} />
         </Route>
         <Route path="*" element={<ErrorPage />} />
       </Routes>
