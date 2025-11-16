@@ -101,8 +101,9 @@ export default function CaseStudyDetailsPage() {
     <h2 className="cs-font_38 cs-m0 mb-4">Client Testimonial</h2>
     <video 
       src={caseStudy.video} 
-      controls 
-      className="w-100 cs-radius_15"
+      controls
+  playsInline
+  style={{  objectFit: 'cover' }}
     >
       <div></div>
     </video>
