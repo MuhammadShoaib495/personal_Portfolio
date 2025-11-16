@@ -13,18 +13,18 @@ export default function ServiceList() {
       sectionId: "wordpressSection",
     },
     {
-      title: "Digital Ads/SEO",
-      subtitle:
-        "I run high-converting digital ad campaigns on Google and Facebook to drive leads and sales. My goal is to deliver impactful solutions that help businesses grow and thrive in the digital space.",
-      imgUrl: "/images/google_ads.webp",
-      sectionId: "adsSection",
-    },
-    {
       title: "Webflow Development",
       subtitle:
         "I have expertise in Webflow for designing fast-loading, SEO-optimized websites, Ecommerce stores, and custom business solutions for small businesses.",
       imgUrl: "/images/webflow-logo.jpg",
       sectionId: "wordpressSection",
+    },
+     {
+      title: "Digital Ads/SEO",
+      subtitle:
+        "I run high-converting digital ad campaigns on Google and Facebook to drive leads and sales. My goal is to deliver impactful solutions that help businesses grow and thrive in the digital space.",
+      imgUrl: "/images/google_ads.webp",
+      sectionId: "adsSection",
     },
   ];
 
