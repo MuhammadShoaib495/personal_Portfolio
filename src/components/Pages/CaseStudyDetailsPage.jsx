@@ -80,9 +80,9 @@ export default function CaseStudyDetailsPage() {
           <Spacing lg="90" md="45" />
 
          
-         {caseStudy.research.map((res, idx) => (
+           {caseStudy.research.map((res, idx) => (
             <Div
-              className={`row align-items-center ${idx % 2 === 0 ? 'cs-column_reverse_lg' : ''}`}
+              className={`row align-items-center ${idx % 2 === 0 ? '' : 'cs-column_reverse_lg'}`}
               key={idx}
             >
               <Div className="col-lg-5">
