@@ -55,10 +55,7 @@ function App() {
           <Route path="contact" element={<ContactPage />} />
           <Route path="team" element={<TeamPage />} />
           <Route path="team/:teamDetails" element={<TeamDetails />} />
-          <Route
-            path="/case-study/:caseStudyDetailsId"
-            element={<CaseStudyDetailsPage />}
-          />
+          <Route path="/case-study/:id" element={<CaseStudyDetailsPage />} />
           <Route path="faq" element={<FaqPage />} />
         </Route>
         <Route
@@ -77,7 +74,7 @@ function App() {
             path="case-study-showcase"
             element={<CaseStudyShowcaseHome />}
           />
-              <Route path="/case-study/:id" element={<CaseStudyDetailsPage />} />
+              
         </Route>
         <Route path="*" element={<ErrorPage />} />
       </Routes>
