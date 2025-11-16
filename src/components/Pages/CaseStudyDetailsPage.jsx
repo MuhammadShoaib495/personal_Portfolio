@@ -93,15 +93,27 @@ export default function CaseStudyDetailsPage() {
         </Div>
       </Div>
 
-      {/* Result Section */}
-      <Spacing lg="140" md="80" />
-      <Div className="container text-center">
-        <Div className="row col-lg-10 offset-lg-1">
-          <h2 className="cs-font_38 cs-m0">Result of The Case Study</h2>
-          <Spacing lg="60" md="45" />
-          <p className="cs-m0">{caseStudy.result}</p>
-        </Div>
-      </Div>
+     {/* Result Section */}
+<Spacing lg="140" md="80" />
+<Div className="container text-center">
+  <Div className="row col-lg-10 offset-lg-1">
+    <h2 className="cs-font_38 cs-m0">Result of The Case Study</h2>
+    <Spacing lg="60" md="45" />
+    <p className="cs-m0">{caseStudy.result}</p>
+    <Spacing lg="30" md="20" />
+    {caseStudy.liveLink && (
+      <a
+        href={caseStudy.liveLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="cs-btn cs-btn_primary"
+      >
+        View Live Website
+      </a>
+    )}
+  </Div>
+</Div>
+
 
       {/* CTA Section */}
       <Spacing lg="145" md="80" />
