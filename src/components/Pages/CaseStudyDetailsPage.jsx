@@ -4,7 +4,6 @@ import { caseStudies } from '../../data/caseStudies';
 import { pageTitle } from '../../helper';
 import Cta from '../Cta';
 import Div from '../Div';
-import PageHeading from '../PageHeading';
 import SectionHeading from '../SectionHeading';
 import Spacing from '../Spacing';
 
@@ -23,11 +22,7 @@ export default function CaseStudyDetailsPage() {
   return (
     <>
       {/* Page Hero */}
-      <PageHeading
-        title={caseStudy.title}
-        bgSrc={caseStudy.heroImage || '/images/contact_hero_bg.jpeg'}
-        pageLinkText={caseStudy.title}
-      />
+     
       <Spacing lg="145" md="80" />
 
       {/* Case Study Intro */}
