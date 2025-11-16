@@ -2,8 +2,8 @@ export const caseStudies = [
   {
     id: '47-consultants',
     title: '47 Consultants Video Marketing Agency',
-    heroImage: '/images/slider_5.jpeg',
-    category: 'Marketing',
+    heroImage: '/images/47consultant.png',
+    category: 'Website Design',
     overview:
       'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium...',
     research: [
@@ -52,3 +52,4 @@ export const caseStudies = [
     link: '/case-study/william-barber',
   },
 ];
+
