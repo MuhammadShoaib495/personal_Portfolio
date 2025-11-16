@@ -11,8 +11,8 @@ export default function CaseStudyShowcaseHome() {
   }, []);
 
   const heroSocialLinks = [
-    { name: 'Behance', links: '/' },
-    { name: 'Twitter', links: '/' },
+    { name: 'Facebook', links: 'https://web.facebook.com/mshoaibceowmfc/' },
+    { name: 'Linkedin', links: 'https://www.linkedin.com/in/muhammadshoaib-wordpress-seo-copywriter/' },
   ];
 
   const showcaseData = caseStudies.map((cs) => ({
