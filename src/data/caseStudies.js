@@ -21,7 +21,7 @@ export const caseStudies = [
       },
     ],
     images: [
-      '/images/case_study_img_1.jpeg',
+      '/images/47consultant.png',
       '/images/case_study_img_2.jpeg',
       '/images/case_study_img_3.jpeg',
     ],
@@ -52,4 +52,5 @@ export const caseStudies = [
     link: '/case-study/william-barber',
   },
 ];
+
 
