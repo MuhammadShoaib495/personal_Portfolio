@@ -6,25 +6,11 @@ import "./servicelist.scss";
 export default function ServiceList() {
   const serviceData = [
     {
-      title: "WordPress/Webflow Development",
+      title: "WordPress Development",
       subtitle:
-        "I have expertise in WordPress/Webflow for designing fast-loading, SEO-optimized websites, Ecommerce stores, and custom business solutions for small businesses.",
+        "I have expertise in WordPress for designing fast-loading, SEO-optimized websites, Ecommerce stores, and custom business solutions for small businesses.",
       imgUrl: "/images/wordpress-logo.jpg",
       sectionId: "wordpressSection",
-    },
-    {
-      title: "Reactjs & Nodejs",
-      subtitle:
-        "I have expertise in React and Node.js for building fast, scalable, and SEO-friendly web applications, integrating APIs, and developing custom solutions for small businesses and enterprises.",
-      imgUrl: "/images/react.png",
-      sectionId: "reactNodeSection",
-    },
-    {
-      title: "Flutter Apps",
-      subtitle:
-        "I have expertise in Flutter for building high-performance, scalable, and visually appealing mobile apps with seamless API integration and custom solutions for businesses.",
-      imgUrl: "/images/flutter_logo.png",
-      sectionId: "flutterSection",
     },
     {
       title: "Digital Ads/SEO",
@@ -32,6 +18,13 @@ export default function ServiceList() {
         "I run high-converting digital ad campaigns on Google and Facebook to drive leads and sales. My goal is to deliver impactful solutions that help businesses grow and thrive in the digital space.",
       imgUrl: "/images/google_ads.webp",
       sectionId: "adsSection",
+    },
+    {
+      title: "Webflow Development",
+      subtitle:
+        "I have expertise in Webflow for designing fast-loading, SEO-optimized websites, Ecommerce stores, and custom business solutions for small businesses.",
+      imgUrl: "/images/webflow-logo.jpg",
+      sectionId: "wordpressSection",
     },
   ];
 
@@ -95,3 +88,17 @@ export default function ServiceList() {
     </Div>
   );
 }
+/*/ {
+      title: "Reactjs & Nodejs",
+      subtitle:
+        "I have expertise in React and Node.js for building fast, scalable, and SEO-friendly web applications, integrating APIs, and developing custom solutions for small businesses and enterprises.",
+      imgUrl: "/images/react.png",
+      sectionId: "reactNodeSection",
+    },
+    {
+      title: "Flutter Apps",
+      subtitle:
+        "I have expertise in Flutter for building high-performance, scalable, and visually appealing mobile apps with seamless API integration and custom solutions for businesses.",
+      imgUrl: "/images/flutter_logo.png",
+      sectionId: "flutterSection",
+    },{}*/
