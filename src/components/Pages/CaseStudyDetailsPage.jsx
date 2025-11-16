@@ -101,9 +101,9 @@ export default function CaseStudyDetailsPage() {
     <Spacing lg="60" md="45" />
     <p className="cs-m0">{caseStudy.result}</p>
     <Spacing lg="30" md="20" />
-    {caseStudy.Link && (
+    {caseStudy.link && (
       <a
-        href={caseStudy.Link}
+        href={caseStudy.link}
         target="_blank"
         rel="noopener noreferrer"
         className="cs-btn cs-btn_primary"
