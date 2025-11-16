@@ -83,7 +83,7 @@ export default function CaseStudyDetailsPage() {
               </Div>
               <Div className="col-lg-6 offset-lg-1 text-center">
                 <Div className="cs-portfolio_img_in cs-shine_hover_1 rounded-circle">
-                  <img src={res.image} alt={res.title} className="w-100" />
+                  <img src={res.image} alt={res.title} className="w-100 cs-radius_5" />
                 </Div>
                 <Spacing lg="0" md="40" />
               </Div>
