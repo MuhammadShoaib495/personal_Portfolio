@@ -21,7 +21,6 @@ import Layout from './components/Layout';
 import PersonalPortfolioHome from './components/Pages/PersonalPortfolioHome';
 import CaseStudyDetailsPage from './components/Pages/CaseStudyDetailsPage';
 import FaqPage from './components/Pages/FaqPage';
-import CaseStudyDetailsPage from './components/Pages/CaseStudyDetailsPage';
 
 
 function App() {
