@@ -51,15 +51,13 @@ export default function CaseStudyDetailsPage() {
         <p className="cs-m0">{caseStudy.overview}</p>
         <Spacing lg="65" md="45" />
 
-       <Div className="row">
-          {caseStudy.images.slice(1, 3).map((img, idx) => (
-            <Div className="col-sm-6" key={idx}>
-              <img src={img} alt={`Thumb ${idx}`} className="w-100 cs-radius_5" />
-              <Spacing lg="25" md="25" />
+      <Div className="row">
+          {caseStudy.images.slice(1).map((img, i) => (
+            <Div className="col-sm-6 mb-4" key={i}>
+              <img src={img} alt={`Thumb ${i}`} className="w-100 cs-radius_5" />
             </Div>
           ))}
         </Div>
-        <Spacing lg="125" md="55" />
       </Div>
 
       {/* Research Section */}
