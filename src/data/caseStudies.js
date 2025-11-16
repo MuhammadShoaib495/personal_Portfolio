@@ -5,18 +5,18 @@ export const caseStudies = [
     heroImage: '/images/47consultant.png',
     category: 'Website Design',
     overview:
-      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium...',
+      'For the 47 Consultants Video Marketing Agency project, I designed a modern, user-friendly website in Figma, ensuring an intuitive layout and a visually engaging experience for visitors. I then developed the website in WordPress, implementing responsive design to ensure it looks great across all devices. The site was hosted on SiteGround, providing fast loading speeds and reliable uptime. Additionally, I configured Google Search Console (GSC) and performed initial SEO optimization to improve the website’s visibility and organic search performance. The result was a fully functional, professional website that effectively represents the brand and supports its marketing efforts.',
     research: [
       {
         title: 'Marketing strategy',
         description:
-          'Our goal perspiciatis unde omnis iste natus error sit voluptatem bolaru accusantium...',
+          'Developed a comprehensive marketing strategy to optimize the website for lead generation and client engagement. Focused on structuring content, designing clear CTAs, and organizing video marketing assets to maximize conversion potential.',
         image: '/images/case_study_img_4.png',
       },
       {
         title: 'Branding guideline',
         description:
-          'Our goal perspiciatis unde omnis iste natus error sit voluptatem bolaru accusantium...',
+          'Created consistent branding guidelines for the website, including color schemes, typography, imagery style, and iconography. Ensured the brand identity was cohesive across all pages and marketing materials.',
         image: '/images/case_study_img_5.png',
       },
     ],
@@ -26,7 +26,7 @@ export const caseStudies = [
       '/images/case_study_img_3.jpeg',
     ],
     result:
-      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium...',
+      'The project delivered a fully responsive WordPress website hosted on SiteGround, designed to showcase 47 Consultants’ expertise in social media marketing. With a professional, user-friendly layout and cohesive branding, the website enhances credibility and engages visitors effectively. Google Search Console (GSC) was configured, and on-page SEO was implemented, improving organic visibility and attracting potential clients. Overall, the website supports the agency’s marketing campaigns, highlights their services, and helps drive leads and business growth.',
     link: 'https://47consultants.com',
   },
   {
@@ -52,5 +52,6 @@ export const caseStudies = [
     link: '/case-study/william-barber',
   },
 ];
+
 
 
