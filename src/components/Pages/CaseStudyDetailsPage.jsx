@@ -6,6 +6,8 @@ import Cta from '../Cta';
 import Div from '../Div';
 import SectionHeading from '../SectionHeading';
 import Spacing from '../Spacing';
+import './video-responsive.scss'
+
 
 export default function CaseStudyDetailsPage() {
   const { id } = useParams();
