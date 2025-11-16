@@ -109,7 +109,7 @@ export default function CaseStudyDetailsPage() {
         <Cta
           title="Let’s discuss and make <br />something <i>cool</i> together"
           btnText="Apply For Meeting"
-          btnLink="/contact"
+          btnLink="mailto:wmfcagency@gmail.com"
           bgSrc="/images/cta_bg.jpeg"
         />
       </Div>
