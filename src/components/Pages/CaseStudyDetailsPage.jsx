@@ -92,6 +92,21 @@ export default function CaseStudyDetailsPage() {
           <Spacing lg="150" md="80" />
         </Div>
       </Div>
+      
+      {/* Client Testimonial Video */}
+{caseStudy.video && (
+  <Div className="container text-center my-5">
+    <h2 className="cs-font_38 cs-m0 mb-4">Client Testimonial</h2>
+    <video 
+      src={caseStudy.video} 
+      controls 
+      className="w-100 cs-radius_15"
+    >
+      <div></div>
+    </video>
+  </Div>
+)}
+
 
      {/* Result Section */}
 <Spacing lg="140" md="80" />
