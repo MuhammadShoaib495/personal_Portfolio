@@ -86,7 +86,8 @@ export default function PortfolioAssistant() {
   ]);
 
   setIsTyping(false);
-}
+  }
+};
 
   // ✅ Typing animation
   const typeBotMessage = (text: string, prevMessages: Message[]) => {
@@ -170,6 +171,7 @@ export default function PortfolioAssistant() {
     </div>
   );
 }
+
 
 
 
