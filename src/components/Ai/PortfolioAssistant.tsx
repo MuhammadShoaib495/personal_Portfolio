@@ -68,8 +68,8 @@ export default function PortfolioAssistant() {
           ]);
         }, 1000);
       }
-    } catch (error) {
-     console.error("Chat error:", error);
+   } catch (error) {
+  console.error("Chat error:", error);
 
   // Determine user-friendly message
   let botMessage = "Oops! Something went wrong. Please try again later.";
@@ -86,7 +86,7 @@ export default function PortfolioAssistant() {
   ]);
 
   setIsTyping(false);
-  };
+}
 
   // ✅ Typing animation
   const typeBotMessage = (text: string, prevMessages: Message[]) => {
@@ -170,6 +170,7 @@ export default function PortfolioAssistant() {
     </div>
   );
 }
+
 
 
 
