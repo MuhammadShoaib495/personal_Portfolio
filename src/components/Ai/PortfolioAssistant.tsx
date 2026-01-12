@@ -72,7 +72,7 @@ export default function PortfolioAssistant() {
       console.error("Chat error:", error);
       setMessages([
         ...newMessages,
-        { sender: "bot", text: "⚠️ Server error, please try again later." },
+        { sender: "bot", text: error.message },
       ]);
       setIsTyping(false);
     }
@@ -160,4 +160,5 @@ export default function PortfolioAssistant() {
     </div>
   );
 }
+
 
