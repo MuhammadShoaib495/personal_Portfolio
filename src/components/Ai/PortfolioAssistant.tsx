@@ -69,13 +69,23 @@ export default function PortfolioAssistant() {
         }, 1000);
       }
     } catch (error) {
-      console.error("Chat error:", error);
-      setMessages([
-        ...newMessages,
-        { sender: "bot", text: error.message },
-      ]);
-      setIsTyping(false);
-    }
+     console.error("Chat error:", error);
+
+  // Determine user-friendly message
+  let botMessage = "Oops! Something went wrong. Please try again later.";
+
+  // Handle 429 quota specifically
+  if (error.response && error.response.status === 429) {
+    botMessage = "Sorry, our AI service is temporarily busy. Please try again in a few minutes.";
+  }
+
+  // Update messages
+  setMessages([
+    ...newMessages,
+    { sender: "bot", text: botMessage },
+  ]);
+
+  setIsTyping(false);
   };
 
   // ✅ Typing animation
@@ -160,5 +170,6 @@ export default function PortfolioAssistant() {
     </div>
   );
 }
+
 
 
