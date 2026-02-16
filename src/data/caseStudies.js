@@ -17,7 +17,7 @@ export const caseStudies = [
       title: 'Luxury Branding & Visual Consistency',
       description:
         'Refined the typography, spacing, and visual direction to match a luxury CEO audience. Ensured consistency across headings, buttons, and section layouts so the brand feels polished and high-end.',
-      image: '/images/showcase/Vaconnect_H2.jpg',
+      image: '/images/showcase/Va_owner_h4.jpg',
     },
     {
       title: 'Webflow Development & Responsive Build',
@@ -90,6 +90,7 @@ export const caseStudies = [
     link: '/case-study/william-barber',
   },
 ];
+
 
 
 
