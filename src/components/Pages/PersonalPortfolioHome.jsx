@@ -43,6 +43,13 @@ const funfaceData = [
 ];
 const portfolioData = [
    {
+    title: 'Vaconnect',
+    subtitle: 'See Details Webflow',
+    href: 'https://www.vaconnect.co',
+    src: '/images/Vaconnect-Home-Page.jpg',
+    category: 'webflow_design',
+  },
+   {
     title: 'Sport',
     subtitle: 'See Details Webflow',
     href: 'http://sport64.webflow.io/',
