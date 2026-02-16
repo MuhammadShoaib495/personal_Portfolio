@@ -1,6 +1,6 @@
 export const caseStudies = [
     {
-    id: 'Vaconnect',
+    id: 'vaconnect',
     title: 'Vaconnect For Executived Virtual Assistants',
     heroImage: '/images/Vaconnect-Home-Page.jpg',
     category: 'Website Design',
@@ -27,7 +27,7 @@ export const caseStudies = [
       },
     ],
     images: [
-      '/images/showcase/47_H2.png',
+      '/images/Vaconnect-Home-Page.jpg',
       '/images/showcase/47_H3_1.png',
       '/images/showcase/47_H3_2.png',
     ],
@@ -90,6 +90,7 @@ export const caseStudies = [
     link: '/case-study/william-barber',
   },
 ];
+
 
 
 
