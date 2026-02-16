@@ -5,7 +5,7 @@ export const caseStudies = [
   heroImage: '/images/Vaconnect-Home-Page.jpg',
   category: 'Website Redesign (Figma → Webflow)',
   overview:
-    'VAConnect is an Executive Virtual Assistant service for CEOs and luxury-level clients. Dawnisha needed a full website redesign because the old site lacked proper layout structure, clear messaging, and a modern premium feel. I redesigned the complete website in Figma with a clean UI/UX approach, improved navigation, and conversion-focused sections. After final approval, I developed the design in Webflow, ensuring the website was fully responsive, fast, and easy to manage. Following the redesign, Dawnisha also partnered with me long-term for SEO to grow organic visibility and attract high-quality leads.',
+    'VAConnect is an Executive Virtual Assistant service for CEOs and luxury-level clients. Dawnisha needed a full website redesign because the old site lacked proper layout structure, clear messaging, and a modern premium feel.I redesigned the complete website in Figma, applying a clean UI/UX approach, improved navigation, and conversion-focused sections. To clearly show the transformation, the right side displays the old design, while the left side shows the new, modern redesign.After final approval, I developed the design in Webflow, ensuring the website was fully responsive, fast, and easy to manage. Following the redesign, Dawnisha also partnered with me long-term for SEO, to grow organic visibility and attract high-quality leads',
   research: [
     {
       title: 'UI/UX Structure & Content Flow',
@@ -90,6 +90,7 @@ export const caseStudies = [
     link: '/case-study/william-barber',
   },
 ];
+
 
 
 
