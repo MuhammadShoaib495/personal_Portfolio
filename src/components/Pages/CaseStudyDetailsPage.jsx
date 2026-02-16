@@ -125,6 +125,7 @@ export default function CaseStudyDetailsPage() {
         target="_blank"
         rel="noopener noreferrer"
         className="cs-btn cs-btn_primary"
+        style={{ color: "orange" }}
       >
         View Live Website
       </a>
