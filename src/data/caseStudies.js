@@ -28,7 +28,7 @@ export const caseStudies = [
     ],
     images: [
       '/images/showcase/Vaconnect_H2.jpg',
-      '/images/showcase/vaconnect_h3.png',
+      '/images/showcase/vaconnect_h3.jpg',
       '/images/showcase/vaconnect_before.png',
     ],
     result:
@@ -90,6 +90,7 @@ export const caseStudies = [
     link: '/case-study/william-barber',
   },
 ];
+
 
 
 
