@@ -23,7 +23,7 @@ export const caseStudies = [
       title: 'Webflow Development & Responsive Build',
       description:
         'Converted the Figma redesign into Webflow with a responsive structure across desktop, tablet, and mobile. Ensured smooth interactions, clean class naming, and easy future updates for the client.',
-      image: '/images/showcase/full.png',
+      image: '/images/showcase/webflow_dev.jpg',
     },
   ],
   images: [
@@ -90,6 +90,7 @@ export const caseStudies = [
     link: '/case-study/william-barber',
   },
 ];
+
 
 
 
