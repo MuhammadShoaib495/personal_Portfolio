@@ -1,0 +1,279 @@
+.scroll-laptop-image-section {
+  position: relative;
+
+  width: 100%;
+
+  /*
+   * Controls how much scrolling
+   * is available for the animation.
+   */
+  height: auto;
+
+  margin: 0;
+
+  padding: 0;
+}
+
+
+.scroll-laptop-image-sticky {
+  position: sticky;
+
+  top: 0;
+
+  width: 100%;
+
+  height: 100vh;
+
+  min-height: 600px;
+
+  overflow: hidden;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+/* =====================================================
+   THREE.JS CANVAS
+===================================================== */
+
+.laptop-canvas {
+  position: absolute !important;
+
+  inset: 0;
+
+  width: 100% !important;
+
+  height: 100% !important;
+
+  display: block;
+
+  z-index: 1;
+}
+/*OutSide of Image*/
+.outside-laptop-images {
+  position: absolute;
+
+  inset: 0;
+
+
+
+  z-index: 10;
+
+  pointer-events: none;
+}
+
+
+.outside-laptop-image {
+  position: absolute;
+
+  width: 560px;
+  height: 380px;
+
+  overflow: hidden;
+
+  border-radius: 14px;
+
+  opacity: 0;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+
+.outside-laptop-image img {
+  width: 490px;
+
+  display: block;
+
+  object-fit: cover;
+
+  border-radius: inherit;
+}
+
+
+.outside-image-left {
+  left: 1.5%;
+  top: 30%;
+}
+
+
+.outside-image-right {
+  right: -3%;
+  top: 30%;
+}
+
+
+/* =====================================================
+   IMAGE ON SCREEN
+===================================================== */
+
+.laptop-image {
+  position: absolute;
+
+  left: 50%;
+
+  /*
+   * The image is positioned relative
+   * to the center of the laptop screen.
+   */
+  top: 28%;
+
+  width: 32vw;
+
+  height: 39vh;
+
+  transform:
+    translate(-50%, -50%)
+    scale(0.96);
+
+  opacity: 0;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  z-index: 5;
+
+  pointer-events: none;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+
+.laptop-image img {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+  
+
+  object-fit: cover;
+
+  object-position: center;
+
+  border: 0;
+
+  border-radius: inherit;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 991px) {
+
+  .scroll-laptop-image-section {
+    height: auto;
+  }
+
+
+  .scroll-laptop-image-sticky {
+    min-height: 550px;
+  }
+
+  .outside-laptop-image {
+    display: none;
+  }
+  .laptop-image {
+    width: 72vw;
+
+    height: 36%;
+
+    border-radius: 9px;
+  }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 767px) {
+
+  .scroll-laptop-image-section {
+    height: auto;
+  }
+  .outside-laptop-image {
+    display: none;
+  }
+
+  .scroll-laptop-image-sticky {
+    min-height: 500px;
+  }
+
+
+  .laptop-image {
+    width: 72vw;
+
+    height: 34%;
+
+    border-radius: 8px;
+  }
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 575px) {
+
+  .scroll-laptop-image-section {
+    height: auto;
+  }
+
+
+  .scroll-laptop-image-sticky {
+    min-height: 460px;
+  }
+
+  .outside-laptop-image {
+    display: none;
+  }
+
+  .laptop-image {
+    width: 85vw;
+    height: 22vh;
+    object-fit: contain;
+    top: 41.5%;
+
+    border-radius: 7px;
+  }
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media (max-width: 400px) {
+
+  .scroll-laptop-image-section {
+    height: auto;
+  }
+  .outside-laptop-image {
+    display: none;
+  }
+
+  .scroll-laptop-image-sticky {
+    min-height: 430px;
+  }
+
+
+  .laptop-image {
+    width: 55%;
+
+    height: 30%;
+
+    border-radius: 6px;
+  }
+}
