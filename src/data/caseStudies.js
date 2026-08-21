@@ -163,8 +163,8 @@ export const caseStudies = [
     `,
 
     designImages: [
-      "/images/caseStudy/vaconnect/onpoint_figma_1.jpg",
-      "/images/caseStudy/vaconnect/onpoint_figma_2.jpg",
+      "/images/caseStudy/vaconnect/onpoint_figma_1.JPG",
+      "/images/caseStudy/vaconnect/onpoint_figma_2.JPG",
       "/images/caseStudy/vaconnect/onpoint_figma_3.jpg",
     ],
 
