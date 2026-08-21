@@ -197,8 +197,8 @@ export const caseStudies = [
     `,
 
     developmentImages: [
-      "/images/caseStudy/vaconnect/onpoint_webflow1.jpg",
-      "/images/caseStudy/vaconnect/onpoint_webflow2.jpg",
+      "/images/caseStudy/vaconnect/onpoint_webflow1.JPG",
+      "/images/caseStudy/vaconnect/onpoint_webflow2.JPG",
     ],
 
     seo: `
