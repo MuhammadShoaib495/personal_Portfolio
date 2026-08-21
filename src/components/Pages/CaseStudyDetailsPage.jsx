@@ -81,9 +81,9 @@ export default function CaseStudyDetailsPage() {
         <Spacing lg="140" md="80" />
       </Div>
 
-      <ScrollLaptopImage   imageSrc="/images/casestudy/vaconnect/onpoint_Dawnisha.jpg"  imageSrc2 =
-    "/images/casestudy/vaconnect/onpoint_vaconnect_home.jpg"
-  imageSrc3 = "/images/casestudy/vaconnect/onpoint_2.jpg"/>
+      <ScrollLaptopImage   imageSrc="/images/caseStudy/vaconnect/onpoint_Dawnisha.jpg"  imageSrc2 =
+    "/images/caseStudy/vaconnect/onpoint_vaconnect_home.jpg"
+  imageSrc3 = "/images/caseStudy/vaconnect/onpoint_2.jpg"/>
       <Spacing lg="145" md="80" />
 
 
