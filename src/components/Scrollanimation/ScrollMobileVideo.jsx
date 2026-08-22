@@ -386,7 +386,7 @@ function PhoneScene({
     ) {
 
       z =
-        11.5;
+        7.5;
 
       fov =
         38;
