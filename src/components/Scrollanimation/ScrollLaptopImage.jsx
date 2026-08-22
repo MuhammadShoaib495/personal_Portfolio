@@ -182,63 +182,67 @@ const screenTexture = useMemo(() => {
   // CAMERA
   // ===================================================
 
-  useEffect(() => {
+useEffect(() => {
+  if (!camera) return;
 
-    if (!camera) return;
+  const width = size.width;
 
-    let z = 9;
-    let fov = 49;
+  /*
+   * Reference:
+   * 320px  -> z = 5
+   * 1024px -> z = 9
+   *
+   * Between 320 and 1024 the value changes smoothly.
+   */
 
-    if (size.width <= 280) {
+  const minWidth = 320;
+  const maxWidth = 1024;
 
-      z = 7.8;
-      fov = 40;
+  const minZ = 6.8;
+  const maxZ = 11.5;
 
-    } else if (size.width <= 400) {
+  // Clamp width between 320 and 1024
+  const clampedWidth = Math.max(
+    minWidth,
+    Math.min(maxWidth, width)
+  );
 
-      z = 5.0;
-      fov = 40;
+  // Convert width to 0 → 1
+  const progress =
+    (clampedWidth - minWidth) /
+    (maxWidth - minWidth);
 
-    } else if (size.width <= 575) {
+  // Calculate Z
+  const z =
+    minZ +
+    (maxZ - minZ) * progress;
 
-      z = 5;
-      fov = 38;
+  /*
+   * FOV can also remain mostly stable.
+   * Smaller FOV = laptop appears larger.
+   */
+  const fov = 38;
 
-    } else if (size.width <= 767) {
+  camera.position.set(
+    0,
+    0,
+    z
+  );
 
-      z = 9.5;
-      fov = 36;
+  camera.lookAt(
+    0,
+    0,
+    0
+  );
 
-    } else if (size.width <= 991) {
+  camera.fov = fov;
 
-      z = 9;
-      fov = 34;
+  camera.updateProjectionMatrix();
 
-    }
-
-
-    camera.position.set(
-      0,
-      0,
-      z
-    );
-
-
-    camera.lookAt(
-      0,
-      0,
-      0
-    );
-
-
-    camera.fov = fov;
-
-    camera.updateProjectionMatrix();
-
-  }, [
-    camera,
-    size.width,
-  ]);
+}, [
+  camera,
+  size.width,
+]);
 
 
   // ===================================================
