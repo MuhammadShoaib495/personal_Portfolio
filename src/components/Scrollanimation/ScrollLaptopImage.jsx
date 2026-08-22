@@ -10,7 +10,15 @@ import {
   useThree,
 } from "@react-three/fiber";
 
-import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeometry.js";
+import {
+  useTexture,
+} from "@react-three/drei";
+
+import * as THREE from "three";
+
+import {
+  RoundedBoxGeometry,
+} from "three/examples/jsm/geometries/RoundedBoxGeometry.js";
 
 import "./ScrollLaptopImage.scss";
 
@@ -20,132 +28,259 @@ import "./ScrollLaptopImage.scss";
 // =====================================================
 
 function LaptopModel({
+  imageSrc,
   scrollProgress,
   laptopProgress,
 }) {
-  const laptopRef = useRef(null);
-  const screenGroupRef = useRef(null);
 
-  const smoothProgress = useRef(0);
+  const laptopRef =
+    useRef(null);
 
-  const { camera, size } = useThree();
+  const screenGroupRef =
+    useRef(null);
+
+  const smoothProgress =
+    useRef(0);
+
+  const { camera, size } =
+    useThree();
+
+
+  // ===================================================
+  // SCREEN IMAGE TEXTURE
+  // ===================================================
+
+  const screenTexture =
+    useTexture(imageSrc);
+
+
+  // ===================================================
+  // TEXTURE SETTINGS
+  // ===================================================
+
+  useEffect(() => {
+
+    if (!screenTexture) {
+      return;
+    }
+
+
+    /*
+     * IMPORTANT
+     *
+     * Do NOT use negative repeat here.
+     *
+     * This keeps the original image
+     * orientation.
+     */
+
+    screenTexture.wrapS =
+      THREE.ClampToEdgeWrapping;
+
+    screenTexture.wrapT =
+      THREE.ClampToEdgeWrapping;
+
+
+    screenTexture.repeat.set(
+      -1,
+      1
+    );
+
+
+    screenTexture.offset.set(
+      0,
+      0,
+    );
+
+
+    /*
+     * Correct color for website screenshot.
+     */
+
+    screenTexture.colorSpace =
+      THREE.SRGBColorSpace;
+
+
+    screenTexture.needsUpdate =
+      true;
+
+  }, [
+    screenTexture,
+  ]);
 
 
   // ===================================================
   // GEOMETRIES
   // ===================================================
 
-  const baseGeometry = useMemo(
-    () =>
-      new RoundedBoxGeometry(
-        6.4,
-        3.6,
-        0.32,
-        12,
-        0.18
-      ),
-    []
-  );
+  const baseGeometry =
+    useMemo(
+      () =>
+        new RoundedBoxGeometry(
+          6.4,
+          3.6,
+          0.32,
+          12,
+          0.18
+        ),
+      []
+    );
 
 
-  const keyboardGeometry = useMemo(
-    () =>
-      new RoundedBoxGeometry(
-        5.8,
-        3.0,
-        0.12,
-        12,
-        0.10
-      ),
-    []
-  );
+  const keyboardGeometry =
+    useMemo(
+      () =>
+        new RoundedBoxGeometry(
+          5.8,
+          3.0,
+          0.12,
+          12,
+          0.10
+        ),
+      []
+    );
 
 
-  const screenBodyGeometry = useMemo(
-    () =>
-      new RoundedBoxGeometry(
-        6.4,
-        4.0,
-        0.28,
-        12,
-        0.18
-      ),
-    []
-  );
+  const screenBodyGeometry =
+    useMemo(
+      () =>
+        new RoundedBoxGeometry(
+          6.4,
+          4.0,
+          0.28,
+          12,
+          0.18
+        ),
+      []
+    );
 
 
-  const screenGeometry = useMemo(
-    () =>
-      new RoundedBoxGeometry(
-        5.85,
-        3.45,
-        0.06,
-        12,
-        0.12
-      ),
-    []
-  );
+  const screenGeometry =
+    useMemo(
+      () =>
+        new RoundedBoxGeometry(
+          5.85,
+          3.45,
+          0.06,
+          12,
+          0.12
+        ),
+      []
+    );
 
 
-  const trackpadGeometry = useMemo(
-    () =>
-      new RoundedBoxGeometry(
-        1.4,
-        0.65,
-        0.06,
-        10,
-        0.08
-      ),
-    []
-  );
+  const trackpadGeometry =
+    useMemo(
+      () =>
+        new RoundedBoxGeometry(
+          1.4,
+          0.65,
+          0.06,
+          10,
+          0.08
+        ),
+      []
+    );
 
 
   // ===================================================
-  // FRONT CAMERA
+  // CAMERA
   // ===================================================
 
   useEffect(() => {
 
-    if (!camera) return;
+    if (!camera) {
+      return;
+    }
 
 
     let z = 9;
+
     let fov = 49;
 
 
+    // -----------------------------------------------
+    // VERY SMALL MOBILE
+    // -----------------------------------------------
+
     if (size.width <= 400) {
 
-      z = 11;
+      z = 8;
+
       fov = 40;
 
-    } else if (size.width <= 575) {
+    }
+
+
+    // -----------------------------------------------
+    // SMALL MOBILE
+    // -----------------------------------------------
+
+    else if (size.width <= 575) {
 
       z = 10;
+
       fov = 38;
 
-    } else if (size.width <= 767) {
+    }
+
+
+    // -----------------------------------------------
+    // MOBILE
+    // -----------------------------------------------
+
+    else if (size.width <= 767) {
 
       z = 9.5;
+
       fov = 36;
 
-    } else if (size.width <= 991) {
+    }
+     else if (size.width <= 1024) {
 
-      z = 9;
+      z = 16.5;
+
+      fov = 36;
+
+    }
+    
+
+    // -----------------------------------------------
+    // TABLET
+    // -----------------------------------------------
+
+    else if (size.width <= 991) {
+
+      z = 11;
+
       fov = 34;
 
     }
 
 
-    /*
-     * EXACT FRONT CAMERA
-     *
-     * No Y angle.
-     */
+    // -----------------------------------------------
+    // CAMERA POSITION
+    // -----------------------------------------------
 
     camera.position.set(
       0,
       0,
       z
+    );
+
+
+    /*
+     * Straight front camera.
+     *
+     * No Y rotation.
+     * No X rotation.
+     * No Z rotation.
+     */
+
+    camera.rotation.set(
+      0,
+      0,
+      0
     );
 
 
@@ -156,7 +291,9 @@ function LaptopModel({
     );
 
 
-    camera.fov = fov;
+    camera.fov =
+      fov;
+
 
     camera.updateProjectionMatrix();
 
@@ -167,87 +304,10 @@ function LaptopModel({
 
 
   // ===================================================
-  // SCROLL ANIMATION
+  // ANIMATION
   // ===================================================
 
   useFrame(() => {
-    const outsideImages =
-  document.querySelectorAll(
-    ".outside-laptop-image"
-  );
-
-outsideImages.forEach((image, index) => {
-
-  const progress =
-    smoothProgress.current;
-
-  /*
-   * Images start hidden
-   * and appear as laptop opens.
-   */
-
-  const start = 0.55;
-
-  let imageProgress =
-    (progress - start) /
-    (1 - start);
-
-  imageProgress =
-    Math.max(
-      0,
-      Math.min(
-        1,
-        imageProgress
-      )
-    );
-
-
-  /*
-   * Left image comes
-   * from the left.
-   *
-   * Right image comes
-   * from the right.
-   */
-
-  const direction =
-    index === 0
-      ? -1
-      : 1;
-
-
-  const translateX =
-    direction *
-    (120 -
-      imageProgress * 120);
-
-
-  const translateY =
-    30 -
-    imageProgress * 30;
-
-
-  const scale =
-    0.7 +
-    imageProgress * 0.3;
-
-
-  image.style.opacity =
-    String(imageProgress);
-
-
-  image.style.transform =
-    `translate(
-      ${translateX}px,
-      ${translateY}px
-    ) scale(${scale})`;
-
-});
-
-    if (!laptopRef.current) {
-      return;
-    }
-
 
     // -----------------------------------------------
     // SMOOTH SCROLL
@@ -269,12 +329,101 @@ outsideImages.forEach((image, index) => {
 
 
     // -----------------------------------------------
+    // OUTSIDE IMAGES
+    // -----------------------------------------------
+
+    const outsideImages =
+      document.querySelectorAll(
+        ".outside-laptop-image"
+      );
+
+
+    outsideImages.forEach(
+      (image, index) => {
+
+        const start =
+          0.55;
+
+
+        let imageProgress =
+          (
+            progress -
+            start
+          ) /
+          (
+            1 -
+            start
+          );
+
+
+        imageProgress =
+          Math.max(
+            0,
+            Math.min(
+              1,
+              imageProgress
+            )
+          );
+
+
+        const direction =
+          index === 0
+            ? -1
+            : 1;
+
+
+        const translateX =
+          direction *
+          (
+            120 -
+            imageProgress * 120
+          );
+
+
+        const translateY =
+          30 -
+          imageProgress * 30;
+
+
+        const scale =
+          0.7 +
+          imageProgress * 0.3;
+
+
+        image.style.opacity =
+          String(
+            imageProgress
+          );
+
+
+        image.style.transform =
+          `translate(
+            ${translateX}px,
+            ${translateY}px
+          )
+          scale(${scale})`;
+
+      }
+    );
+
+
+    // -----------------------------------------------
+    // LAPTOP CHECK
+    // -----------------------------------------------
+
+    if (!laptopRef.current) {
+      return;
+    }
+
+
+    // -----------------------------------------------
     // SCREEN OPENING
     // -----------------------------------------------
 
     /*
      * 0 = closed
-     * 1 = fully open
+     *
+     * 1 = completely open
      */
 
     const closedAngle =
@@ -290,10 +439,13 @@ outsideImages.forEach((image, index) => {
       (
         openAngle -
         closedAngle
-      ) * progress;
+      ) *
+      progress;
 
 
-    if (screenGroupRef.current) {
+    if (
+      screenGroupRef.current
+    ) {
 
       screenGroupRef.current.rotation.x =
         targetAngle;
@@ -302,27 +454,38 @@ outsideImages.forEach((image, index) => {
 
 
     // -----------------------------------------------
-    // RESPONSIVE SCALE
+    // RESPONSIVE LAPTOP SCALE
     // -----------------------------------------------
 
-    let scale = 0.95;
+    let scale =
+      0.95;
 
 
     if (size.width <= 400) {
 
-      scale = 0.38;
+      scale =
+        0.38;
 
-    } else if (size.width <= 575) {
+    }
 
-      scale = 0.44;
+    else if (size.width <= 575) {
 
-    } else if (size.width <= 767) {
+      scale =
+        0.44;
 
-      scale = 0.54;
+    }
 
-    } else if (size.width <= 991) {
+    else if (size.width <= 767) {
 
-      scale = 0.68;
+      scale =
+        0.54;
+
+    }
+
+    else if (size.width <= 991) {
+
+      scale =
+        0.68;
 
     }
 
@@ -335,8 +498,14 @@ outsideImages.forEach((image, index) => {
 
 
     // -----------------------------------------------
-    // FRONT POSITION
+    // IMPORTANT
     // -----------------------------------------------
+
+    /*
+     * DO NOT rotate the laptop.
+     *
+     * This prevents X/Y flipping.
+     */
 
     laptopRef.current.rotation.set(
       0,
@@ -344,6 +513,10 @@ outsideImages.forEach((image, index) => {
       0
     );
 
+
+    // -----------------------------------------------
+    // POSITION
+    // -----------------------------------------------
 
     if (size.width <= 575) {
 
@@ -353,7 +526,9 @@ outsideImages.forEach((image, index) => {
         0
       );
 
-    } else {
+    }
+
+    else {
 
       laptopRef.current.position.set(
         0,
@@ -371,15 +546,20 @@ outsideImages.forEach((image, index) => {
   // ===================================================
 
   return (
-    <group ref={laptopRef}>
+
+    <group
+      ref={laptopRef}
+    >
 
 
-      {/* =============================================
+      {/* =================================================
           BASE
-      ============================================= */}
+      ================================================= */}
 
       <mesh
-        geometry={baseGeometry}
+        geometry={
+          baseGeometry
+        }
         position={[
           0,
           -1.8,
@@ -396,12 +576,14 @@ outsideImages.forEach((image, index) => {
       </mesh>
 
 
-      {/* =============================================
+      {/* =================================================
           KEYBOARD
-      ============================================= */}
+      ================================================= */}
 
       <mesh
-        geometry={keyboardGeometry}
+        geometry={
+          keyboardGeometry
+        }
         position={[
           0,
           -1.57,
@@ -418,9 +600,9 @@ outsideImages.forEach((image, index) => {
       </mesh>
 
 
-      {/* =============================================
+      {/* =================================================
           KEYS
-      ============================================= */}
+      ================================================= */}
 
       <group
         position={[
@@ -432,59 +614,72 @@ outsideImages.forEach((image, index) => {
 
         {Array.from({
           length: 48,
-        }).map((_, index) => {
+        }).map(
+          (_, index) => {
 
-          const columns = 12;
+            const columns =
+              12;
 
-          const row =
-            Math.floor(
-              index / columns
+
+            const row =
+              Math.floor(
+                index /
+                columns
+              );
+
+
+            const column =
+              index %
+              columns;
+
+
+            return (
+
+              <mesh
+                key={index}
+                position={[
+                  -2.4 +
+                    column *
+                    0.44,
+
+                  -row *
+                    0.27,
+
+                  0,
+                ]}
+              >
+
+                <boxGeometry
+                  args={[
+                    0.32,
+                    0.17,
+                    0.05,
+                  ]}
+                />
+
+                <meshStandardMaterial
+                  color="#080808"
+                  roughness={0.35}
+                />
+
+              </mesh>
+
             );
 
-          const column =
-            index % columns;
-
-
-          return (
-            <mesh
-              key={index}
-              position={[
-                -2.4 +
-                  column * 0.44,
-
-                -row * 0.27,
-
-                0,
-              ]}
-            >
-
-              <boxGeometry
-                args={[
-                  0.32,
-                  0.17,
-                  0.05,
-                ]}
-              />
-
-              <meshStandardMaterial
-                color="#080808"
-                roughness={0.35}
-              />
-
-            </mesh>
-          );
-
-        })}
+          }
+        )}
 
       </group>
 
 
-      {/* =============================================
+      {/* =================================================
           TRACKPAD
-      ============================================= */}
+      ================================================= */}
 
       <mesh
-        geometry={trackpadGeometry}
+        geometry={
+          trackpadGeometry
+        }
         position={[
           0,
           -2.50,
@@ -501,15 +696,14 @@ outsideImages.forEach((image, index) => {
       </mesh>
 
 
-      {/* =============================================
+      {/* =================================================
           SCREEN GROUP
-          
-          IMPORTANT:
-          The pivot is at the bottom of the screen.
-      ============================================= */}
+      ================================================= */}
 
       <group
-        ref={screenGroupRef}
+        ref={
+          screenGroupRef
+        }
         position={[
           0,
           0,
@@ -517,12 +711,15 @@ outsideImages.forEach((image, index) => {
         ]}
       >
 
-        {/* ===========================================
+
+        {/* ===============================================
             SCREEN BODY
-        =========================================== */}
+        =============================================== */}
 
         <mesh
-          geometry={screenBodyGeometry}
+          geometry={
+            screenBodyGeometry
+          }
           position={[
             0,
             1.95,
@@ -539,12 +736,14 @@ outsideImages.forEach((image, index) => {
         </mesh>
 
 
-        {/* ===========================================
-            SCREEN
-        =========================================== */}
+        {/* ===============================================
+            IMAGE INSIDE LAPTOP SCREEN
+        =============================================== */}
 
         <mesh
-          geometry={screenGeometry}
+          geometry={
+            screenGeometry
+          }
           position={[
             0,
             1.95,
@@ -552,18 +751,24 @@ outsideImages.forEach((image, index) => {
           ]}
         >
 
-          <meshStandardMaterial
-            color="#050505"
-            metalness={0.05}
-            roughness={0.15}
+          <meshBasicMaterial
+            map={
+              screenTexture
+            }
+            side={
+              THREE.DoubleSide
+            }
+            toneMapped={
+              false
+            }
           />
 
         </mesh>
 
 
-        {/* ===========================================
-            CAMERA
-        =========================================== */}
+        {/* ===============================================
+            CAMERA / WEBCAM
+        =============================================== */}
 
         <mesh
           position={[
@@ -589,9 +794,11 @@ outsideImages.forEach((image, index) => {
 
         </mesh>
 
+
       </group>
 
     </group>
+
   );
 }
 
@@ -601,24 +808,28 @@ outsideImages.forEach((image, index) => {
 // =====================================================
 
 export default function ScrollLaptopImage({
+
   imageSrc =
     "/images/case-study/onpoint/desktop.jpg",
+
   imageSrc2 =
-    "/images/case-study/onPoint_vaconnect_home.jpg", 
-  imageSrc3 = "/images/case-study/onpoint_2.jpg",  
+    "/images/case-study/onPoint_vaconnect_home.jpg",
+
+  imageSrc3 =
+    "/images/case-study/onpoint_2.jpg",
+
 }) {
 
   const sectionRef =
     useRef(null);
 
+
   const scrollProgress =
     useRef(0);
 
+
   const laptopProgress =
     useRef(0);
-
-  const imageRef =
-    useRef(null);
 
 
   // ===================================================
@@ -643,26 +854,18 @@ export default function ScrollLaptopImage({
           section.getBoundingClientRect();
 
 
-        const height =
+        const viewportHeight =
           window.innerHeight;
 
 
-        /*
-         * Animation starts when
-         * section enters viewport.
-         */
-
         const start =
-          height * 0.90;
+          viewportHeight *
+          0.90;
 
-
-        /*
-         * Animation ends when
-         * section reaches this point.
-         */
 
         const end =
-          height * 0.10;
+          viewportHeight *
+          0.10;
 
 
         let progress =
@@ -717,123 +920,35 @@ export default function ScrollLaptopImage({
 
 
   // ===================================================
-  // IMAGE
-  // ===================================================
-
-  useEffect(() => {
-
-    let animationFrame;
-
-
-    const updateImage =
-      () => {
-
-        const image =
-          imageRef.current;
-
-
-        if (!image) {
-
-          animationFrame =
-            requestAnimationFrame(
-              updateImage
-            );
-
-          return;
-        }
-
-
-        const progress =
-          laptopProgress.current;
-
-
-        /*
-         * Image appears near
-         * the end of opening.
-         */
-
-        const start =
-          0.90;
-
-
-        if (
-          progress <
-          start
-        ) {
-
-          image.style.opacity =
-            "0";
-
-        } else {
-
-          let opacity =
-            (
-              progress -
-              start
-            ) /
-            (
-              1 -
-              start
-            );
-
-
-          opacity =
-            Math.max(
-              0,
-              Math.min(
-                1,
-                opacity
-              )
-            );
-
-
-          image.style.opacity =
-            String(opacity);
-
-        }
-
-
-        animationFrame =
-          requestAnimationFrame(
-            updateImage
-          );
-
-      };
-
-
-    animationFrame =
-      requestAnimationFrame(
-        updateImage
-      );
-
-
-    return () => {
-
-      cancelAnimationFrame(
-        animationFrame
-      );
-
-    };
-
-  }, []);
-
-
-  // ===================================================
   // RENDER
   // ===================================================
 
   return (
+
     <section
-      ref={sectionRef}
-      className="scroll-laptop-image-section"
+      ref={
+        sectionRef
+      }
+      className="
+        scroll-laptop-image-section
+      "
     >
 
       <div
-        className="scroll-laptop-image-sticky"
+        className="
+          scroll-laptop-image-sticky
+        "
       >
 
+
+        {/* =============================================
+            THREE.JS CANVAS
+        ============================================= */}
+
         <Canvas
-          className="laptop-canvas"
+          className="
+            laptop-canvas
+          "
           camera={{
             position: [
               0,
@@ -850,11 +965,15 @@ export default function ScrollLaptopImage({
           ]}
         >
 
-          {/* LIGHTING */}
+
+          {/* ===========================================
+              LIGHTING
+          =========================================== */}
 
           <ambientLight
             intensity={1.6}
           />
+
 
           <directionalLight
             position={[
@@ -865,6 +984,7 @@ export default function ScrollLaptopImage({
             intensity={2.2}
           />
 
+
           <directionalLight
             position={[
               -5,
@@ -874,6 +994,7 @@ export default function ScrollLaptopImage({
             intensity={0.8}
           />
 
+
           <directionalLight
             position={[
               5,
@@ -884,9 +1005,14 @@ export default function ScrollLaptopImage({
           />
 
 
-          {/* LAPTOP */}
+          {/* ===========================================
+              LAPTOP
+          =========================================== */}
 
           <LaptopModel
+            imageSrc={
+              imageSrc
+            }
             scrollProgress={
               scrollProgress
             }
@@ -895,43 +1021,69 @@ export default function ScrollLaptopImage({
             }
           />
 
+
         </Canvas>
 
+      </div>
 
-        {/* IMAGE */}
+
+      {/* =================================================
+          OUTSIDE IMAGES
+      ================================================= */}
+
+      <div
+        className="
+          outside-laptop-images
+        "
+      >
+
+
+        {/* LEFT IMAGE */}
 
         <div
-          ref={imageRef}
-          className="laptop-image"
+          className="
+            outside-laptop-image
+            outside-image-left
+          "
         >
 
           <img
-            src={imageSrc}
-            alt="Website preview"
+            src={
+              imageSrc2
+            }
+            alt="
+              Project preview 1
+            "
           />
 
         </div>
 
+
+        {/* RIGHT IMAGE */}
+
+        <div
+          className="
+            outside-laptop-image
+            outside-image-right
+          "
+        >
+
+          <img
+            src={
+              imageSrc3
+            }
+            alt="
+              Project preview 2
+            "
+          />
+
+        </div>
+
+
       </div>
-      {/* ADD HERE */}
-<div className="outside-laptop-images">
 
-  <div className="outside-laptop-image outside-image-left">
-    <img
-      src={imageSrc2}
-      alt="Project preview1"
-    />
-  </div>
-
-  <div className="outside-laptop-image outside-image-right">
-    <img
-      src={imageSrc3}
-      alt="Project preview2"
-    />
-  </div>
-
-</div>
 
     </section>
+
   );
 }
