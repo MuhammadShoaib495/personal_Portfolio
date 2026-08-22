@@ -110,7 +110,7 @@ function PhoneScene({
         true;
 
       element.muted =
-        true;
+        false;
 
       element.playsInline =
         true;
