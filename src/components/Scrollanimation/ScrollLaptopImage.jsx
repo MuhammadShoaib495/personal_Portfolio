@@ -192,12 +192,12 @@ const screenTexture = useMemo(() => {
 
     if (size.width <= 400) {
 
-      z = 11;
+      z = 5.0;
       fov = 40;
 
     } else if (size.width <= 575) {
 
-      z = 10;
+      z = 5;
       fov = 38;
 
     } else if (size.width <= 767) {
