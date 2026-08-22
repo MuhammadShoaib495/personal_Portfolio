@@ -11,10 +11,10 @@ import {
 } from "@react-three/fiber";
 
 import {
-  useTexture,
-} from "@react-three/drei";
-
-import * as THREE from "three";
+  TextureLoader,
+  SRGBColorSpace,
+  RepeatWrapping,
+} from "three";
 
 import {
   RoundedBoxGeometry,
@@ -28,159 +28,154 @@ import "./ScrollLaptopImage.scss";
 // =====================================================
 
 function LaptopModel({
-  imageSrc,
   scrollProgress,
   laptopProgress,
+  imageSrc,
 }) {
 
-  const laptopRef =
-    useRef(null);
+  const laptopRef = useRef(null);
+  const screenGroupRef = useRef(null);
 
-  const screenGroupRef =
-    useRef(null);
+  const smoothProgress = useRef(0);
 
-  const smoothProgress =
-    useRef(0);
-
-  const { camera, size } =
-    useThree();
+  const { camera, size } = useThree();
 
 
   // ===================================================
-  // SCREEN IMAGE TEXTURE
+  // LOAD SCREEN IMAGE
   // ===================================================
+const screenTexture = useMemo(() => {
+  const loader = new TextureLoader();
 
-  const screenTexture =
-    useTexture(imageSrc);
+  const texture = loader.load(
+    imageSrc,
+    (texture) => {
 
+      // Correct vertical orientation
+      texture.flipY = false;
 
-  // ===================================================
-  // TEXTURE SETTINGS
-  // ===================================================
+      // Allow negative repeat
+      texture.wrapS = RepeatWrapping;
 
-  useEffect(() => {
+      // Flip X only
+      texture.repeat.x = -1;
+      texture.repeat.y = 1;
 
-    if (!screenTexture) {
-      return;
+      // Required when using negative repeat
+      texture.offset.x = 1;
+      texture.offset.y = 0;
+
+      // No rotation
+      texture.rotation = 0;
+
+      texture.center.set(0.5, 0.5);
+
+      // Correct image colors
+      texture.colorSpace = SRGBColorSpace;
+
+      texture.needsUpdate = true;
+    },
+
+    undefined,
+
+    (error) => {
+      console.error(
+        "Laptop screen image failed:",
+        imageSrc,
+        error
+      );
     }
+  );
 
+  // Important defaults
+  texture.flipY = false;
 
-    /*
-     * IMPORTANT
-     *
-     * Do NOT use negative repeat here.
-     *
-     * This keeps the original image
-     * orientation.
-     */
+  texture.wrapS = RepeatWrapping;
 
-    screenTexture.wrapS =
-      THREE.ClampToEdgeWrapping;
+  texture.repeat.set(
+    -1,
+    1
+  );
 
-    screenTexture.wrapT =
-      THREE.ClampToEdgeWrapping;
+  texture.offset.set(
+    1,
+    0
+  );
 
+  texture.rotation = 0;
 
-    screenTexture.repeat.set(
-      -1,
-      1
-    );
+  return texture;
 
-
-    screenTexture.offset.set(
-      0,
-      0,
-    );
-
-
-    /*
-     * Correct color for website screenshot.
-     */
-
-    screenTexture.colorSpace =
-      THREE.SRGBColorSpace;
-
-
-    screenTexture.needsUpdate =
-      true;
-
-  }, [
-    screenTexture,
-  ]);
+}, [imageSrc]);
 
 
   // ===================================================
   // GEOMETRIES
   // ===================================================
 
-  const baseGeometry =
-    useMemo(
-      () =>
-        new RoundedBoxGeometry(
-          6.4,
-          3.6,
-          0.32,
-          12,
-          0.18
-        ),
-      []
-    );
+  const baseGeometry = useMemo(
+    () =>
+      new RoundedBoxGeometry(
+        6.4,
+        3.6,
+        0.32,
+        12,
+        0.18
+      ),
+    []
+  );
 
 
-  const keyboardGeometry =
-    useMemo(
-      () =>
-        new RoundedBoxGeometry(
-          5.8,
-          3.0,
-          0.12,
-          12,
-          0.10
-        ),
-      []
-    );
+  const keyboardGeometry = useMemo(
+    () =>
+      new RoundedBoxGeometry(
+        5.8,
+        3.0,
+        0.12,
+        12,
+        0.10
+      ),
+    []
+  );
 
 
-  const screenBodyGeometry =
-    useMemo(
-      () =>
-        new RoundedBoxGeometry(
-          6.4,
-          4.0,
-          0.28,
-          12,
-          0.18
-        ),
-      []
-    );
+  const screenBodyGeometry = useMemo(
+    () =>
+      new RoundedBoxGeometry(
+        6.4,
+        4.0,
+        0.28,
+        12,
+        0.18
+      ),
+    []
+  );
 
 
-  const screenGeometry =
-    useMemo(
-      () =>
-        new RoundedBoxGeometry(
-          5.85,
-          3.45,
-          0.06,
-          12,
-          0.12
-        ),
-      []
-    );
+  const screenGeometry = useMemo(
+    () =>
+      new RoundedBoxGeometry(
+        5.85,
+        3.45,
+        0.06,
+        12,
+        0.12
+      ),
+    []
+  );
 
 
-  const trackpadGeometry =
-    useMemo(
-      () =>
-        new RoundedBoxGeometry(
-          1.4,
-          0.65,
-          0.06,
-          10,
-          0.08
-        ),
-      []
-    );
+  const trackpadGeometry = useMemo(
+    () =>
+      new RoundedBoxGeometry(
+        1.4,
+        0.65,
+        0.06,
+        10,
+        0.08
+      ),
+    []
+  );
 
 
   // ===================================================
@@ -189,98 +184,39 @@ function LaptopModel({
 
   useEffect(() => {
 
-    if (!camera) {
-      return;
-    }
-
+    if (!camera) return;
 
     let z = 9;
-
     let fov = 49;
 
 
-    // -----------------------------------------------
-    // VERY SMALL MOBILE
-    // -----------------------------------------------
-
     if (size.width <= 400) {
 
-      z = 8;
-
+      z = 11;
       fov = 40;
 
-    }
-
-
-    // -----------------------------------------------
-    // SMALL MOBILE
-    // -----------------------------------------------
-
-    else if (size.width <= 575) {
+    } else if (size.width <= 575) {
 
       z = 10;
-
       fov = 38;
 
-    }
-
-
-    // -----------------------------------------------
-    // MOBILE
-    // -----------------------------------------------
-
-    else if (size.width <= 767) {
+    } else if (size.width <= 767) {
 
       z = 9.5;
-
       fov = 36;
 
-    }
-     else if (size.width <= 1024) {
+    } else if (size.width <= 991) {
 
-      z = 16.5;
-
-      fov = 36;
-
-    }
-    
-
-    // -----------------------------------------------
-    // TABLET
-    // -----------------------------------------------
-
-    else if (size.width <= 991) {
-
-      z = 11;
-
+      z = 9;
       fov = 34;
 
     }
 
 
-    // -----------------------------------------------
-    // CAMERA POSITION
-    // -----------------------------------------------
-
     camera.position.set(
       0,
       0,
       z
-    );
-
-
-    /*
-     * Straight front camera.
-     *
-     * No Y rotation.
-     * No X rotation.
-     * No Z rotation.
-     */
-
-    camera.rotation.set(
-      0,
-      0,
-      0
     );
 
 
@@ -291,9 +227,7 @@ function LaptopModel({
     );
 
 
-    camera.fov =
-      fov;
-
+    camera.fov = fov;
 
     camera.updateProjectionMatrix();
 
@@ -310,25 +244,6 @@ function LaptopModel({
   useFrame(() => {
 
     // -----------------------------------------------
-    // SMOOTH SCROLL
-    // -----------------------------------------------
-
-    smoothProgress.current +=
-      (
-        scrollProgress.current -
-        smoothProgress.current
-      ) * 0.07;
-
-
-    const progress =
-      smoothProgress.current;
-
-
-    laptopProgress.current =
-      progress;
-
-
-    // -----------------------------------------------
     // OUTSIDE IMAGES
     // -----------------------------------------------
 
@@ -341,8 +256,11 @@ function LaptopModel({
     outsideImages.forEach(
       (image, index) => {
 
-        const start =
-          0.55;
+        const progress =
+          smoothProgress.current;
+
+
+        const start = 0.55;
 
 
         let imageProgress =
@@ -391,25 +309,18 @@ function LaptopModel({
 
 
         image.style.opacity =
-          String(
-            imageProgress
-          );
+          String(imageProgress);
 
 
         image.style.transform =
           `translate(
             ${translateX}px,
             ${translateY}px
-          )
-          scale(${scale})`;
+          ) scale(${scale})`;
 
       }
     );
 
-
-    // -----------------------------------------------
-    // LAPTOP CHECK
-    // -----------------------------------------------
 
     if (!laptopRef.current) {
       return;
@@ -417,14 +328,27 @@ function LaptopModel({
 
 
     // -----------------------------------------------
-    // SCREEN OPENING
+    // SMOOTH SCROLL
     // -----------------------------------------------
 
-    /*
-     * 0 = closed
-     *
-     * 1 = completely open
-     */
+    smoothProgress.current +=
+      (
+        scrollProgress.current -
+        smoothProgress.current
+      ) * 0.07;
+
+
+    const progress =
+      smoothProgress.current;
+
+
+    laptopProgress.current =
+      progress;
+
+
+    // -----------------------------------------------
+    // SCREEN OPENING
+    // -----------------------------------------------
 
     const closedAngle =
       Math.PI / 2;
@@ -443,9 +367,7 @@ function LaptopModel({
       progress;
 
 
-    if (
-      screenGroupRef.current
-    ) {
+    if (screenGroupRef.current) {
 
       screenGroupRef.current.rotation.x =
         targetAngle;
@@ -454,38 +376,27 @@ function LaptopModel({
 
 
     // -----------------------------------------------
-    // RESPONSIVE LAPTOP SCALE
+    // RESPONSIVE SCALE
     // -----------------------------------------------
 
-    let scale =
-      0.95;
+    let scale = 0.95;
 
 
     if (size.width <= 400) {
 
-      scale =
-        0.38;
+      scale = 0.38;
 
-    }
+    } else if (size.width <= 575) {
 
-    else if (size.width <= 575) {
+      scale = 0.44;
 
-      scale =
-        0.44;
+    } else if (size.width <= 767) {
 
-    }
+      scale = 0.54;
 
-    else if (size.width <= 767) {
+    } else if (size.width <= 991) {
 
-      scale =
-        0.54;
-
-    }
-
-    else if (size.width <= 991) {
-
-      scale =
-        0.68;
+      scale = 0.68;
 
     }
 
@@ -498,14 +409,8 @@ function LaptopModel({
 
 
     // -----------------------------------------------
-    // IMPORTANT
+    // NO LAPTOP FLIP
     // -----------------------------------------------
-
-    /*
-     * DO NOT rotate the laptop.
-     *
-     * This prevents X/Y flipping.
-     */
 
     laptopRef.current.rotation.set(
       0,
@@ -526,9 +431,7 @@ function LaptopModel({
         0
       );
 
-    }
-
-    else {
+    } else {
 
       laptopRef.current.position.set(
         0,
@@ -547,19 +450,15 @@ function LaptopModel({
 
   return (
 
-    <group
-      ref={laptopRef}
-    >
+    <group ref={laptopRef}>
 
 
-      {/* =================================================
+      {/* =============================================
           BASE
-      ================================================= */}
+      ============================================= */}
 
       <mesh
-        geometry={
-          baseGeometry
-        }
+        geometry={baseGeometry}
         position={[
           0,
           -1.8,
@@ -576,14 +475,12 @@ function LaptopModel({
       </mesh>
 
 
-      {/* =================================================
+      {/* =============================================
           KEYBOARD
-      ================================================= */}
+      ============================================= */}
 
       <mesh
-        geometry={
-          keyboardGeometry
-        }
+        geometry={keyboardGeometry}
         position={[
           0,
           -1.57,
@@ -600,9 +497,9 @@ function LaptopModel({
       </mesh>
 
 
-      {/* =================================================
+      {/* =============================================
           KEYS
-      ================================================= */}
+      ============================================= */}
 
       <group
         position={[
@@ -614,72 +511,63 @@ function LaptopModel({
 
         {Array.from({
           length: 48,
-        }).map(
-          (_, index) => {
+        }).map((_, index) => {
 
-            const columns =
-              12;
+          const columns = 12;
 
 
-            const row =
-              Math.floor(
-                index /
-                columns
-              );
-
-
-            const column =
-              index %
-              columns;
-
-
-            return (
-
-              <mesh
-                key={index}
-                position={[
-                  -2.4 +
-                    column *
-                    0.44,
-
-                  -row *
-                    0.27,
-
-                  0,
-                ]}
-              >
-
-                <boxGeometry
-                  args={[
-                    0.32,
-                    0.17,
-                    0.05,
-                  ]}
-                />
-
-                <meshStandardMaterial
-                  color="#080808"
-                  roughness={0.35}
-                />
-
-              </mesh>
-
+          const row =
+            Math.floor(
+              index / columns
             );
 
-          }
-        )}
+
+          const column =
+            index % columns;
+
+
+          return (
+
+            <mesh
+              key={index}
+              position={[
+                -2.4 +
+                  column * 0.44,
+
+                -row * 0.27,
+
+                0,
+              ]}
+            >
+
+              <boxGeometry
+                args={[
+                  0.32,
+                  0.17,
+                  0.05,
+                ]}
+              />
+
+              <meshStandardMaterial
+                color="#080808"
+                roughness={0.35}
+              />
+
+            </mesh>
+
+          );
+
+        })}
 
       </group>
 
 
-      {/* =================================================
+      {/* =============================================
           TRACKPAD
-      ================================================= */}
+      ============================================= */}
 
       <mesh
-        geometry={
-          trackpadGeometry
-        }
+        geometry={trackpadGeometry}
         position={[
           0,
           -2.50,
@@ -696,14 +584,12 @@ function LaptopModel({
       </mesh>
 
 
-      {/* =================================================
+      {/* =============================================
           SCREEN GROUP
-      ================================================= */}
+      ============================================= */}
 
       <group
-        ref={
-          screenGroupRef
-        }
+        ref={screenGroupRef}
         position={[
           0,
           0,
@@ -712,14 +598,12 @@ function LaptopModel({
       >
 
 
-        {/* ===============================================
-            SCREEN BODY
-        =============================================== */}
+        {/* ===========================================
+            SCREEN OUTER BODY
+        =========================================== */}
 
         <mesh
-          geometry={
-            screenBodyGeometry
-          }
+          geometry={screenBodyGeometry}
           position={[
             0,
             1.95,
@@ -736,14 +620,12 @@ function LaptopModel({
         </mesh>
 
 
-        {/* ===============================================
-            IMAGE INSIDE LAPTOP SCREEN
-        =============================================== */}
+        {/* ===========================================
+            IMAGE DIRECTLY ON SCREEN
+        =========================================== */}
 
         <mesh
-          geometry={
-            screenGeometry
-          }
+          geometry={screenGeometry}
           position={[
             0,
             1.95,
@@ -752,23 +634,16 @@ function LaptopModel({
         >
 
           <meshBasicMaterial
-            map={
-              screenTexture
-            }
-            side={
-              THREE.DoubleSide
-            }
-            toneMapped={
-              false
-            }
+            map={screenTexture}
+            toneMapped={false}
           />
 
         </mesh>
 
 
-        {/* ===============================================
-            CAMERA / WEBCAM
-        =============================================== */}
+        {/* ===========================================
+            CAMERA
+        =========================================== */}
 
         <mesh
           position={[
@@ -798,7 +673,6 @@ function LaptopModel({
       </group>
 
     </group>
-
   );
 }
 
@@ -810,13 +684,13 @@ function LaptopModel({
 export default function ScrollLaptopImage({
 
   imageSrc =
-    "/images/case-study/onpoint/desktop.jpg",
+    "/images/caseStudy/vaconnect/onpoint_Dawnisha.jpg",
 
   imageSrc2 =
-    "/images/case-study/onPoint_vaconnect_home.jpg",
+    "/images/caseStudy/vaconnect/onpoint_vaconnect_home.jpg",
 
   imageSrc3 =
-    "/images/case-study/onpoint_2.jpg",
+    "/images/caseStudy/vaconnect/onpoint_2.jpg",
 
 }) {
 
@@ -838,61 +712,58 @@ export default function ScrollLaptopImage({
 
   useEffect(() => {
 
-    const updateScroll =
-      () => {
+    const updateScroll = () => {
 
-        const section =
-          sectionRef.current;
-
-
-        if (!section) {
-          return;
-        }
+      const section =
+        sectionRef.current;
 
 
-        const rect =
-          section.getBoundingClientRect();
+      if (!section) {
+        return;
+      }
 
 
-        const viewportHeight =
-          window.innerHeight;
+      const rect =
+        section.getBoundingClientRect();
 
 
-        const start =
-          viewportHeight *
-          0.90;
+      const height =
+        window.innerHeight;
 
 
-        const end =
-          viewportHeight *
-          0.10;
+      const start =
+        height * 0.90;
 
 
-        let progress =
-          (
-            start -
-            rect.top
-          ) /
-          (
-            start -
-            end
-          );
+      const end =
+        height * 0.10;
 
 
-        progress =
-          Math.max(
-            0,
-            Math.min(
-              1,
-              progress
-            )
-          );
+      let progress =
+        (
+          start -
+          rect.top
+        ) /
+        (
+          start -
+          end
+        );
 
 
-        scrollProgress.current =
-          progress;
+      progress =
+        Math.max(
+          0,
+          Math.min(
+            1,
+            progress
+          )
+        );
 
-      };
+
+      scrollProgress.current =
+        progress;
+
+    };
 
 
     window.addEventListener(
@@ -926,29 +797,16 @@ export default function ScrollLaptopImage({
   return (
 
     <section
-      ref={
-        sectionRef
-      }
-      className="
-        scroll-laptop-image-section
-      "
+      ref={sectionRef}
+      className="scroll-laptop-image-section"
     >
 
       <div
-        className="
-          scroll-laptop-image-sticky
-        "
+        className="scroll-laptop-image-sticky"
       >
 
-
-        {/* =============================================
-            THREE.JS CANVAS
-        ============================================= */}
-
         <Canvas
-          className="
-            laptop-canvas
-          "
+          className="laptop-canvas"
           camera={{
             position: [
               0,
@@ -965,10 +823,7 @@ export default function ScrollLaptopImage({
           ]}
         >
 
-
-          {/* ===========================================
-              LIGHTING
-          =========================================== */}
+          {/* LIGHTING */}
 
           <ambientLight
             intensity={1.6}
@@ -1005,40 +860,30 @@ export default function ScrollLaptopImage({
           />
 
 
-          {/* ===========================================
-              LAPTOP
-          =========================================== */}
+          {/* LAPTOP */}
 
           <LaptopModel
-            imageSrc={
-              imageSrc
-            }
             scrollProgress={
               scrollProgress
             }
             laptopProgress={
               laptopProgress
             }
+            imageSrc={
+              imageSrc
+            }
           />
-
 
         </Canvas>
 
       </div>
 
 
-      {/* =================================================
+      {/* =============================================
           OUTSIDE IMAGES
-      ================================================= */}
+      ============================================= */}
 
-      <div
-        className="
-          outside-laptop-images
-        "
-      >
-
-
-        {/* LEFT IMAGE */}
+      <div className="outside-laptop-images">
 
         <div
           className="
@@ -1048,18 +893,12 @@ export default function ScrollLaptopImage({
         >
 
           <img
-            src={
-              imageSrc2
-            }
-            alt="
-              Project preview 1
-            "
+            src={imageSrc2}
+            alt="Project preview 1"
           />
 
         </div>
 
-
-        {/* RIGHT IMAGE */}
 
         <div
           className="
@@ -1069,21 +908,14 @@ export default function ScrollLaptopImage({
         >
 
           <img
-            src={
-              imageSrc3
-            }
-            alt="
-              Project preview 2
-            "
+            src={imageSrc3}
+            alt="Project preview 2"
           />
 
         </div>
 
-
       </div>
 
-
     </section>
-
   );
 }
