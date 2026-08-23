@@ -13,6 +13,8 @@ import { Icon } from '@iconify/react';
 import TestimonialSlider from '../Slider/TestimonialSlider';
 import MovingText2 from '../MovingText/MovingText2';
 import './video-responsive.scss'
+import CaseStudy from '../CaseStudy';
+
 
 
 const funfaceData = [
