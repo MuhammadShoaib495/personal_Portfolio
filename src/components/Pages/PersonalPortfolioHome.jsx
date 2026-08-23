@@ -454,8 +454,8 @@ export default function PersonalPortfolioHome() {
         <div className="cs-height_150 cs-height_lg_80" />
       </section>
       {/* End Resume Section */}
-      {/* Start Testimonial Section */}
-      <section>
+  {/* Start Testimonial Section */}
+          <section>
         <div className="cs-height_145 cs-height_lg_75" />
         <div className="container">
           <SectionHeading
@@ -468,24 +468,50 @@ export default function PersonalPortfolioHome() {
         </div>
         <div className="cs-height_150 cs-height_lg_80" />
       </section>
+     
       {/* End Testimonial Section */}
-       {/* Video Testimonial Section*/}
-      <section  className="cs-fixed_bg"
-        style={{ backgroundImage: `url(images/resume_bg.jpeg)` }}>
+      {/* Case Study Section */}
+
+<section>
         <div className="cs-height_145 cs-height_lg_75" />
         <div className="container">
+          <SectionHeading
+            title="Case Study <br>of my work"
+            subtitle="Case Study"
+          />
+          <div className="cs-height_90 cs-height_lg_45" />
+            <CaseStudy
+                  title="VA Connect One Page to Marketing Website"
+                  bgUrl="/images/case_study_img_3.jpeg"
+                  href="/case-study/vaconnect"
+                  variant="cs-style2"
+                />
+          
+        </div>
+        <div className="cs-height_150 cs-height_lg_80" />
+      </section>
+      {/* End Case Study Section */}
+
+      {/* Video Testimonial Section*/}
+     
+          <section>
+            <div className="container">
            <SectionHeading
-            title="Real clients, <br />real reviews"
+            title="Real clients, <br />Results"
             subtitle="Video Testimonial"
           />
-                    <div className="cs-height_90 cs-height_lg_45" />
-                    <div className="video-responsive">
+          <Spacing lg="90" md="45" />
+
       {/* Use standard JSX to create the iframe element */}
+<div className="cs-fixed_bg"
+        style={{ backgroundImage: `url(images/resume_bg.jpeg)`, padding:"90px", borderRadius:"20px"}}>
+        <div className="cs-height_20 cs-height_lg_5 cs-padding" />
+ <div className="video-responsive">
 
 <video
   controls
   playsInline
-    style={{ objectFit: 'cover' }}
+    style={{ objectFit: 'cover', borderRadius: '10px',  boxShadow: '2px 4px 8px #ffffffe3' }}
 
 >
   <source
@@ -493,28 +519,27 @@ export default function PersonalPortfolioHome() {
     type="video/mp4"
   />
 </video>
-
 <video
   controls
   playsInline
-  style={{  objectFit: 'cover' }}
+    style={{ objectFit: 'cover', borderRadius: '10px',  boxShadow: '2px 4px 8px #ffffffe3' }}
 >
   <source
     src="https://raw.githubusercontent.com/MuhammadShoaib495/personal_Portfolio/b7288147f3b68ea6c2905bfb0efe227300fe2ea3/Willbarber-SEO-%20Marketing.mp4"
     type="video/mp4"
   />
 </video>
-
+</div>
+</div>
+<Spacing lg="90" md="45" />
 
 </div>
 
                       <div className="cs-height_150 cs-height_lg_80" />
 
-          </div>
       </section>
-      <section>
-        <div className="cs-height_145 cs-height_lg_75" />
-      </section>
+   
+      
       {/* Video Testimonial Section */}
       {/* Start CTA Section */}
       <Cta
