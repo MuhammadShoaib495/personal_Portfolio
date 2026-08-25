@@ -21,6 +21,8 @@ import Layout from './components/Layout';
 import PersonalPortfolioHome from './components/Pages/PersonalPortfolioHome';
 import CaseStudyDetailsPage from './components/Pages/CaseStudyDetailsPage';
 import FaqPage from './components/Pages/FaqPage';
+import AIImage from './components/Freeresource/ai-image/AIImage';
+
 
 
 function App() {
@@ -74,6 +76,9 @@ function App() {
             path="case-study-showcase"
             element={<CaseStudyShowcaseHome />}
           />
+        <Route
+        path="/ai-image"
+        element={<AIImage />} />
               
         </Route>
         <Route path="*" element={<ErrorPage />} />
