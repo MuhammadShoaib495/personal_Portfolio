@@ -77,7 +77,7 @@ function App() {
             element={<CaseStudyShowcaseHome />}
           />
         <Route
-        path="/ai-image"
+        path="ai-image"
         element={<AIImage />} />
               
         </Route>
