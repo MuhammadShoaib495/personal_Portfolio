@@ -72,6 +72,10 @@ function App() {
             path="showcase-portfolio"
             element={<ShowcasePortfolioHome />}
           />
+         <Route
+        path="ai-image"
+        element={<AIImage />} />
+        </Route>
           <Route
             path="case-study-showcase"
             element={<CaseStudyShowcaseHome />}
