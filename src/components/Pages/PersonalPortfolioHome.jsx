@@ -14,6 +14,8 @@ import TestimonialSlider from '../Slider/TestimonialSlider';
 import MovingText2 from '../MovingText/MovingText2';
 import './video-responsive.scss'
 import CaseStudy from '../CaseStudy';
+import Header from '../Header';
+
 
 
 
@@ -261,6 +263,7 @@ export default function PersonalPortfolioHome() {
   }, []);
   return (
     <>
+  <Header />
       <Hero11
         introTitle="Hello, I am 👋"
         title="Muhammad Shoaib "
