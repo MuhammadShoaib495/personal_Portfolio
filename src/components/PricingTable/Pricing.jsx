@@ -1,5 +1,5 @@
 import { pricingData, additionalServices } from "../../data/pricingData";
-import PricingTable from "../PricingTable";
+import PricingTable from "./index";
 import Spacing from "../Spacing";
 
 function Pricing() {
