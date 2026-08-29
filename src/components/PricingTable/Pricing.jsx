@@ -11,8 +11,10 @@ function Pricing() {
           {...pricing}
         />
       ))}
-      <Spacing lg={20} md={20}/>
-        <PricingTable
+
+      <Spacing lg={20} md={20} />
+
+      <PricingTable
         totalPrice="Additional Services"
         title={additionalServices.title}
         price={null}
