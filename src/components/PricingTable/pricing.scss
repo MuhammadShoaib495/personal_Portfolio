@@ -77,3 +77,10 @@
     padding: 0 30px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .responsive-table {
+    overflow: scroll;
+  }
+  
+}
