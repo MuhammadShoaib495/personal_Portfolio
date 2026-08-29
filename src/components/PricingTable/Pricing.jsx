@@ -5,13 +5,14 @@ import Spacing from "../Spacing";
 function Pricing() {
   return (
     <>
-      {pricingData.map((pricing, index) => (
-        <PricingTable
-          key={index}
-          {...pricing}
-        />
-      ))}
-
+      {features.map((feature, index) => (
+  <li key={index}>
+    <strong>{feature.serviceName}</strong>
+    <p>{feature.description}</p>
+    <span>{feature.hrs}</span>
+    <span>{feature.price}</span>
+  </li>
+))}
       <Spacing lg={20} md={20} />
 
       <PricingTable
