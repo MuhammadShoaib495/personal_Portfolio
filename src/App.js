@@ -22,6 +22,7 @@ import PersonalPortfolioHome from './components/Pages/PersonalPortfolioHome';
 import CaseStudyDetailsPage from './components/Pages/CaseStudyDetailsPage';
 import FaqPage from './components/Pages/FaqPage';
 import AIImage from './components/Freeresource/ai-image/AIImage';
+import ServicePage from './components/PricingTable/ServicePage';
 
 
 
@@ -72,6 +73,9 @@ function App() {
             path="showcase-portfolio"
             element={<ShowcasePortfolioHome />}
           />
+              <Route
+        path="/seo-pricing"
+        element={<ServicePage />} />
          <Route
         path="ai-image"
         element={<AIImage />} />
