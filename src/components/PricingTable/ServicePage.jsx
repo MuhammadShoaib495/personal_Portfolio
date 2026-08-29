@@ -7,7 +7,7 @@ import Cta from '../Cta';
 
 
 export default function ServicePage() {
-    
+ pageTitle('SEO Service Pricing');
     return(
         
     <Div className="container">  
