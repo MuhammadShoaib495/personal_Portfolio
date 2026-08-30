@@ -7,172 +7,556 @@ interface Message {
   text: string;
 }
 
+const API_URL =
+  "https://backend-portfolio-assistent.vercel.app";
+
 export default function PortfolioAssistant() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [userInput, setUserInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [chatEnded, setChatEnded] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
+  const [isStarting, setIsStarting] = useState(true);
 
   const chatBoxRef = useRef<HTMLDivElement>(null);
+  const typingIntervalRef = useRef<ReturnType<typeof setInterval> | null>(
+    null
+  );
 
-  // ✅ Auto-start message
+  // =====================================================
+  // INITIAL MESSAGE
+  // =====================================================
+
+  const initialMessage: Message = {
+    sender: "bot",
+    text:
+      "👋 Hi! I'm your website assistant. What kind of website are you looking to build?",
+  };
+
+  const newChatMessage: Message = {
+    sender: "bot",
+    text:
+      "👋 New chat started! What kind of website are you looking to build?",
+  };
+
+  // =====================================================
+  // CLEAN UP TYPING INTERVAL
+  // =====================================================
+
   useEffect(() => {
-    setMessages([
-      {
-        sender: "bot",
-        text: "👋 Hi! I'm your website assistant. What kind of website are you looking to build?",
-      },
-    ]);
+    return () => {
+      if (typingIntervalRef.current) {
+        clearInterval(typingIntervalRef.current);
+      }
+    };
   }, []);
 
-  // ✅ Auto-scroll to bottom when messages update
+  // =====================================================
+  // START NEW SESSION WHEN PAGE LOADS / REFRESHES
+  // =====================================================
+
+  useEffect(() => {
+    let mounted = true;
+
+    const startNewSession = async () => {
+      try {
+        setIsStarting(true);
+
+        /*
+         * IMPORTANT:
+         *
+         * /reset destroys the existing Express session.
+         *
+         * It does NOT create a new chat session because
+         * saveUninitialized:false is being used on the server.
+         *
+         * Therefore Redis should NOT receive a new chat
+         * session just because the page loaded.
+         */
+
+        await axios.post(
+          `${API_URL}/reset`,
+          {},
+          {
+            withCredentials: true,
+          }
+        );
+
+        if (mounted) {
+          setMessages([initialMessage]);
+          setChatEnded(false);
+          setUserInput("");
+        }
+
+        console.log("🆕 New chat session ready.");
+      } catch (error: any) {
+        console.error(
+          "❌ Could not initialize chat session:",
+          error?.response?.data || error?.message || error
+        );
+
+        /*
+         * Even if /reset fails, allow the user to see
+         * the chat UI.
+         */
+
+        if (mounted) {
+          setMessages([initialMessage]);
+          setChatEnded(false);
+        }
+      } finally {
+        if (mounted) {
+          setIsStarting(false);
+        }
+      }
+    };
+
+    startNewSession();
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  // =====================================================
+  // AUTO SCROLL
+  // =====================================================
+
   useEffect(() => {
     if (chatBoxRef.current) {
-      chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
+      chatBoxRef.current.scrollTop =
+        chatBoxRef.current.scrollHeight;
     }
   }, [messages]);
 
+  // =====================================================
+  // SEND MESSAGE
+  // =====================================================
+
   const sendMessage = async () => {
-    if (!userInput.trim() || chatEnded) return;
+    if (isStarting) return;
+
+    if (!userInput.trim()) return;
+
+    if (chatEnded) return;
+
+    const currentInput = userInput.trim();
 
     const newMessages: Message[] = [
       ...messages,
-      { sender: "user", text: userInput },
+      {
+        sender: "user",
+        text: currentInput,
+      },
     ];
+
     setMessages(newMessages);
-    const currentInput = userInput;
     setUserInput("");
     setIsTyping(true);
 
     try {
+      console.log("👤 Sending:", currentInput);
+
+      // =================================================
+      // SEND TO BACKEND
+      // =================================================
+
       const res = await axios.post(
-  "https://backend-portfolio-assistent.vercel.app/chat",
-  { message: currentInput },
-  { withCredentials: true } // 👈 keeps user session unique
-);
+        `${API_URL}/chat`,
+        {
+          message: currentInput,
+        },
+        {
+          /*
+           * VERY IMPORTANT
+           *
+           * This allows the browser to send the
+           * Express session cookie.
+           */
 
-      const botReply = res.data.reply || "No response received.";
-      typeBotMessage(botReply, newMessages);
+          withCredentials: true,
+        }
+      );
 
-      // ✅ End chat if email sent
-      if (botReply.toLowerCase().includes("-- end of summary --")) {
+      const botReply =
+        res.data?.reply ||
+        "No response received.";
+
+      console.log("🤖 AI:", botReply);
+
+      // =================================================
+      // TYPE BOT RESPONSE
+      // =================================================
+
+      typeBotMessage(
+        botReply,
+        newMessages
+      );
+
+      // =================================================
+      // CHECK IF CHAT IS FINISHED
+      // =================================================
+
+      if (
+        botReply
+          .toLowerCase()
+          .includes(
+            "-- end of summary --"
+          )
+      ) {
         setChatEnded(true);
+
+        /*
+         * Backend sends the email and destroys
+         * the Express session.
+         */
+
         setTimeout(() => {
           setMessages((prev) => [
             ...prev,
             {
               sender: "bot",
-              text: "✅ Your information has been sent successfully. You can start a new chat anytime.",
+              text:
+                "✅ Your information has been sent successfully. You can start a new chat anytime.",
             },
           ]);
         }, 1000);
       }
-   } catch (error) {
-  console.error("Chat error:", error);
+    } catch (error: any) {
+      console.error(
+        "❌ Chat error:",
+        error?.response?.data || error?.message || error
+      );
 
-  // Determine user-friendly message
-  let botMessage = "Oops! Something went wrong. Please try again later.";
+      // =================================================
+      // STOP TYPING
+      // =================================================
 
-  // Handle 429 quota specifically
-  if (error.response && error.response.status === 429) {
-    botMessage = "Sorry, our AI service is temporarily busy. Please try again in a few minutes.";
-  }
+      setIsTyping(false);
 
-  // Update messages
-  setMessages([
-    ...newMessages,
-    { sender: "bot", text: botMessage },
-  ]);
+      // =================================================
+      // USER FRIENDLY ERROR
+      // =================================================
 
-  setIsTyping(false);
-  }
-};
+      let botMessage =
+        "Oops! Something went wrong. Please try again later.";
 
-  // ✅ Typing animation
-  const typeBotMessage = (text: string, prevMessages: Message[]) => {
-    let index = 0;
-    const typingInterval = setInterval(() => {
-      if (index < text.length) {
-        setMessages([
-          ...prevMessages,
-          { sender: "bot", text: text.slice(0, index + 1) },
-        ]);
-        index++;
-      } else {
-        clearInterval(typingInterval);
-        setIsTyping(false);
+      // 429
+      if (
+        error?.response?.status === 429
+      ) {
+        botMessage =
+          "Sorry, our AI service is temporarily busy. Please try again in a few minutes.";
       }
-    }, 20);
+
+      // 500
+      else if (
+        error?.response?.status === 500
+      ) {
+        botMessage =
+          "Sorry, the AI assistant is temporarily unavailable. Please try again.";
+      }
+
+      // Network error
+      else if (
+        !error?.response
+      ) {
+        botMessage =
+          "Unable to connect to the server. Please check your internet connection and try again.";
+      }
+
+      setMessages([
+        ...newMessages,
+        {
+          sender: "bot",
+          text: botMessage,
+        },
+      ]);
+    }
   };
 
-  // ✅ Reset chat
-  const resetChat = () => {
-    setMessages([
-      {
-        sender: "bot",
-        text: "👋 New chat started! What kind of website are you looking to build?",
-      },
-    ]);
+  // =====================================================
+  // BOT TYPING ANIMATION
+  // =====================================================
+
+  const typeBotMessage = (
+    text: string,
+    previousMessages: Message[]
+  ) => {
+    // Clear previous interval
+    if (typingIntervalRef.current) {
+      clearInterval(
+        typingIntervalRef.current
+      );
+    }
+
+    let index = 0;
+
+    setIsTyping(true);
+
+    typingIntervalRef.current =
+      setInterval(() => {
+        if (index < text.length) {
+          setMessages([
+            ...previousMessages,
+            {
+              sender: "bot",
+              text:
+                text.slice(
+                  0,
+                  index + 1
+                ),
+            },
+          ]);
+
+          index++;
+        } else {
+          if (
+            typingIntervalRef.current
+          ) {
+            clearInterval(
+              typingIntervalRef.current
+            );
+
+            typingIntervalRef.current =
+              null;
+          }
+
+          setIsTyping(false);
+        }
+      }, 20);
+  };
+
+  // =====================================================
+  // RESET CHAT
+  // =====================================================
+
+  const resetChat = async () => {
+    // Stop typing animation
+    if (typingIntervalRef.current) {
+      clearInterval(
+        typingIntervalRef.current
+      );
+
+      typingIntervalRef.current =
+        null;
+    }
+
+    setIsTyping(false);
     setUserInput("");
     setChatEnded(false);
+
+    try {
+      console.log(
+        "🗑️ Destroying current server session..."
+      );
+
+      // =================================================
+      // DESTROY CURRENT REDIS SESSION
+      // =================================================
+
+      await axios.post(
+        `${API_URL}/reset`,
+        {},
+        {
+          withCredentials: true,
+        }
+      );
+
+      console.log(
+        "✅ Old session deleted."
+      );
+
+      /*
+       * /reset destroys the old Express session.
+       *
+       * We don't immediately send /chat here.
+       *
+       * Therefore no new Redis chat session is
+       * created until the user sends a message.
+       */
+
+      setMessages([
+        newChatMessage,
+      ]);
+
+      console.log(
+        "🆕 Waiting for first message..."
+      );
+    } catch (error: any) {
+      console.error(
+        "❌ Reset error:",
+        error?.response?.data ||
+          error?.message ||
+          error
+      );
+
+      /*
+       * Still reset the UI even if the
+       * backend reset request fails.
+       */
+
+      setMessages([
+        newChatMessage,
+      ]);
+    }
   };
+
+  // =====================================================
+  // ENTER KEY
+  // =====================================================
+
+  const handleKeyDown = (
+    e: React.KeyboardEvent<HTMLTextAreaElement>
+  ) => {
+    /*
+     * Enter = send
+     *
+     * Shift + Enter = new line
+     */
+
+    if (
+      e.key === "Enter" &&
+      !e.shiftKey &&
+      !e.ctrlKey
+    ) {
+      e.preventDefault();
+
+      sendMessage();
+    }
+  };
+
+  // =====================================================
+  // UI
+  // =====================================================
 
   return (
     <div className="chat-container">
-      {/* Header */}
+
+      {/* ================================================
+          HEADER
+      ================================================= */}
+
       <div className="chat-header">
         💬 AI Portfolio Assistant
+
         <div className="chat-actions">
-          <button className="toggle-btn" onClick={() => setIsMinimized(!isMinimized)}>
-            {isMinimized ? "🔼" : "🔽"}
+
+          {/* Minimize */}
+          <button
+            className="toggle-btn"
+            type="button"
+            onClick={() =>
+              setIsMinimized(
+                !isMinimized
+              )
+            }
+            aria-label={
+              isMinimized
+                ? "Open chat"
+                : "Minimize chat"
+            }
+          >
+            {isMinimized
+              ? "🔼"
+              : "🔽"}
           </button>
-          <button className="reset-btn" onClick={resetChat}>
+
+          {/* Reset */}
+          <button
+            className="reset-btn"
+            type="button"
+            onClick={
+              resetChat
+            }
+            aria-label="Start new chat"
+          >
             🔄
           </button>
+
         </div>
       </div>
 
-      {/* Chat body (hidden when minimized) */}
+      {/* ================================================
+          CHAT BODY
+      ================================================= */}
+
       {!isMinimized && (
         <>
-          <div className="chat-box" ref={chatBoxRef}>
-            {messages.map((msg, i) => (
-              <div key={i} className={`message ${msg.sender}`}>
-                {msg.text}
+
+          <div
+            className="chat-box"
+            ref={chatBoxRef}
+          >
+
+            {messages.map(
+              (msg, index) => (
+                <div
+                  key={index}
+                  className={`message ${msg.sender}`}
+                >
+                  {msg.text}
+                </div>
+              )
+            )}
+
+            {/* Typing */}
+            {isTyping && (
+              <div className="message bot">
+                Typing...
               </div>
-            ))}
-            {isTyping && <div className="message bot">Typing...</div>}
+            )}
+
           </div>
 
+          {/* ============================================
+              INPUT
+          ============================================= */}
+
           <div className="input-container">
+
             <textarea
               value={userInput}
-              disabled={chatEnded}
-              onChange={(e) => setUserInput(e.target.value)}
+              disabled={
+                chatEnded ||
+                isStarting
+              }
+              onChange={(e) =>
+                setUserInput(
+                  e.target.value
+                )
+              }
+              onKeyDown={
+                handleKeyDown
+              }
               placeholder={
-                chatEnded
+                isStarting
+                  ? "Starting new chat..."
+                  : chatEnded
                   ? "Chat completed. Start a new chat to begin again."
                   : "Type your message... (Shift + Enter for new line)"
               }
-              onKeyDown={(e) => {
-                if (e.key === "Enter" && !e.ctrlKey && !e.shiftKey) {
-                  e.preventDefault();
-                  sendMessage();
-                }
-              }}
             />
-            <button onClick={sendMessage} disabled={chatEnded}>
+
+            <button
+              type="button"
+              onClick={
+                sendMessage
+              }
+              disabled={
+                chatEnded ||
+                isStarting ||
+                !userInput.trim()
+              }
+            >
               Send
             </button>
+
           </div>
+
         </>
       )}
+
     </div>
   );
 }
-
-
-
-
-
