@@ -912,7 +912,7 @@ export default function CaseStudyDetailsPage() {
         <Cta
           title="Let’s discuss and make <br />something <i>cool</i> together"
           btnText="Start a Project"
-          btnLink="mailto:wmfcagency@gmail.com"
+          btnLink="mailto:muhammadshoaib.w72@gmail.com"
           bgSrc="/images/cta_bg.jpeg"
         />
 
