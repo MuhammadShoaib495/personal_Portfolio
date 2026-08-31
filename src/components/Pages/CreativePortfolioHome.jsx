@@ -154,7 +154,7 @@ export default function CreativePortfolioHome() {
         <Cta
           title="Let’s disscuse make <br />something <i>cool</i> together"
           btnText="Apply For Meeting"
-          btnLink="/contact"
+          btnLink="mailto:muhammadshoaib.w72@gmail.com"
           bgSrc="/images/cta_bg_3.jpeg"
         />
       </Div>
