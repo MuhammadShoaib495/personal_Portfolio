@@ -520,7 +520,7 @@ export default function PersonalPortfolioHome() {
 
 >
   <source
-    src="https://raw.githubusercontent.com/MuhammadShoaib495/personal_Portfolio/4cfb8ff398319d6450a889b248fd00dafe77d93a/47consultants_1.mp4"
+    src="https://raw.githubusercontent.com/MuhammadShoaib495/personal_Portfolio/f4480a16418f6a2a27a190d8ef0bb96e9834c2f2/47consultants_1_3.mp4
     type="video/mp4"
   />
 </video>
@@ -530,7 +530,7 @@ export default function PersonalPortfolioHome() {
     style={{ objectFit: 'cover', borderRadius: '10px',  boxShadow: '2px 4px 8px #ffffffe3' }}
 >
   <source
-    src="https://raw.githubusercontent.com/MuhammadShoaib495/personal_Portfolio/b7288147f3b68ea6c2905bfb0efe227300fe2ea3/Willbarber-SEO-%20Marketing.mp4"
+    src="https://raw.githubusercontent.com/MuhammadShoaib495/personal_Portfolio/f4480a16418f6a2a27a190d8ef0bb96e9834c2f2/47consultants_1_5.mp4"
     type="video/mp4"
   />
 </video>
