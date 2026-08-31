@@ -520,7 +520,7 @@ export default function PersonalPortfolioHome() {
 
 >
   <source
-    src="https://raw.githubusercontent.com/MuhammadShoaib495/personal_Portfolio/f4480a16418f6a2a27a190d8ef0bb96e9834c2f2/47consultants_1_3.mp4
+    src="https://raw.githubusercontent.com/MuhammadShoaib495/personal_Portfolio/f4480a16418f6a2a27a190d8ef0bb96e9834c2f2/47consultants_1_3.mp4"
     type="video/mp4"
   />
 </video>
