@@ -25,7 +25,7 @@ export default function ServicePage() {
              <Cta
                title="Let’s disscuse make <br />something <i>cool</i> together"
                btnText="Let's Discuss"
-               btnLink="mailto:wmfcagency@gmail.com"
+               btnLink="mailto:muhammadshoaib.w72@gmail.com"
                bgSrc="/images/cta_bg_5.jpeg"
                variant="cs-type_1"
              />
