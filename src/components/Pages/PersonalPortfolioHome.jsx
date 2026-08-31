@@ -298,7 +298,7 @@ export default function PersonalPortfolioHome() {
           <FunFact
             variant="cs-type2"
             title="My tech skills"
-            subtitle="I specialize in WordPress, Webflow, developing fast, scalable, and user-friendly web applications. My expertise covers SEO-optimized websites, WooCommerce stores, custom business solutions, API integrations, and full-stack web development."
+            subtitle="Web Designer, Developer & AI Automation Specialist I build modern, high-converting websites and smart digital solutions that help businesses attract more visitors, generate leads, and grow online.Specializing in Web Design, Figma UI/UX, Webflow, WordPress, SEO, and AI Automation, I combine creative design with technology to create websites that don't just look great—they deliver results.Let’s build something great together."
             data={funfaceData}
           />
         </div>
