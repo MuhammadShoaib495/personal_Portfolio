@@ -10,7 +10,7 @@ export default function TestimonialSlider() {
   const testimonialData = [
     {
       testimonialThumb: '/images/Will-barber-copywriting.jpg',
-      testimonialText:'Shoaib did a great job assisting me with putting together my own webpage for my personal business. His attention to detail was outstanding. He gives the best advice for the use of the proper links and buttons that will contribute to a boost for your business. I highly recommend WMFCAGENCY. for Web Development of a Personal or Company Webpage and Content Marketing.',
+      testimonialText:'Shoaib did a great job assisting me with putting together my own webpage for my personal business. His attention to detail was outstanding. He gives the best advice for the use of the proper links and buttons that will contribute to a boost for your business. I highly recommend Muhammad Shoaib. for Web Development of a Personal or Company Webpage and Content Marketing.',
       avatarName: 'William BarBer',
       avatarDesignation: 'Branding',
       ratings: '5',
