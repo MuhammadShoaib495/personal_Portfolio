@@ -267,7 +267,7 @@ export default function PersonalPortfolioHome() {
       <Hero11
         introTitle="Hello, I am 👋"
         title="Muhammad Shoaib "
-        subtitle="Hailing from Islamabad, PK, I come with a wealth of website Design UI/UX design expertise. I'm eager to engage in a conversation with you about our distinctive offerings and passions."
+        subtitle="I build modern, high-converting websites and smart digital solutions that help businesses attract more visitors, generate leads, and grow online.Specializing in Web Design, Figma UI/UX, Webflow, WordPress, SEO, and AI Automation, I combine creative design with technology to create websites that don't just look great—they deliver results."
         btnLink="/"
         btnText="See Portfolio"
         imgUrl="/images/Shoaib_large.png"
@@ -298,7 +298,7 @@ export default function PersonalPortfolioHome() {
           <FunFact
             variant="cs-type2"
             title="My tech skills"
-            subtitle="Web Designer, Developer & AI Automation Specialist I build modern, high-converting websites and smart digital solutions that help businesses attract more visitors, generate leads, and grow online.Specializing in Web Design, Figma UI/UX, Webflow, WordPress, SEO, and AI Automation, I combine creative design with technology to create websites that don't just look great—they deliver results.Let’s build something great together."
+subtitle="I help businesses grow with modern, high-converting websites, SEO, and AI automation. From UI/UX design and Webflow or WordPress development to custom solutions and API integrations, I build digital experiences designed to attract, convert, and support more customers."
             data={funfaceData}
           />
         </div>
