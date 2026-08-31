@@ -550,7 +550,7 @@ export default function PersonalPortfolioHome() {
       <Cta
         title="Let’s discuss make <br />something <i>cool</i> together"
         btnText="Apply For Meeting"
-        btnLink="mailto:wmfcagency@gmail.com"
+        btnLink="mailto:muhammadshoaib.w72@gmail.com"
         bgSrc="/images/cta_bg_5.jpeg"
         variant="cs-type_1"
       />
