@@ -499,7 +499,7 @@ subtitle="I help businesses grow with modern, high-converting websites, SEO, and
 
       {/* Video Testimonial Section*/}
      
-      <section>
+ <section>
             <div className="container">
            <SectionHeading
             title="Real clients, <br />Results"
@@ -509,8 +509,19 @@ subtitle="I help businesses grow with modern, high-converting websites, SEO, and
 
       {/* Use standard JSX to create the iframe element */}
 <div className="cs-fixed_bg"
-        style={{ backgroundImage: `url(images/resume_bg.jpeg)`, padding:"90px", borderRadius:"20px"}}>
+        style={{ backgroundImage: `url(images/resume_bg.jpeg)`, padding:"90px", width:"auto", borderRadius:"20px"}}>
  <div className="video-responsive">
+
+<video
+  controls
+  playsInline
+    style={{ objectFit: 'cover', borderRadius: '10px',  boxShadow: '2px 4px 8px #ffffffe3' }}
+>
+   <source
+    src="https://res.cloudinary.com/dpba9pmxn/video/upload/v1787334862/onpoint.mov"
+    type="video/mp4"
+  />
+</video>  
 
 <video
   controls
@@ -542,6 +553,7 @@ subtitle="I help businesses grow with modern, high-converting websites, SEO, and
                       <div className="cs-height_150 cs-height_lg_80" />
 
       </section>
+   
    
       
    
