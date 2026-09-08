@@ -516,7 +516,7 @@ subtitle="I help businesses grow with modern, high-converting websites, SEO, and
 <video
   controls
   playsInline
-    style={{ objectFit: 'cover', borderRadius: '10px',  boxShadow: '2px 4px 8px #ffffffe3' }}
+    style={{ objectFit: 'cover', borderRadius: '10px', width: '200px' , boxShadow: '2px 4px 8px #ffffffe3' }}
 
 >
   <source
@@ -527,7 +527,7 @@ subtitle="I help businesses grow with modern, high-converting websites, SEO, and
 <video
   controls
   playsInline
-    style={{ objectFit: 'cover', borderRadius: '10px',  boxShadow: '2px 4px 8px #ffffffe3' }}
+    style={{ objectFit: 'cover', borderRadius: '10px', width: '200px',  boxShadow: '2px 4px 8px #ffffffe3' }}
 >
   <source
     src="https://raw.githubusercontent.com/MuhammadShoaib495/personal_Portfolio/f4480a16418f6a2a27a190d8ef0bb96e9834c2f2/47consultants_1_5.mp4"
