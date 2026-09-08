@@ -261,13 +261,13 @@ const testimonials = [
     id: 2,
     title: "47 Consultants",
     // Replace with your Cloudinary URL after uploading the video
-    src: "https://res.cloudinary.com/dpba9pmxn/video/upload/47consultants_1.mp4",
+    src: "https://raw.githubusercontent.com/MuhammadShoaib495/personal_Portfolio/cb8ee084e474370dea5cd701962759c142acda6c/47consultants_1_3.mp4",
   },
   {
     id: 3,
     title: "Willbarber SEO & Marketing",
     // Replace with your Cloudinary URL after uploading the video
-    src: "https://res.cloudinary.com/dpba9pmxn/video/upload/Willbarber-SEO-Marketing.mp4",
+    src: "https://raw.githubusercontent.com/MuhammadShoaib495/personal_Portfolio/cb8ee084e474370dea5cd701962759c142acda6c/47consultants_1_5.mp4",
   },
 ];
 
