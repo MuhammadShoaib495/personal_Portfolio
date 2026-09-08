@@ -3,6 +3,7 @@
   width: 100%;
     height: 500px;
     display: flex;
+    flex-direction: row;
     /* padding: 56px; */
     /* align-items: center; */
     gap: 190px;
@@ -20,18 +21,21 @@
   }
  @media screen and (max-width: 400px) {
   .video-responsive {
+    width: 400px;
+    height: auto;
+    flex-direction: column;
+    align-items: end;
     gap:20px;
-    padding-left: 30px;
-    justify-content: start;
-    overflow: scroll;
+    padding-right: 20px;
+    justify-content: center;
+    width: 200px;
     /* Example of SCSS nesting */
   }
    video {
       border-radius: 20px;
-      height: 100%;
-
+      height: 500px;
+      width: 200px;
     }
-
 }
 @media (min-width: 768px) and (max-width: 1024px) {
   /* Tablet styles */
