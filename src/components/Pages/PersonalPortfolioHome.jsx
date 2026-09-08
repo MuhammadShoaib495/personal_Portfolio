@@ -499,7 +499,7 @@ subtitle="I help businesses grow with modern, high-converting websites, SEO, and
 
       {/* Video Testimonial Section*/}
      
-          <section>
+      <section>
             <div className="container">
            <SectionHeading
             title="Real clients, <br />Results"
@@ -510,27 +510,26 @@ subtitle="I help businesses grow with modern, high-converting websites, SEO, and
       {/* Use standard JSX to create the iframe element */}
 <div className="cs-fixed_bg"
         style={{ backgroundImage: `url(images/resume_bg.jpeg)`, padding:"90px", borderRadius:"20px"}}>
-        <div className="cs-height_20 cs-height_lg_5 cs-padding" />
  <div className="video-responsive">
 
 <video
   controls
   playsInline
-    style={{ objectFit: 'cover', borderRadius: '10px' , boxShadow: '2px 4px 8px #ffffffe3' }}
+    style={{ objectFit: 'cover', borderRadius: '10px',  boxShadow: '2px 4px 8px #ffffffe3' }}
 
 >
   <source
-    src="https://raw.githubusercontent.com/MuhammadShoaib495/personal_Portfolio/f4480a16418f6a2a27a190d8ef0bb96e9834c2f2/47consultants_1_3.mp4"
+    src="https://raw.githubusercontent.com/MuhammadShoaib495/personal_Portfolio/4cfb8ff398319d6450a889b248fd00dafe77d93a/47consultants_1.mp4"
     type="video/mp4"
   />
 </video>
 <video
   controls
   playsInline
-    style={{ objectFit: 'cover', borderRadius: '10px', width: '200px',  boxShadow: '2px 4px 8px #ffffffe3' }}
+    style={{ objectFit: 'cover', borderRadius: '10px',  boxShadow: '2px 4px 8px #ffffffe3' }}
 >
   <source
-    src="https://raw.githubusercontent.com/MuhammadShoaib495/personal_Portfolio/f4480a16418f6a2a27a190d8ef0bb96e9834c2f2/47consultants_1_5.mp4"
+    src="https://raw.githubusercontent.com/MuhammadShoaib495/personal_Portfolio/b7288147f3b68ea6c2905bfb0efe227300fe2ea3/Willbarber-SEO-%20Marketing.mp4"
     type="video/mp4"
   />
 </video>
@@ -543,6 +542,8 @@ subtitle="I help businesses grow with modern, high-converting websites, SEO, and
                       <div className="cs-height_150 cs-height_lg_80" />
 
       </section>
+   
+      
    
       
       {/* Video Testimonial Section */}
