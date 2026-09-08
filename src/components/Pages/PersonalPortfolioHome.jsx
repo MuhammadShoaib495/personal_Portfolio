@@ -251,6 +251,27 @@ const experienceData = [
   },
 ];
 
+const testimonials = [
+  {
+    id: 1,
+    title: "OnPoint",
+    src: "https://res.cloudinary.com/dpba9pmxn/video/upload/v1787334862/onpoint.mov",
+  },
+  {
+    id: 2,
+    title: "47 Consultants",
+    // Replace with your Cloudinary URL after uploading the video
+    src: "https://res.cloudinary.com/dpba9pmxn/video/upload/47consultants_1.mp4",
+  },
+  {
+    id: 3,
+    title: "Willbarber SEO & Marketing",
+    // Replace with your Cloudinary URL after uploading the video
+    src: "https://res.cloudinary.com/dpba9pmxn/video/upload/Willbarber-SEO-Marketing.mp4",
+  },
+];
+
+
 export default function PersonalPortfolioHome() {
   pageTitle('Personal Portfolio');
   const [active, setActive] = useState('all');
@@ -499,7 +520,7 @@ subtitle="I help businesses grow with modern, high-converting websites, SEO, and
 
       {/* Video Testimonial Section*/}
      
- <section>
+   <section>
             <div className="container">
            <SectionHeading
             title="Real clients, <br />Results"
@@ -512,38 +533,22 @@ subtitle="I help businesses grow with modern, high-converting websites, SEO, and
         style={{ backgroundImage: `url(images/resume_bg.jpeg)`, padding:"90px", width:"auto", borderRadius:"20px"}}>
  <div className="video-responsive">
 
-<video
-  controls
-  playsInline
-    style={{ objectFit: 'cover', borderRadius: '10px',  boxShadow: '2px 4px 8px #ffffffe3' }}
->
-   <source
-    src="https://res.cloudinary.com/dpba9pmxn/video/upload/v1787334862/onpoint.mov"
-    type="video/mp4"
-  />
-</video>  
+  {testimonials.map((video) => (
+  <video
+    key={video.title}
+    controls
+    playsInline
+    preload="metadata"
+    controlsList="nodownload"
+    disablePictureInPicture
+    onContextMenu={(e) => e.preventDefault()}
+    className="testimonial-video"
+  >
+    <source src={video.src} type="video/mp4" />
+    Your browser does not support video playback.
+  </video>
+))}
 
-<video
-  controls
-  playsInline
-    style={{ objectFit: 'cover', borderRadius: '10px',  boxShadow: '2px 4px 8px #ffffffe3' }}
-
->
-  <source
-    src="https://raw.githubusercontent.com/MuhammadShoaib495/personal_Portfolio/4cfb8ff398319d6450a889b248fd00dafe77d93a/47consultants_1.mp4"
-    type="video/mp4"
-  />
-</video>
-<video
-  controls
-  playsInline
-    style={{ objectFit: 'cover', borderRadius: '10px',  boxShadow: '2px 4px 8px #ffffffe3' }}
->
-  <source
-    src="https://raw.githubusercontent.com/MuhammadShoaib495/personal_Portfolio/b7288147f3b68ea6c2905bfb0efe227300fe2ea3/Willbarber-SEO-%20Marketing.mp4"
-    type="video/mp4"
-  />
-</video>
 </div>
 </div>
 <Spacing lg="90" md="45" />
@@ -553,10 +558,6 @@ subtitle="I help businesses grow with modern, high-converting websites, SEO, and
                       <div className="cs-height_150 cs-height_lg_80" />
 
       </section>
-   
-   
-      
-   
       
       {/* Video Testimonial Section */}
       {/* Start CTA Section */}
