@@ -286,7 +286,7 @@ const experienceData = [
       duration: "2024 – 2025",
       description:
         "Designed and developed a professional website for a furniture assembly service in New York. Focused on clear service presentation, user-friendly navigation, mobile responsiveness, and basic SEO to improve local search visibility and help potential customers find and contact the business.",
-      link: "nyc-furniture-assembly.com",
+      link: "https://nyc-furniture-assembly.com",
       linkText: "Nyc furniture Assembly",
     },
   ],
