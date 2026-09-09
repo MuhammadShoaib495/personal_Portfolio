@@ -436,7 +436,7 @@ subtitle="I help businesses grow with modern, high-converting websites, SEO, and
       <Spacing lg="145" md="80" />
       {/* End Portfolio Section */}
       {/* Start Resume Section */}
-      <section
+<section
         className="cs-fixed_bg"
         style={{ backgroundImage: `url(images/resume_bg.jpeg)` }}
       >
@@ -449,8 +449,11 @@ subtitle="I help businesses grow with modern, high-converting websites, SEO, and
           />
           <Spacing lg="90" md="45" />
           <div className="cs-list_2_group">
+
             <ul className="cs-list cs-style_2 cs-mp0">
-              {educationData.map((item, index) => (
+              <Spacing lg="30" md="20" />
+
+            {educationData.map((item, index) => (
   <li key={index}>
     <div className="experience-role">
       <div className="experience-dot" />
@@ -464,9 +467,13 @@ subtitle="I help businesses grow with modern, high-converting websites, SEO, and
         {item.description && (
           <p className="mb-0">{item.description}</p>
         )}
+      </div>
+    </div>
+  </li>
+))}
             </ul>
             <ul className="cs-list cs-style_2 cs-mp0">
-              {experienceData.map((company, index) => (
+             {experienceData.map((company, index) => (
     <div style={{paddingLeft:"20px", paddingRight:"20px", paddingBottom:"2px"}} key={index}>
       {/* Company */}
       <div className="experience-company-header">
@@ -513,6 +520,13 @@ subtitle="I help businesses grow with modern, high-converting websites, SEO, and
                   {role.linkText}
                 </a>
               )}
+              <Spacing lg="30" md="20" />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  ))}
             </ul>
           </div>
         </div>
