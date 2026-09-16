@@ -48,7 +48,7 @@ const funfaceData = [
 const portfolioData = [
    {
     title: 'Vaconnect',
-    subtitle: 'See Details Webflow',
+    subtitle: 'See Details Webflow Executive Virtual Assistant',
     href: 'https://www.vaconnect.co',
     src: '/images/Vaconnect-Home-Page.jpg',
     category: 'webflow_design',
