@@ -103,6 +103,25 @@ export default function Header({ variant }) {
                         </ul>
                       </DropDown>
                     </li>
+                    <li className="menu-item-has-children">
+                      <NavLink onClick={() => setMobileToggle(false)}>
+                        Contact
+                      </NavLink>
+                      <DropDown>
+                        <ul>
+                          <li>
+                            <Link
+                              to="mailto:muhammadshoaib.w72@gmail.com"
+                              onClick={() => setMobileToggle(false)}
+                            >
+                              Email
+                            </Link>
+                          </li>
+                         
+                        </ul>
+                      </DropDown>
+                    </li>
+                    
                    
                   </ul>
                   <span
