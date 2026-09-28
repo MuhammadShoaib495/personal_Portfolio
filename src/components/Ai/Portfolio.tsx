@@ -12,7 +12,7 @@ export default function PortfolioAssistant() {
   const [userInput, setUserInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [chatEnded, setChatEnded] = useState(false);
-  const [isMinimized, setIsMinimized] = useState(false); // ✅ toggle state
+  const [isMinimized, setIsMinimized] = useState(true); // ✅ toggle state
 
   // ✅ Auto-start message
   useEffect(() => {
