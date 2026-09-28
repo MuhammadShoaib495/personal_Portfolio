@@ -621,7 +621,6 @@ subtitle="I help businesses grow with modern, high-converting websites, SEO, and
         bgSrc="/images/cta_bg_5.jpeg"
         variant="cs-type_1"
       />
-      <Spacing lg="90" md="45" />
       {/* End CTA Section */}
       <PortfolioAssistant />
     </>
