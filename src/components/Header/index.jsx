@@ -110,12 +110,12 @@ export default function Header({ variant }) {
                       <DropDown>
                         <ul>
                           <li>
-                            <Link
-                              to="mailto:muhammadshoaib.w72@gmail.com"
+                            <a
+                              href="mailto:muhammadshoaib.w72@gmail.com"
                               onClick={() => setMobileToggle(false)}
                             >
                               Email
-                            </Link>
+                            </a>
                           </li>
                          
                         </ul>
