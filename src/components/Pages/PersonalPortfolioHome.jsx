@@ -615,7 +615,7 @@ subtitle="I help businesses grow with modern, high-converting websites, SEO, and
       {/* Start CTA Section */}
       <Cta
         title="Let’s discuss make <br />something <i>cool</i> together"
-        btnText="Apply For Meeting"
+        btnText="Send Project Details"
         btnLink="mailto:muhammadshoaib.w72@gmail.com"
         bgSrc="/images/cta_bg_5.jpeg"
         variant="cs-type_1"
