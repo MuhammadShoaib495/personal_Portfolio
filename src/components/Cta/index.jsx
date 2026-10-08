@@ -201,7 +201,7 @@ export default function Cta({ title, bgSrc, variant }) {
 
           <div className="cs-form_group">
             <ReCAPTCHA
-              sitekey="6LcPs-UtAAAAAAsJQ6cBczPHMgMye3LmpdmZgO8r"
+              sitekey="6LfxtuUtAAAAAI5raD5DV4GV18ZzDxG5LGYezgNo"
               onChange={(token) =>
                 setFormData({
                   ...formData,
