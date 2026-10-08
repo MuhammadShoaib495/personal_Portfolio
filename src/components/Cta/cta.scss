@@ -1,45 +1,575 @@
 @import "../../scss/default/color_variable";
+
 .cs-cta.cs-style1 {
+  position: relative;
   padding: 90px 30px;
   border-radius: 15px;
+  overflow: visible;
+
   .cs-cta_in {
     position: relative;
     z-index: 2;
+    width: 100%;
   }
+
+  /* ==========================================
+     CUSTOM DROPDOWN
+  ========================================== */
+
+  .cs-select_dropdown {
+    position: absolute;
+    top: calc(100% + 7px);
+    left: 0;
+
+    width: 100%;
+    max-width: 100%;
+
+    box-sizing: border-box;
+
+    background: #2c2c2c;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 5px;
+
+    padding: 6px;
+
+    z-index: 99999;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    max-height: 260px;
+  }
+
+  /* ==========================================
+     TITLE
+  ========================================== */
+
   .cs-cta_title {
-    font-weight: 600;
+    margin: 0;
     font-size: 50px;
+    font-weight: 600;
+    line-height: 1.2;
+
+    animation: ctaTitleIn 0.7s ease-out both;
+  }
+
+  .cs-cta_subtitle {
+    margin: 0;
+    color: #fff;
+    opacity: 0.8;
+    font-size: 16px;
+    line-height: 1.6;
+
+    animation: ctaSubtitleIn 0.7s ease-out 0.1s both;
+  }
+
+  /* ==========================================
+     FORM
+  ========================================== */
+
+  .cs-contact_form {
+    position: relative;
+    z-index: 10;
+
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* ==========================================
+     FORM GROUP
+  ========================================== */
+
+  .cs-form_group {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    margin-bottom: 20px;
+
+    opacity: 0;
+    transform: translateY(14px);
+
+    animation: formFieldIn 0.55s ease-out forwards;
+
+    &:nth-child(1) {
+      animation-delay: 0.12s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: 0.18s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: 0.24s;
+    }
+
+    &:nth-child(4) {
+      animation-delay: 0.30s;
+    }
+
+    &:nth-child(5) {
+      animation-delay: 0.36s;
+    }
+
+    &:nth-child(6) {
+      animation-delay: 0.42s;
+    }
+
+    &:nth-child(7) {
+      animation-delay: 0.48s;
+    }
+
+    /* ========================================
+       INPUT / SELECT / TEXTAREA
+    ======================================== */
+
+    input,
+    select,
+    textarea {
+      display: block;
+
+      width: 100%;
+
+      box-sizing: border-box;
+
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 5px;
+
+      background-color: #2c2c2c !important;
+      color: #fff !important;
+
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 400;
+
+      outline: none;
+
+      transition:
+        border-color 0.25s ease,
+        background-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    /* ========================================
+       INPUT
+    ======================================== */
+
+    input {
+      height: 56px;
+      padding: 0 20px;
+    }
+
+    /* ========================================
+       TEXTAREA
+    ======================================== */
+
+    textarea {
+      min-height: 150px;
+
+      padding: 16px 20px;
+
+      resize: vertical;
+
+      line-height: 1.6;
+    }
+
+    /* ========================================
+       PLACEHOLDER
+    ======================================== */
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(255, 255, 255, 0.72);
+      opacity: 1;
+
+      transition: opacity 0.25s ease;
+    }
+
+    /* ========================================
+       SELECT
+    ======================================== */
+
+    select {
+      position: relative;
+
+      height: 56px;
+
+      padding: 0 52px 0 20px;
+
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+
+      cursor: pointer;
+
+      background-image:
+        linear-gradient(
+          45deg,
+          transparent 50%,
+          rgba(255, 255, 255, 0.85) 50%
+        ),
+        linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.85) 50%,
+          transparent 50%
+        );
+
+      background-position:
+        calc(100% - 23px) 24px,
+        calc(100% - 17px) 24px;
+
+      background-size:
+        6px 6px,
+        6px 6px;
+
+      background-repeat: no-repeat;
+
+      option {
+        background: #2c2c2c;
+        color: #fff;
+      }
+
+      &:invalid {
+        color: rgba(255, 255, 255, 0.72) !important;
+      }
+
+      &:valid {
+        color: #fff !important;
+      }
+    }
+
+    /* ========================================
+       HOVER
+    ======================================== */
+
+    input:hover,
+    select:hover,
+    textarea:hover {
+      border-color: rgba(255, 255, 255, 0.30);
+    }
+
+    /* ========================================
+       FOCUS
+    ======================================== */
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: rgba(255, 255, 255, 0.55);
+
+      background-color: #2c2c2c !important;
+
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.14),
+        0 0 0 3px rgba(255, 255, 255, 0.025);
+    }
+
+    input:focus::placeholder,
+    textarea:focus::placeholder {
+      opacity: 0.35;
+    }
+  }
+
+  /* ==========================================
+     SUBMIT BUTTON
+  ========================================== */
+
+  .cs-btn.cs-style1 {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 5px;
+
+    border: none;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    animation: buttonIn 0.6s ease-out 0.55s both;
+
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.18);
+    }
+
+    &:active {
+      transform: translateY(-1px);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  /* ==========================================
+     STATUS
+  ========================================== */
+
+  .cs-form_status {
+    margin: 20px 0 0;
+
+    color: #fff;
+
+    font-size: 15px;
+    line-height: 1.5;
+
+    animation: statusIn 0.4s ease-out both;
   }
 }
+
+/* ==============================================
+   ANIMATIONS
+============================================== */
+
+@keyframes ctaTitleIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ctaSubtitleIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 0.8;
+    transform: translateY(0);
+  }
+}
+
+@keyframes formFieldIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes buttonIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes statusIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==============================================
+   TABLET
+============================================== */
+
 @media screen and (max-width: 1300px) {
-  .cs-cta.cs-style1 .cs-cta_title {
-    font-size: 42px;
+  .cs-cta.cs-style1 {
+
+    .cs-cta_title {
+      font-size: 42px;
+    }
   }
 }
+
 @media screen and (max-width: 991px) {
   .cs-cta.cs-style1 {
+
     padding: 70px 30px;
-    border-radius: 15px;
+
     .cs-cta_title {
       font-size: 36px;
+
       br {
         display: none;
       }
     }
+
+    .cs-contact_form {
+      max-width: 600px;
+    }
+
+    .cs-select_dropdown {
+      max-height: 240px;
+    }
   }
 }
+
+/* ==============================================
+   MOBILE
+============================================== */
+
 @media screen and (max-width: 767px) {
   .cs-cta.cs-style1 {
+
+    .cs-contact_form {
+      max-width: 100%;
+    }
+
+    .cs-select_dropdown {
+      width: 100%;
+      max-width: 100%;
+
+      max-height: 220px;
+
+      padding: 5px;
+
+      box-sizing: border-box;
+
+      overflow-x: hidden;
+      overflow-y: auto;
+
+      -webkit-overflow-scrolling: touch;
+
+      overscroll-behavior: contain;
+    }
+
     br {
       display: none;
     }
   }
 }
+
+/* ==============================================
+   SMALL MOBILE
+============================================== */
+
 @media screen and (max-width: 575px) {
   .cs-cta.cs-style1 {
-    padding: 70px 20px;
+
+    padding: 60px 20px;
+
     .cs-cta_title {
       font-size: 28px;
+    }
+
+    .cs-cta_subtitle {
+      font-size: 15px;
+    }
+
+    .cs-form_group {
+
+      input,
+      select {
+        height: 52px;
+
+        font-size: 15px;
+      }
+
+      input {
+        padding: 0 16px;
+      }
+
+      select {
+        padding: 0 46px 0 16px;
+
+        background-position:
+          calc(100% - 20px) 22px,
+          calc(100% - 14px) 22px;
+      }
+
+      textarea {
+        padding: 14px 16px;
+
+        font-size: 15px;
+      }
+    }
+
+    .cs-select_dropdown {
+      top: calc(100% + 5px);
+
+      width: 100%;
+      max-width: 100%;
+
+      max-height: 210px;
+
+      padding: 5px;
+
+      border-radius: 5px;
+
+      box-sizing: border-box;
+    }
+  }
+}
+
+/* ==============================================
+   VERY SMALL MOBILE
+============================================== */
+
+@media screen and (max-width: 380px) {
+  .cs-cta.cs-style1 {
+
+    .cs-select_dropdown {
+      width: 100%;
+      max-width: 100%;
+
+      max-height: 180px;
+
+      padding: 4px;
+    }
+  }
+}
+
+/* ==============================================
+   REDUCED MOTION
+============================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-cta.cs-style1 {
+
+    .cs-cta_title,
+    .cs-cta_subtitle,
+    .cs-form_group,
+    .cs-btn.cs-style1 {
+      animation: none;
+
+      opacity: 1;
+
+      transform: none;
+    }
+
+    input,
+    select,
+    textarea,
+    .cs-btn.cs-style1 {
+      transition: none;
     }
   }
 }
