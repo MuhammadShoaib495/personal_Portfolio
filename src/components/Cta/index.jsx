@@ -4,18 +4,36 @@ import './cta.scss';
 import Div from '../Div';
 import Spacing from '../Spacing';
 import axios from 'axios';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 
 export default function Cta({ title, bgSrc, variant }) {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    whatsapp: '',
-    projectType: '',
-    budget: '',
-    timeline: '',
-    message: '',
-  });
+
+<ReCAPTCHA
+  sitekey="6LcPs-UtAAAAAAsJQ6cBczPHMgMye3LmpdmZgO8r"
+  onChange={(token) =>
+    setFormData({
+      ...formData,
+      captchaToken: token,
+    })
+  }
+/>
+
+const [formData, setFormData] = useState({
+  name: '',
+  email: '',
+  whatsapp: '',
+  projectType: '',
+  budget: '',
+  timeline: '',
+  message: '',
+  captchaToken: '',
+});
+
+if (!formData.captchaToken) {
+  setStatus('Please verify that you are not a robot.');
+  return;
+}
 
   const [status, setStatus] = useState('');
 
