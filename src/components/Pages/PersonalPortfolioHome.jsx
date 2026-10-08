@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Hero11 from '../Hero/Hero11';
-import PortfolioAssistant from '../Ai/PortfolioAssistant.tsx';
 import SectionHeading from '../SectionHeading';
 import ServiceList from '../ServiceList';
 import Spacing from '../Spacing';
@@ -622,7 +621,6 @@ subtitle="I help businesses grow with modern, high-converting websites, SEO, and
         variant="cs-type_1"
       />
       {/* End CTA Section */}
-      <PortfolioAssistant />
     </>
   );
 }
