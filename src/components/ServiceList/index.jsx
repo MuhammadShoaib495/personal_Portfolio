@@ -6,14 +6,14 @@ import "./servicelist.scss";
 export default function ServiceList() {
   const serviceData = [
     {
-      title: "Figma UI/UX Design / Web Design",
+      title: "Web Design",
       subtitle:
         "I design clean, modern, and user-friendly website and app interfaces in Figma, focusing on usability, visual hierarchy, responsive layouts, and conversion.",
       imgUrl: "/images/wordpress-logo.jpg",
       sectionId: "wordpressSection",
     },
     {
-      title: "WordPress / Webflow / Shopify Development",
+      title: "Web Development",
       subtitle:
         "I specialize in WordPress, Webflow, and Shopify development, creating fast, responsive, SEO-friendly websites, Ecommerce stores, landing pages, and custom solutions tailored to your business needs.",
       imgUrl: "/images/webflow_logo.png",
