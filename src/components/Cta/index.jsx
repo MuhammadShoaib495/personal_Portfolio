@@ -1,39 +1,22 @@
 import React, { useState } from 'react';
 import parse from 'html-react-parser';
+import ReCAPTCHA from 'react-google-recaptcha';
+import axios from 'axios';
 import './cta.scss';
 import Div from '../Div';
 import Spacing from '../Spacing';
-import axios from 'axios';
-import ReCAPTCHA from 'react-google-recaptcha';
-
 
 export default function Cta({ title, bgSrc, variant }) {
-
-<ReCAPTCHA
-  sitekey="6LcPs-UtAAAAAAsJQ6cBczPHMgMye3LmpdmZgO8r"
-  onChange={(token) =>
-    setFormData({
-      ...formData,
-      captchaToken: token,
-    })
-  }
-/>
-
-const [formData, setFormData] = useState({
-  name: '',
-  email: '',
-  whatsapp: '',
-  projectType: '',
-  budget: '',
-  timeline: '',
-  message: '',
-  captchaToken: '',
-});
-
-if (!formData.captchaToken) {
-  setStatus('Please verify that you are not a robot.');
-  return;
-}
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    whatsapp: '',
+    projectType: '',
+    budget: '',
+    timeline: '',
+    message: '',
+    captchaToken: '',
+  });
 
   const [status, setStatus] = useState('');
 
@@ -44,42 +27,49 @@ if (!formData.captchaToken) {
     });
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  setStatus('Sending...');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  try {
-    const response = await axios.post(
-      'https://backend-portfolio-assistent.vercel.app/contact',
-      formData
-    );
+    if (!formData.captchaToken) {
+      setStatus('Please verify that you are not a robot.');
+      return;
+    }
 
-    if (response.data.success) {
-      setStatus('Message sent successfully!');
+    setStatus('Sending...');
 
-      setFormData({
-        name: '',
-        email: '',
-        whatsapp: '',
-        projectType: '',
-        budget: '',
-        timeline: '',
-        message: '',
-      });
-    } else {
+    try {
+      const response = await axios.post(
+        'https://backend-portfolio-assistent.vercel.app/contact',
+        formData
+      );
+
+      if (response.data.success) {
+        setStatus('Message sent successfully!');
+
+        setFormData({
+          name: '',
+          email: '',
+          whatsapp: '',
+          projectType: '',
+          budget: '',
+          timeline: '',
+          message: '',
+          captchaToken: '',
+        });
+      } else {
+        setStatus(
+          response.data.message || 'Something went wrong.'
+        );
+      }
+    } catch (error) {
+      console.error(error);
+
       setStatus(
-        response.data.message || 'Something went wrong.'
+        error.response?.data?.message ||
+          'Unable to send message. Please try again.'
       );
     }
-  } catch (error) {
-    console.error(error);
-
-    setStatus(
-      error.response?.data?.message ||
-      'Unable to send message. Please try again.'
-    );
-  }
-};
+  };
 
   return (
     <Div
@@ -95,7 +85,6 @@ const handleSubmit = async (e) => {
       <Div className="cs-shape_1" />
 
       <Div className="cs-cta_in">
-
         <h2 className="cs-cta_title cs-semi_bold cs-m0">
           {parse(title)}
         </h2>
@@ -112,8 +101,6 @@ const handleSubmit = async (e) => {
           className="cs-contact_form"
           onSubmit={handleSubmit}
         >
-
-          {/* Name */}
           <div className="cs-form_group">
             <input
               type="text"
@@ -125,7 +112,6 @@ const handleSubmit = async (e) => {
             />
           </div>
 
-          {/* Email */}
           <div className="cs-form_group">
             <input
               type="email"
@@ -137,7 +123,6 @@ const handleSubmit = async (e) => {
             />
           </div>
 
-          {/* WhatsApp */}
           <div className="cs-form_group">
             <input
               type="tel"
@@ -148,7 +133,6 @@ const handleSubmit = async (e) => {
             />
           </div>
 
-          {/* Project Type */}
           <div className="cs-form_group">
             <select
               name="projectType"
@@ -168,7 +152,6 @@ const handleSubmit = async (e) => {
             </select>
           </div>
 
-          {/* Budget */}
           <div className="cs-form_group">
             <select
               name="budget"
@@ -187,7 +170,6 @@ const handleSubmit = async (e) => {
             </select>
           </div>
 
-          {/* Timeline */}
           <div className="cs-form_group">
             <select
               name="timeline"
@@ -206,7 +188,6 @@ const handleSubmit = async (e) => {
             </select>
           </div>
 
-          {/* Project Details */}
           <div className="cs-form_group">
             <textarea
               name="message"
@@ -218,7 +199,18 @@ const handleSubmit = async (e) => {
             />
           </div>
 
-          {/* Submit */}
+          <div className="cs-form_group">
+            <ReCAPTCHA
+              sitekey="6LcPs-UtAAAAAAsJQ6cBczPHMgMye3LmpdmZgO8r"
+              onChange={(token) =>
+                setFormData({
+                  ...formData,
+                  captchaToken: token || '',
+                })
+              }
+            />
+          </div>
+
           <button
             type="submit"
             className="cs-btn cs-style1"
@@ -226,13 +218,11 @@ const handleSubmit = async (e) => {
             Send Project Details
           </button>
 
-          {/* Status */}
           {status && (
             <p className="cs-form_status">
               {status}
             </p>
           )}
-
         </form>
       </Div>
     </Div>
