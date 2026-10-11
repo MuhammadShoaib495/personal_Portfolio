@@ -13,7 +13,7 @@ const testimonials = [
     liveUrl: 'https://vaconnect.co',
     category: 'Web Design Figma & Webflow Development & SEO',
     description:
-      'Designed the website in Figma and developed it in Webflow, transforming a one-page website into a professional online presence that better represented the brand and its Executive Virtual Assistant services.Improved organic search visibility through keyword research, on-page SEO, content optimization, and technical SEO. Generated 81 organic Google clicks and 2.01K impressions from U.S. users within the first 3 months.',
+      'Designed the website in Figma and developed it in Webflow, transforming a one-page website into a professional online presence that better represented the brand and its Executive Virtual Assistant services. I improved organic search visibility through keyword research, on-page SEO, content optimization, and technical SEO. Generated 81 organic Google clicks and 2.01K impressions from U.S. users within the first 3 months.',
   },
   {
     id: 2,
@@ -28,10 +28,9 @@ const testimonials = [
     id: 3,
     title: 'Willbarber SEO & Marketing',
     src: 'https://raw.githubusercontent.com/MuhammadShoaib495/personal_Portfolio/cb8ee084e474370dea5cd701962759c142acda6c/47consultants_1_3.mp4',
-    liveUrl: 'https://raw.githubusercontent.com/MuhammadShoaib495/personal_Portfolio/cb8ee084e474370dea5cd701962759c142acda6c/47consultants_1_5.mp4',
-    category: 'SEO & Digital Marketing',
-    description:
-      'Designed the website in Figma and developed it in WordPress for a video marketing agency. Created a professional, user-friendly website that clearly presented the agency’s video marketing services and strengthened its online presence. Also implemented basic SEO to improve search visibility.',
+    liveUrl: 'https://barbercopywriting.com',
+    category: 'Wordpress Development & SEO Marketing',
+    description: 'Developed the website in Wordpress for Personal Portfolio Copywriting and SEO'    
   },
 ];
 
