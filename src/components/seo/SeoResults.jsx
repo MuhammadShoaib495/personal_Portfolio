@@ -87,7 +87,8 @@ export default function SeoResults() {
 
         <div className="seo-results-frame">
           <img
-            src="/images/caseStudy/vaconnect/real_results.jpg"
+            src="/images/caseStudy/vaconnect/real_results.JPG"
+            
             alt="Google Search Console report showing organic clicks, impressions, click-through rate, and average search position"
             loading="lazy"
           />
