@@ -483,7 +483,7 @@ subtitle="I help businesses grow with modern, high-converting websites, SEO, and
         </div>
         <div className="cs-height_150 cs-height_lg_80" />
       </section>
-      {/* End Case Study Section */}
+      
 
       {/* Start CTA Section */}
       <Cta
