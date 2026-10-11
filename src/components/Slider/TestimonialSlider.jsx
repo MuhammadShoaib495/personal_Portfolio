@@ -18,7 +18,7 @@ const testimonials = [
   {
     id: 2,
     title: '47 Consultants',
-    src: 'https://res.cloudinary.com/dpba9pmxn/video/upload/47consultants_1.mp4',
+    src: 'https://raw.githubusercontent.com/MuhammadShoaib495/personal_Portfolio/cb8ee084e474370dea5cd701962759c142acda6c/47consultants_1_3.mp4',
     liveUrl: 'https://47consultants.com',
     category: 'Web Design Figma & WordPress Development',
     description:
@@ -28,7 +28,7 @@ const testimonials = [
     id: 3,
     title: 'Willbarber SEO & Marketing',
     src: 'https://res.cloudinary.com/dpba9pmxn/video/upload/Willbarber-SEO-Marketing.mp4',
-    liveUrl: 'https://YOUR-WILLBARBER-WEBSITE.com',
+    liveUrl: 'https://raw.githubusercontent.com/MuhammadShoaib495/personal_Portfolio/cb8ee084e474370dea5cd701962759c142acda6c/47consultants_1_5.mp4',
     category: 'SEO & Digital Marketing',
     description:
       'Designed the website in Figma and developed it in WordPress for a video marketing agency. Created a professional, user-friendly website that clearly presented the agency’s video marketing services and strengthened its online presence. Also implemented basic SEO to improve search visibility.',
