@@ -15,6 +15,8 @@ import './video-responsive.scss'
 import CaseStudy from '../CaseStudy';
 import Header from '../Header';
 import ResumeSection from '../Resume/ResumeSection';
+import SeoResults from '../seo/SeoResults';
+
 
 
 
@@ -436,6 +438,9 @@ subtitle="I help businesses grow with modern, high-converting websites, SEO, and
       </Div>
       <Spacing lg="145" md="80" />
       {/* End Portfolio Section */}
+       {/**Google Search Console */}
+        <SeoResults />
+ {/*End Google Search Console*/}
       {/* Start Resume Section */}
  <ResumeSection
   educationData={educationData}
