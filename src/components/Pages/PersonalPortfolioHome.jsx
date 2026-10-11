@@ -570,48 +570,6 @@ subtitle="I help businesses grow with modern, high-converting websites, SEO, and
       </section>
       {/* End Case Study Section */}
 
-      {/* Video Testimonial Section*/}
-     
-   <section>
-            <div className="container">
-           <SectionHeading
-            title="Real clients, <br />Results"
-            subtitle="Video Testimonial"
-          />
-          <Spacing lg="90" md="45" />
-
-      {/* Use standard JSX to create the iframe element */}
-<div className="cs-fixed_bg"
-        style={{ backgroundImage: `url(images/resume_bg.jpeg)`, padding:"90px", width:"auto", borderRadius:"20px"}}>
- <div className="video-responsive">
-
-  {testimonials.map((video) => (
-  <video
-    key={video.title}
-    controls
-    playsInline
-    preload="metadata"
-    controlsList="nodownload"
-    disablePictureInPicture
-    onContextMenu={(e) => e.preventDefault()}
-    className="testimonial-video"
-  >
-    <source src={video.src} type="video/mp4" />
-    Your browser does not support video playback.
-  </video>
-))}
-
-</div>
-</div>
-<Spacing lg="90" md="45" />
-
-</div>
-
-                      <div className="cs-height_150 cs-height_lg_80" />
-
-      </section>
-      
-      {/* Video Testimonial Section */}
       {/* Start CTA Section */}
       <Cta
         title="Let’s discuss make <br />something <i>cool</i> together"
