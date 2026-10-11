@@ -1,0 +1,121 @@
+.seo-results-section {
+  .seo-results-intro {
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.8;
+    opacity: 0.8;
+  }
+
+  .seo-results-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .seo-results-card {
+    padding: 28px 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.035);
+    transition:
+      transform 0.3s ease,
+      border-color 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      border-color: orange;
+    }
+
+    h3 {
+      margin: 0 0 12px;
+      color: orange;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    h4 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.6;
+      opacity: 0.7;
+    }
+  }
+
+  .seo-results-frame {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+
+  .seo-results-note {
+    margin: 0;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.7;
+    opacity: 0.65;
+  }
+
+  @media (max-width: 991px) {
+    .seo-results-metrics {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 15px;
+    }
+
+    .seo-results-card {
+      padding: 24px 16px;
+
+      h3 {
+        font-size: 32px;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .seo-results-metrics {
+      gap: 12px;
+    }
+
+    .seo-results-card {
+      padding: 20px 10px;
+
+      h3 {
+        font-size: 28px;
+      }
+
+      h4 {
+        font-size: 14px;
+      }
+
+      p {
+        font-size: 12px;
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .seo-results-card {
+      transition: none;
+
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+}
