@@ -81,13 +81,10 @@ export default function TestimonialSlider() {
                       controlsList="nodownload"
                       aria-label={`${video.title} video testimonial`}
                     >
-                      <source
+                       <source
                         src={video.src}
-                        type={
-                          video.src.toLowerCase().endsWith('.mov')
-                            ? 'video/quicktime'
-                            : 'video/mp4'
-                        }
+                        type='video/mp4'
+            
                       />
                       Your browser does not support video playback.
                     </video>
