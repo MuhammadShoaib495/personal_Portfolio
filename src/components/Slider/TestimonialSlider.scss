@@ -1,0 +1,319 @@
+.cs-video-testimonials {
+  width: 100%;
+  position: relative;
+  padding: 0 20px;
+  box-sizing: border-box;
+
+  // Main testimonial card
+  .cs-video-testimonial-card {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 45px;
+    box-sizing: border-box;
+  }
+
+  .cs-video-testimonial-content {
+    width: 100%;
+    min-width: 0;
+  }
+
+  // Video and content layout
+  .cs-video-testimonial-slide {
+    display: grid !important;
+    grid-template-columns: 320px minmax(0, 1fr);
+    align-items: center;
+    justify-content: center;
+
+    // Clear space between video and text
+    column-gap: clamp(60px, 8vw, 130px);
+    row-gap: 30px;
+
+    width: 100%;
+    padding: 35px 25px;
+    box-sizing: border-box;
+  }
+
+  // Video container
+  .cs-video-testimonial-media {
+    position: relative;
+    width: 320px;
+    height: 560px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #000;
+  }
+
+  // Video player
+  .cs-video-testimonial-player {
+    display: block;
+    width: 320px;
+    height: 560px;
+    max-width: none;
+    object-fit: cover;
+    object-position: center;
+    border: 0;
+    border-radius: 12px;
+    background: #000;
+  }
+
+  // Testimonial content
+  .cs-video-testimonial-details {
+    min-width: 0;
+    padding: 25px 0;
+    overflow-wrap: break-word;
+
+    h3 {
+      margin: 14px 0 20px;
+      font-size: clamp(28px, 3vw, 42px);
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    p {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.9;
+      opacity: 0.85;
+    }
+  }
+
+  // Category label
+  .cs-video-testimonial-label {
+    display: inline-block;
+    margin-bottom: 8px;
+    font-size: 12px;
+    line-height: 1.5;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  // Live website link
+  .cs-video-testimonial-website-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
+    color: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+      opacity 0.25s ease,
+      gap 0.25s ease;
+
+    svg {
+      font-size: 15px;
+    }
+
+    &:hover {
+      opacity: 0.7;
+      gap: 14px;
+    }
+
+    &:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 5px;
+    }
+  }
+
+  // Current slide count
+  .cs-video-testimonial-count {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 35px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .cs-video-testimonial-count-line {
+    display: inline-block;
+    width: 45px;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.45;
+  }
+
+  // Navigation controls
+  .cs-video-testimonial-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+    margin-top: 35px;
+    padding: 0 25px;
+  }
+
+  .cs-video-testimonial-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    background: transparent;
+    color: inherit;
+    font-size: 18px;
+    cursor: pointer;
+    transition:
+      background 0.25s ease,
+      color 0.25s ease,
+      opacity 0.25s ease;
+
+    &:hover:not(:disabled) {
+      background: currentColor;
+      color: #fff;
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    &:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 4px;
+    }
+  }
+
+  .cs-video-testimonial-nav-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+
+    span {
+      opacity: 0.5;
+    }
+  }
+
+  // Large laptop screens
+  @media (min-width: 1400px) {
+    .cs-video-testimonial-card {
+      max-width: 1380px;
+      padding: 50px;
+    }
+
+    .cs-video-testimonial-slide {
+      column-gap: 130px;
+      padding: 40px 35px;
+    }
+  }
+
+  // Tablet and smaller laptop screens
+  @media (max-width: 1100px) {
+    .cs-video-testimonial-card {
+      padding: 30px;
+    }
+
+    .cs-video-testimonial-slide {
+      grid-template-columns: 280px minmax(0, 1fr);
+      column-gap: 40px;
+      padding: 25px 15px;
+    }
+
+    .cs-video-testimonial-media,
+    .cs-video-testimonial-player {
+      width: 280px;
+      height: 490px;
+    }
+
+    .cs-video-testimonial-details {
+      h3 {
+        font-size: 30px;
+      }
+
+      p {
+        font-size: 15px;
+        line-height: 1.8;
+      }
+    }
+
+    .cs-video-testimonial-navigation {
+      padding: 0 15px;
+    }
+  }
+
+  // Mobile layout
+  @media (max-width: 767px) {
+    padding: 0 12px;
+
+    .cs-video-testimonial-card {
+      padding: 20px 10px;
+    }
+
+    .cs-video-testimonial-slide {
+      grid-template-columns: minmax(0, 1fr);
+      justify-items: center;
+      row-gap: 32px;
+      padding: 15px 0;
+    }
+
+    .cs-video-testimonial-media,
+    .cs-video-testimonial-player {
+      width: 320px;
+      max-width: 100%;
+      height: 560px;
+    }
+
+    .cs-video-testimonial-details {
+      width: 100%;
+      padding: 0;
+
+      h3 {
+        margin: 12px 0 16px;
+        font-size: 27px;
+      }
+
+      p {
+        font-size: 15px;
+        line-height: 1.8;
+      }
+    }
+
+    .cs-video-testimonial-website-link {
+      margin-top: 22px;
+    }
+
+    .cs-video-testimonial-count {
+      margin-top: 26px;
+    }
+
+    .cs-video-testimonial-navigation {
+      justify-content: center;
+      gap: 18px;
+      margin-top: 28px;
+      padding: 0;
+    }
+  }
+
+  // Narrow mobile screens
+  @media (max-width: 360px) {
+    padding: 0 8px;
+
+    .cs-video-testimonial-card {
+      padding: 15px 5px;
+    }
+
+    .cs-video-testimonial-media,
+    .cs-video-testimonial-player {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 7;
+    }
+
+    .cs-video-testimonial-details {
+      h3 {
+        font-size: 24px;
+      }
+    }
+  }
+}
