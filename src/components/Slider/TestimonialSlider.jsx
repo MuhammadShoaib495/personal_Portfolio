@@ -18,7 +18,7 @@ const testimonials = [
   {
     id: 2,
     title: '47 Consultants',
-    src: 'https://res.cloudinary.com/dpba9pmxn/video/upload/Willbarber-SEO-Marketing.mp4',
+    src: 'https://raw.githubusercontent.com/MuhammadShoaib495/personal_Portfolio/cb8ee084e474370dea5cd701962759c142acda6c/47consultants_1_5.mp4',
     liveUrl: 'https://47consultants.com',
     category: 'Web Design Figma & WordPress Development',
     description:
