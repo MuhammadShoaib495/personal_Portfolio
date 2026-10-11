@@ -14,6 +14,8 @@ import MovingText2 from '../MovingText/MovingText2';
 import './video-responsive.scss'
 import CaseStudy from '../CaseStudy';
 import Header from '../Header';
+import ResumeSection from '../Resume/ResumeSection';
+
 
 
 
@@ -435,102 +437,10 @@ subtitle="I help businesses grow with modern, high-converting websites, SEO, and
       <Spacing lg="145" md="80" />
       {/* End Portfolio Section */}
       {/* Start Resume Section */}
-<section
-        className="cs-fixed_bg"
-        style={{ backgroundImage: `url(images/resume_bg.jpeg)` }}
-      >
-        <div className="cs-height_145 cs-height_lg_75" />
-        <div className="container">
-          <SectionHeading
-            title="Education & experience"
-            subtitle="Resume"
-            variant="cs-style1 text-center"
-          />
-          <Spacing lg="90" md="45" />
-          <div className="cs-list_2_group">
-
-            <ul className="cs-list cs-style_2 cs-mp0">
-              <Spacing lg="30" md="20" />
-
-            {educationData.map((item, index) => (
-  <li key={index}>
-    <div className="experience-role">
-      <div className="experience-dot" />
-
-      <div className="experience-role-content">
-        <h4>{item.title}</h4>
-        <p className="experience-duration">
-          {item.subTitle}
-        </p>
-
-        {item.description && (
-          <p className="mb-0">{item.description}</p>
-        )}
-      </div>
-    </div>
-  </li>
-))}
-            </ul>
-            <ul className="cs-list cs-style_2 cs-mp0">
-             {experienceData.map((company, index) => (
-    <div style={{paddingLeft:"20px", paddingRight:"20px", paddingBottom:"2px"}} key={index}>
-      {/* Company */}
-      <div className="experience-company-header">
-        <div className="experience-company-icon">
-          <svg
-            width={22}
-            height={19}
-            viewBox="0 0 22 19"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            {/* your existing SVG paths */}
-          </svg>
-        </div>
-
-        <div>
-          <h3 style={{color:"orange"}}>{company.company}</h3>
-          <p>{company.companyDuration}</p>
-        </div>
-      </div>
-
-      {/* Roles / Promotions */}
-      <div className="experience-roles">
-        {company.roles.map((role, roleIndex) => (
-          <div className="experience-role" key={roleIndex}>
-            <div className="experience-dot" />
-
-            <div className="experience-role-content">
-              <h4>{role.title}</h4>
-
-              <p className="experience-duration">
-                {role.duration}
-              </p>
-
-              <p>{role.description}</p>
-
-              {role.link && (
-                <a
-                  style={{ color: "orange" }}
-                  href={role.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {role.linkText}
-                </a>
-              )}
-              <Spacing lg="30" md="20" />
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  ))}
-            </ul>
-          </div>
-        </div>
-        <div className="cs-height_150 cs-height_lg_80" />
-      </section>
+ <ResumeSection
+  educationData={educationData}
+  experienceData={experienceData}
+/>
       {/* End Resume Section */}
   {/* Start Testimonial Section */}
           <section>
